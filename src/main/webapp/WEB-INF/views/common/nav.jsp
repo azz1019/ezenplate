@@ -4,8 +4,8 @@
 
 <!--============================= HEADER =============================-->
 <div class="nav-menu">
-    <div class="bg transition">
-        <div class="container-fluid fixed">
+	<div class="dark-bg sticky-top">
+		<div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
