@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration debug="true">
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %5p [%c] %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.myweb.www" level="debug" appender-ref="STDOUT"></logger>
+	<logger name="jdbc.sqlonly" level="info" appender-ref="STDOUT"></logger>
+	<logger name="jdbc.resultsettable" level="info"
+		appender-ref="STDOUT"></logger>
+	<logger name="org.springframework" level="error"
+		appender-ref="STDOUT"></logger>
+	<logger name="org.springframework.jdbc" level="error"
+		appender-ref="STDOUT"></logger>
+
+	<root level="error">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
