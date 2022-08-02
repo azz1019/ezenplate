@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezenplate.www.repository.FileDAO">
+	<sql id="wh_mno">
+		where mno=#{mno}
+	</sql>
+	
+	<insert id="insertMemberFile">
+		insert into attached_file (uuid, save_dir, file_name, file_type, mno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.mno}, #{fvo.fileSize}) 
+	</insert>
+	
+	<select id="selectMemberListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_mno"/>
+	</select>
+	
+	<delete id="deleteMemberFile" parameterType="long">
+		delete from attached_file <include refid="wh_mno"/>
+	</delete>
+	
+	<delete id="deleteFile" parameterType="string">
+		delete from attached_file where uuid=#{uuid}
+	</delete>
+	
+	<select id="selectAllFiles" resultType="fvo">
+		select * from attached_file
+	</select>
+</mapper>

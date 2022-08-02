@@ -15,20 +15,24 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
  						<ul class="navbar-nav">
 							<li class="nav-item dropdown">
-								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">메뉴<span class="icon-arrow-down"></span></a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-										<a class="dropdown-item" href="/">서브메뉴</a>
-										<a class="dropdown-item" href="/">서브메뉴</a>
-									</div>
+								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">내정보<span class="icon-arrow-down"></span></a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="/member/modify?email=${ses.email }">프로필 수정</a>
+									<a class="dropdown-item" href="/">내가 쓴 리뷰</a>
+									<a class="dropdown-item" href="/">내가 등록한 식당</a>
+									<a class="dropdown-item" href="/">가고싶다</a>
+									<a class="dropdown-item" href="/">가봤어요</a>
+								</div>
 							</li>
                                                               
 							<c:choose>
 								<c:when test="${ses.email ne null && ses.email ne '' }">
 									<li class="nav-item active"><a class="nav-link" href="/member/logout">로그아웃</a></li>
+									<li><a href="/member/remove?email=${ses.email }" class="btn btn-outline-light top-btn"><span class="ti-minus"></span> 탈퇴</a></li>
 					          	</c:when>
 				        		<c:otherwise>
 				        			<li class="nav-item active"><a class="nav-link" href="/member/login">로그인</a></li>
-	                                <li><a href="/" class="btn btn-outline-light top-btn"><span class="ti-plus"></span>회원가입</a></li>
+	                                <li><a href="/member/register" class="btn btn-outline-light top-btn"><span class="ti-plus"></span>회원가입</a></li>
 				        		</c:otherwise>
 			        		</c:choose>
 						</ul>
