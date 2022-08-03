@@ -72,4 +72,27 @@ public class StoreController {
 		log.info(">>> StoreController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
 		return "redirect:/store/mylist";
 	}
+	
+	
+	/* 맛집 목록 및 검색*/
+	@GetMapping("/list")
+	public void get_list(Model model,PagingVO pgvo) {
+		List<StoreDTO> list = ssv.store_list(pgvo);
+		model.addAttribute("list", list);
+		int totalCount = ssv.getTotalCount(pgvo);
+		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
+	}
+	
+	@GetMapping("/search")
+	public void search_list(Model model, PagingVO pgvo) {
+		List<StoreDTO> list = ssv.search_store_list(pgvo);
+		model.addAttribute("list", list);
+		int totalCount = ssv.get_search_count(pgvo);
+	}
+	
+	@GetMapping("/detail")
+	public void detail(Model model,@RequestParam("sno") long sno) {
+		StoreDTO sdto = ssv.get_store(sno,1);
+		model.addAttribute("sdto", sdto);
+	}
 }
