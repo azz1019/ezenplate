@@ -12,4 +12,8 @@ public interface FileDAO {
 	public int deleteMemberFile(long mno); // 사용자 파일 삭제
 	public int deleteFile(String uuid); // 파일 삭제
 	public List<FileVO> selectAllFiles(); // 전체 파일 목록
+
+	public int insertBoardFile(@Param("fvo")FileVO fvo); // register board file
+	public List<FileVO> selectBoardListFile(Long bno); // list of bard files
+	public int deleteBoardFile(long bno); // delete board file
 }
