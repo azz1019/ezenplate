@@ -14,6 +14,13 @@
  					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
  						<ul class="navbar-nav">
+							<li class="nav-item dropdown">
+								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="/board/list">지역게시판</a>
+									<a class="dropdown-item" href="/board/register">글쓰기</a>
+								</div>
+							</li>
  						 	<c:if test="${ses.grade == 99 }">
  							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리자메뉴<span class="icon-arrow-down"></span></a>
