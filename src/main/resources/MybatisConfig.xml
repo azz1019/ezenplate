@@ -8,6 +8,8 @@
   	</settings>
    	<typeAliases>
 		<typeAlias type="com.ezenplate.www.domain.MemberVO" alias="mvo"/>
+		<typeAlias type="com.ezenplate.www.domain.StoreVO" alias="svo"/>
   		<typeAlias type="com.ezenplate.www.domain.FileVO" alias="fvo"/>
+  		<typeAlias type="com.ezenplate.www.domain.PagingVO" alias="pgvo"/>
   	</typeAliases>
   </configuration>

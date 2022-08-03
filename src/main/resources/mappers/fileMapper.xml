@@ -7,24 +7,40 @@
 	<sql id="wh_mno">
 		where mno=#{mno}
 	</sql>
+	<sql id="wh_sno">
+		where sno=#{sno}
+	</sql>
 	
+	<!-- Member -->
 	<insert id="insertMemberFile">
 		insert into attached_file (uuid, save_dir, file_name, file_type, mno, file_size)
 		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.mno}, #{fvo.fileSize}) 
 	</insert>
-	
 	<select id="selectMemberListFile" parameterType="long" resultType="fvo">
 		select * from attached_file <include refid="wh_mno"/>
 	</select>
-	
 	<delete id="deleteMemberFile" parameterType="long">
 		delete from attached_file <include refid="wh_mno"/>
 	</delete>
 	
+	
+	<!-- Store -->
+	<insert id="insertStoreFile">
+		insert into attached_file (uuid, save_dir, file_name, file_type, sno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.sno}, #{fvo.fileSize})
+	</insert>
+	<select id="selectStoreListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_sno"/>
+	</select>
+	<delete id="deleteAllStoreFile" parameterType="long">
+		delete from attached_file <include refid="wh_sno"/>
+	</delete>
+	
+	
+	<!-- Common -->
 	<delete id="deleteFile" parameterType="string">
 		delete from attached_file where uuid=#{uuid}
 	</delete>
-	
 	<select id="selectAllFiles" resultType="fvo">
 		select * from attached_file
 	</select>
