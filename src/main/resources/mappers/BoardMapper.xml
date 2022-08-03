@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezenplate.www.repository.BoardDAO">
+	<sql id ="wh_bno">
+		where bno = #{bno}
+	</sql>
+	<!-- search -->
+		<sql id="search">
+			<if test ="type != null">
+				<trim prefix ="and (" suffix =")" prefixOverrides ="OR">
+					<foreach collection ="typeToArray" item ="type">
+						<trim prefix="OR">
+							<choose>
+								<when test="type == 'b'.toString()">
+									bname like concat('%', #{kw}, '%')	
+								</when>
+								<when test="type == 'c'.toString()">
+									content like concat('%', #{kw}, '%')
+								</when>
+								<when test="type == 'w'.toString()">
+									writer like concat('%', #{kw}, '%')
+								</when>
+							</choose>
+						</trim>
+					</foreach>
+				</trim>
+			</if>
+		</sql>
+	<!-- insert -->
+	<insert id="insert" parameterType="bvo">
+		insert into Board (user_locate, bname, content, writer)
+		values (#{userLocate}, #{bname}, #{content}, #{writer})
+	</insert>
+	
+	<!-- List -->
+	<select id="selectList" parameterType ="pgvo" resultType="bvo">
+		select a.bno, user_locate, bname, mod_at, read_count, cmt_qty from (
+			select bno from board where bno > 0 
+			<include refid="search" />
+			order by bno desc
+			limit #{pageStart}, #{qty})
+		a left join board b
+		on a.bno = b.bno
+	</select>
+	<!-- Detail -->
+	<select id="selectDetail" resultType ="long">
+		select * from board <include refid="wh_bno" />
+	</select>
+	<!-- Total Count -->
+	<select id="selectTotalCount" parameterType ="pgvo" resultType="int">
+		select count(bno) from board where bno > 0 <include refid="search" />
+	</select>
+	
+	<!-- Update -->
+	<update id="update" parameterType="bvo">
+		update board set user_locate =#{userLocate}, bname =#{bname},
+		content =#{content}, writer =#{writer}, mod_at =now()
+		<include refid="wh_bno" />
+	</update>
+	<!-- Update read Count -->
+	<update id="updateReadCount">
+		update board set read_count = read_count + #{i}
+		<include refid="wh_bno" />
+	</update>
+	<!-- Update comment Quantity  -->
+	<update id="updateCmtQty">
+		update board set cmt_qty = cmt_qty + #{i}
+		<include refid="wh_bno" />
+	</update>
+	
+	<!-- Delete -->
+	<delete id="delete">
+		delete from board <include refid="wh_bno" />
+	</delete>
+</mapper>
