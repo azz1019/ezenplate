@@ -82,9 +82,9 @@
 	
 	const userLocateCtrl = document.getElementById('userLocate');
 	const userLocateValue = document.getElementById('userLocateText').value;
-	for(let index = 0; index < userLocate.length; index++) {
-		if(userLocate[index].value == userLocateValue) {
-			userLocate[index].selected = true;
+	for(let index = 0; index < userLocateCtrl.length; index++) {
+		if(userLocateCtrl[index].value == userLocateValue) {
+			userLocateCtrl[index].selected = true;
 		}
 	}
 </script>

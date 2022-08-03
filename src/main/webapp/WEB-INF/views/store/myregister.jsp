@@ -6,7 +6,7 @@
 
 <div class="container mt-3">
 	<h2>식당 등록</h2>
-	<form action="/store/register" method="post" enctype="multipart/form-data">
+	<form action="/store/myregister" method="post" enctype="multipart/form-data">
 		<div class="mb-3 mt-3">
       		<label for="writer">닉네임 : </label>
       		<input type="text" class="form-control" id="writer" value="${ses.email }" name="writer" readonly>

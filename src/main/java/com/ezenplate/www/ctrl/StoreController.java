@@ -34,12 +34,12 @@ public class StoreController {
 	@Inject
 	private FileHandler fhd;
 	
-	@GetMapping("/register")
+	@GetMapping("/myregister")
 	public void register() {
 		log.info(">>> StoreController register - GET");
 	}
 	
-	@PostMapping("/register")
+	@PostMapping("/myregister")
 	public String register(StoreVO svo, RedirectAttributes rttr, @RequestParam(name = "fileAttached", required = false)MultipartFile[] files) {
 		List<FileVO> fileList = null;
 		if(files[0].getSize() > 0) {
@@ -64,7 +64,7 @@ public class StoreController {
 		model.addAttribute("sdto", ssv.getDetail(sno));
 	}
 	
-	@PostMapping("/remove")
+	@PostMapping("/myremove")
 	public String remove(@RequestParam("sno")long sno, RedirectAttributes rttr, PagingVO pgvo) {
 		int isUp = ssv.remove(sno);
 		rttr.addAttribute("pageNo", pgvo.getPageNo());

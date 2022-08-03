@@ -90,4 +90,47 @@ public class ReviewController {
 		rsv.report(rno);
 		return null;
 	}
+
+	@GetMapping("/mylist")
+	public void list(Model model, PagingVO pgvo) {
+		log.info(">>> ReviewController list - GET");
+		model.addAttribute("list", rsv.getList(pgvo));
+		int totalCount = rsv.getTotalCount(pgvo);
+		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
+	}
+	
+	@GetMapping({"/mydetail", "/mymodify"})
+	public void mydetail(Model model, @RequestParam("rno")long rno, @ModelAttribute("pgvo")PagingVO pgvo) {
+		model.addAttribute("rdto", rsv.getDetail(rno));
+	}
+	
+	@PostMapping("/mymodify")
+	public String update(ReviewVO rvo, RedirectAttributes rttr, PagingVO pgvo, @RequestParam(name = "fileAttached", required = false)MultipartFile[] files) {
+		List<FileVO> fileList = null;
+		if(files[0].getSize() > 0) {
+			fileList = fhd.getFileList(files);
+		}
+		
+		int isUp = rsv.modify(new ReviewDTO(rvo, fileList));
+		rttr.addAttribute("pageNo", pgvo.getPageNo());
+		rttr.addAttribute("qty", pgvo.getQty());
+		log.info(">>> ReviewController update - POST : {}", isUp > 0 ? "OK" : "FAIL");
+		return "redirect:/review/mydetail?rno=" + rvo.getRno();
+	}
+	
+	@DeleteMapping(value = "/file/{uuid}", produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> removeFile(@PathVariable("uuid")String uuid) {
+		return rsv.removeFile(uuid) > 0 ?
+				new ResponseEntity<String>("1", HttpStatus.OK) :
+				new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@PostMapping("/myremove")
+	public String remove(@RequestParam("rno")long rno, RedirectAttributes rttr, PagingVO pgvo) {
+		int isUp = rsv.remove(rno);
+		rttr.addAttribute("pageNo", pgvo.getPageNo());
+		rttr.addAttribute("qty", pgvo.getQty());
+		log.info(">>> ReviewController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
+		return "redirect:/review/mylist";
+	}
 }

@@ -3,6 +3,10 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezenplate.www.repository.ReviewDAO">
+	<sql id="wh_rno">
+		where rno=#{rno}
+	</sql>
+
    <sql id="search">
    	<if test="type != null">
    		<trim prefix="and (" suffix=")" prefixOverrides="OR" >
@@ -50,5 +54,32 @@
 		delete from review 
 		where rno = #{rno}
 	</delete>
+
+	<insert id="insert" parameterType="rvo">
+		insert into review (sno, rate, content, writer)
+		values (#{sno}, #{rate}, #{content}, #{writer})
+	</insert>
+	
+	<select id="selectList" resultType="rvo" parameterType="pgvo">
+		select a.rno, sno, writer, rate, reg_at, mod_at
+		from (select rno from review where rno > 0 order by rno desc limit #{pageStart}, #{qty}) a left join review b
+		on a.rno = b.rno
+	</select>
+	
+	<select id="selectOne" parameterType="long" resultType="rvo">
+		select * from review <include refid="wh_rno"/>
+	</select>
+	
+	<delete id="remove" parameterType="long">
+		delete from review <include refid="wh_rno"/>
+	</delete>
+	
+	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
+		select count(rno) from review where rno > 0
+	</select>
+	
+	<select id="selectLastRno" resultType="long">
+		select max(rno) from review
+	</select>
   
 </mapper>

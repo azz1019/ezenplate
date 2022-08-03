@@ -10,24 +10,24 @@
 		<div class="mb-3 mt-3">
       		<label for="email">이메일 : </label>
       		<div class="input-group">
-      			<input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요" name="email">
+      			<input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요" name="email" required>
       			<button type="button" class="btn btn-success" id="dupleCheck">중복확인</button>
       		</div>
     	</div>
     	
     	<div class="mb-3">
       		<label for="pwd">비밀번호 : </label>
-      		<input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요" name="pwd">
+      		<input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요" name="pwd" required>
     	</div>
     	
     	<div class="mb-3 mt-3">
       		<label for="nickName">닉네임 : </label>
-      		<input type="text" class="form-control" id="nickName" placeholder="닉네임을 입력해주세요" name="nickName">
+      		<input type="text" class="form-control" id="nickName" placeholder="닉네임을 입력해주세요" name="nickName" required>
     	</div>
     	
     	<div class="mb-3 mt-3">
 	    	<label for="userLocate">지역 : </label>
-			<select class="form-select" id="userLocate" name="userLocate">
+			<select class="form-select" id="userLocate" name="userLocate" required>
 	    		<option value="서울">서울</option>
 	    		<option value="경기">경기</option>
 	    		<option value="인천">인천</option>

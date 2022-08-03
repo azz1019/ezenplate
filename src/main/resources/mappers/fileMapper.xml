@@ -10,6 +10,9 @@
 	<sql id="wh_sno">
 		where sno=#{sno}
 	</sql>
+	<sql id="wh_rno">
+		where rno=#{rno}
+	</sql>
 	
 	<!-- Member -->
 	<insert id="insertMemberFile">
@@ -34,6 +37,19 @@
 	</select>
 	<delete id="deleteAllStoreFile" parameterType="long">
 		delete from attached_file <include refid="wh_sno"/>
+	</delete>
+
+
+	<!-- Review -->
+	<insert id="insertReviewFile">
+		insert into attached_file (uuid, save_dir, file_name, file_type, rno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.rno}, #{fvo.fileSize})
+	</insert>
+	<select id="selectReviewListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_rno"/>
+	</select>
+	<delete id="deleteAllReviewFile" parameterType="long">
+		delete from attached_file <include refid="wh_rno"/>
 	</delete>
 	
 	

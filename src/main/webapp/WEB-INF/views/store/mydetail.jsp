@@ -62,7 +62,7 @@
 									<c:choose>
 										<c:when test="${fvo.fileType == 1 }">
 											<div class="p-2 flex-fill">
-												<img src="/upload/${fn:replace(fvo.saveDir, '\\', '/') }/${fvo.uuid }_th_${fvo.fileName }" class="thumb_image">
+												<img src="/upload/${fn:replace(fvo.saveDir, '\\', '/') }/${fvo.uuid }_th_${fvo.fileName }">
 											</div>
 										</c:when>
 										<c:otherwise></c:otherwise>			
@@ -78,7 +78,9 @@
 	
 	<a href="/store/mylist?pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-warning">목록</a>
 	
-	<a class="btn btn-danger" id="storeRemove">삭제</a>
+	<c:if test="${sdto.svo.approve eq 0}">
+		<a class="btn btn-danger" id="storeRemove">삭제</a>
+	</c:if>
 	<form action="" id="storeRmForm" style="display: none;" method="post">
 		<input type="hidden" id="sno" value="" name="sno">
 		<input type="hidden" value="${pgvo.pageNo }" name="pageNo">

@@ -5,34 +5,26 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <div class="container mt-3">
-	<h2>내가등록한 식당</h2>
-	<a href="/store/myregister" class="btn btn-success">등록</a>
+	<h2>내가 쓴 리뷰</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>순번</th>
-				<th>이름</th>
-				<th>카테고리</th>
-				<th>주소</th>
+				<th>식당 순번</th>
+				<th>평점</th>
 				<th>등록일</th>
-				<th>승인여부</th>
+				<th>수정일</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list }" var="svo">
-				<c:if test="${ses.email == svo.writer }">
+			<c:forEach items="${list }" var="rvo">
+				<c:if test="${ses.email == rvo.writer }">
 					<tr>
-						<th>${svo.sno }</th>
-						<th><a href="/store/mydetail?sno=${svo.sno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${svo.sname }</a></th>
-						<th>${svo.category }</th>
-						<th>${svo.locate }</th>
-						<th>${svo.regAt }</th>
-						<th>
-							<c:choose>
-								<c:when test="${svo.approve eq 1}">승인</c:when>
-								<c:otherwise>미승인</c:otherwise>
-							</c:choose>
-						</th>
+						<th><a href="/review/mydetail?rno=${rvo.rno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${rvo.rno }</a></th>
+						<th>${rvo.sno }</th>
+						<th>${rvo.rate }</th>
+						<th>${rvo.regAt }</th>
+						<th>${rvo.modAt }</th>
 					</tr>
 				</c:if>
 			</c:forEach>
