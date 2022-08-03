@@ -88,6 +88,7 @@ public class StoreController {
 		List<StoreDTO> list = ssv.search_store_list(pgvo);
 		model.addAttribute("list", list);
 		int totalCount = ssv.get_search_count(pgvo);
+		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
 	@GetMapping("/detail")
