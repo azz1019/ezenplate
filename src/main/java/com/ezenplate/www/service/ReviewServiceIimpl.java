@@ -78,7 +78,7 @@ public class ReviewServiceIimpl implements ReviewService {
 				}
 			}
 		}
-		return 0;
+		return isUp;
 	}
 
 	@Override
