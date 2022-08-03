@@ -1,5 +1,7 @@
 package com.ezenplate.www.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -66,5 +68,10 @@ public class MemberServiceImpl implements MemberService {
 		fdao.deleteMemberFile(mno);
 		int isUp = mdao.delete(email);
 		return isUp;
+	}
+
+	@Override
+	public List<MemberVO> getList() {
+		return mdao.selectList();
 	}
 }

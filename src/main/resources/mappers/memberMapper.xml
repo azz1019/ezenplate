@@ -8,8 +8,13 @@
 		where email=#{email}
 	</sql>
 
+	<select id="selectList" resultType="mvo">
+		select * from member
+		order by mno
+	</select>
+	
 	<select id="selectOne" parameterType="mvo" resultType="mvo">
-		select email, nick_name
+		select email, nick_name, grade
 		from member
 		<include refid="wh_email"/> and pwd=#{pwd}
 	</select>

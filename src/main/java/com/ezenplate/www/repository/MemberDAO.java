@@ -1,5 +1,7 @@
 package com.ezenplate.www.repository;
 
+import java.util.List;
+
 import com.ezenplate.www.domain.MemberVO;
 
 public interface MemberDAO {
@@ -11,4 +13,5 @@ public interface MemberDAO {
 	MemberVO selectDetail(String email); // 상세 정보 반환
 	int update(MemberVO mvo); // 프로필 수정
 	int delete(String email); // 탈퇴
+	List<MemberVO> selectList(); // 리스트
 }

@@ -40,6 +40,19 @@ public class MemberController {
 	@Inject
 	private FileHandler fhd;
 	
+	@GetMapping("/list")
+	public void list(Model model) {
+		log.info(">>> MemberController list - GET");
+		model.addAttribute("list", msv.getList());
+	}
+	
+	@GetMapping("/detail")
+	public void detail(Model model, @RequestParam("email") String email) {
+		log.info(">>> MemberController detail - GET");
+		MemberDTO mdto = msv.getDetail(email);
+		model.addAttribute("mdto", mdto);
+	}
+	
 	@GetMapping("/login")
 	public void login() {
 		log.info(">>> MemberController login - GET");
