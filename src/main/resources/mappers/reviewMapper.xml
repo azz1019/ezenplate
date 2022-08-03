@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezenplate.www.repository.ReviewDAO">
+   <sql id="search">
+   	<if test="type != null">
+   		<trim prefix="and (" suffix=")" prefixOverrides="OR" >
+   			<foreach collection="typeToArray" item="type">
+   				<trim prefix="OR">
+   					<choose>
+   						<when test="type == 'l'.toString()">
+   							locate like concat('%', #{kw}, '%') 
+   						</when>
+   						<when test="type == 'n'.toString()">
+   							sname like concat('%',#{kw},'%')
+   						</when>
+   					</choose>
+   				</trim>
+   			</foreach>
+   		</trim>
+   	</if>
+   </sql>
+  	
+	<select id="select_last_rno" resultType="long">
+		select max(rno) from review 
+	</select> 
+	<select id="get_list" resultType="rvo" parameterType="pgvo">
+		select * from review
+		where sno = #{sno}
+		order by reg_at
+		limit #{pageStart}, #{qty}
+	</select>
+	
+	<update id="update">
+		update review set
+		rate = #{rate}, content = #{content},
+		mod_at = now()
+		where rno = #{rno}
+	</update>
+	<update id="update_report">
+		update review set
+		report = 1
+		where rno = #{rno}
+	
+	</update>
+	
+	
+	<delete id="delete_review">
+		delete from review 
+		where rno = #{rno}
+	</delete>
+  
+</mapper>
