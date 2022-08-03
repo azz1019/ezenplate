@@ -14,4 +14,11 @@ public interface StoreService {
 	public int remove(long sno); // 식당 삭제
 	public int getTotalCount(PagingVO pgvo); // 전체 식당 갯수 반환
 	public int removeFile(String uuid); // 파일 삭제
+	
+	/* 맛집 목록 및 검색*/
+	List<StoreDTO> store_list(PagingVO pgvo); // 맛집 전체 목록
+	List<StoreDTO> search_store_list(PagingVO pgvo); // 맛집 검색 목록
+	int getTotalCount(PagingVO pgvo); // 전체 맛집 수
+	int get_search_count(PagingVO pgvo); // 검색한 맛집 수
+	StoreDTO get_store(long sno, int i); // 맛집 detail
 }
