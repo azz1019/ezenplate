@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+:root{
+    /* colour */
+    --colour-white: #fff;
+    --colour-light-grey: #C4C4C4;
+    --colour-shadow:#484a49;
+    --colour-shadow-v2: #3838388d;
+    --colour-gradient:#353737;
+    --colour-gradient-v2:#181c1ec3;
+    --colour-main:#ff8a3d;
+    --colour-main-v2:#ffa963cf;
+}
+
+.bg-image{
+   background-size: cover; 
+}
+.gradient-custom-3 {
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, var(--colour-shadow-v2), var(--colour-gradient-v2));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, var(--colour-shadow-v2), var(--colour-gradient-v2));
+    }
+    .gradient-custom-4 {
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, var(--colour-shadow), var(--colour-gradient));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, var(--colour-shadow), var(--colour-gradient));
+}
+
+.register{
+    left:50%;
+    top:50%;
+    margin: 150px auto;
+}
+.card{
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+textarea{
+    resize: none;
+}
+.form-control, .form-select, #attachTrigger, textarea{
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.form-control:focus{
+    outline: 1px solid var(--colour-light-grey);
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+}
+.form-select:focus{
+    outline: 1px solid var(--colour-light-grey);
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+}
+textarea:focus{
+    outline: 1px solid var(--colour-light-grey);
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+}
+#userLocate{
+    width: 250px;
+}
+#nickName{
+    width: 250px;
+    line-height: 18px;
+}
+#attachTrigger{
+    background-color: white;
+}
+#attachTrigger:hover{
+    cursor: pointer;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+  }
+.fa-image:hover{
+    color:var(--colour-light-grey);
+}
+.sbmBtn{
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 17px 13px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 16px;
+    background-color: var(--colour-main);
+    color: var(--colour-white);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.sbmBtn:hover{
+    background-color: var(--colour-main-v2);
+    outline: none;
+    color: var(--colour-white);
+}
+.listBtn{
+    color: var(--colour-main);
+}
