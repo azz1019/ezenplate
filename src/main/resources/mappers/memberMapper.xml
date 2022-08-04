@@ -14,7 +14,7 @@
 	</select>
 	
 	<select id="selectOne" parameterType="mvo" resultType="mvo">
-		select email, nick_name, grade
+		select email, nick_name, grade, mno
 		from member
 		<include refid="wh_email"/> and pwd=#{pwd}
 	</select>

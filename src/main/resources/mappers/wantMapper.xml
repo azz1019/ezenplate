@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezenplate.www.repository.WantDAO">
+	<select id="selectList" resultType="wvo" parameterType="pgvo">
+		select mno, sno, reg_at
+		from want order by mno desc limit #{pageStart}, #{qty}
+	</select>
+	
+	<delete id="remove" parameterType="long">
+		delete from want where sno=#{sno}
+	</delete>
+	
+	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
+		select count(mno) from want where mno > 0
+	</select>
+</mapper>

@@ -1,7 +1,5 @@
 package com.ezenplate.www.handler;
 
-import java.util.List;
-
 import com.ezenplate.www.domain.PagingVO;
 
 import lombok.Getter;

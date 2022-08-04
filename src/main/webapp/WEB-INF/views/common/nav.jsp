@@ -40,7 +40,7 @@
 											<a class="dropdown-item" href="/member/modify?email=${ses.email }">프로필 수정</a>
 											<a class="dropdown-item" href="/review/mylist">내가 쓴 리뷰</a>
 											<a class="dropdown-item" href="/store/mylist">내가 등록한 식당</a>
-											<a class="dropdown-item" href="/">가고싶다</a>
+											<a class="dropdown-item" href="/want/list">가고싶다</a>
 											<a class="dropdown-item" href="/">가봤어요</a>
 										</div>
 									</li>
