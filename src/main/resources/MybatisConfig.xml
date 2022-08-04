@@ -11,6 +11,7 @@
 		<typeAlias type="com.ezenplate.www.domain.StoreVO" alias="svo"/>
 		<typeAlias type="com.ezenplate.www.domain.ReviewVO" alias="rvo"/>
 		<typeAlias type="com.ezenplate.www.domain.WantVO" alias="wvo"/>
+		<typeAlias type="com.ezenplate.www.domain.VisitedVO" alias="vvo"/>
 		<typeAlias type="com.ezenplate.www.domain.BoardVO" alias="bvo"/>
 		<typeAlias type="com.ezenplate.www.domain.CommentVO" alias="cvo"/>
   		<typeAlias type="com.ezenplate.www.domain.FileVO" alias="fvo"/>
