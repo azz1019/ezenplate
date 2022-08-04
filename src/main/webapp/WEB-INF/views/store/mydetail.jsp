@@ -88,6 +88,6 @@
 	</form>
 </div>
 
-<script src="/resources/js/store.remove.js"></script>
+<script src="/resources/js/store.myremove.js"></script>
 	
 <jsp:include page="../common/footer.jsp"/>

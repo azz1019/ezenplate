@@ -93,6 +93,6 @@
 		}
 	}
 </script>
-<script src="/resources/js/review.modify.js"></script>
+<script src="/resources/js/review.mymodify.js"></script>
 
 <jsp:include page="../common/footer.jsp"/>

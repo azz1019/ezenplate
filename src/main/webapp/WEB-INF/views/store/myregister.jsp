@@ -119,6 +119,6 @@
 		document.getElementById('files').click();
 	});
 </script>
-<script src="/resources/js/store.register.js"></script>
+<script src="/resources/js/store.myregister.js"></script>
 
 <jsp:include page="../common/footer.jsp"/>

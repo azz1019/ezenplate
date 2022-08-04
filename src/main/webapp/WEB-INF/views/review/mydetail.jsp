@@ -50,6 +50,6 @@
 	</form>
 </div>
 
-<script src="/resources/js/review.remove.js"></script>
+<script src="/resources/js/review.myremove.js"></script>
 	
 <jsp:include page="../common/footer.jsp"/>
