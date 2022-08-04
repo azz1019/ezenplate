@@ -1,6 +1,8 @@
 package com.ezenplate.www.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -16,17 +18,29 @@ public class WantServiceImpl implements WantService {
 	private WantDAO wdao;
 
 	@Override
-	public List<WantVO> getList(PagingVO pgvo) {
-		return wdao.selectList(pgvo);
+	public List<WantVO> getList(PagingVO pgvo, long mno) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("mno", mno);
+		
+		return wdao.selectList(map);
 	}
 
 	@Override
-	public int remove(long sno) {
-		return wdao.remove(sno);
+	public int remove(long sno, long mno) {
+		Map map = new HashMap();
+		map.put("sno", sno);
+		map.put("mno", mno);
+		
+		return wdao.remove(map);
 	}
-
+	
 	@Override
-	public int getTotalCount(PagingVO pgvo) {
-		return wdao.selectTotalCount(pgvo);
+	public int getTotalCount(PagingVO pgvo, long mno) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("mno", mno);
+		
+		return wdao.selectTotalCount(map);
 	}
 }

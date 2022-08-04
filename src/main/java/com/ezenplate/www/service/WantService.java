@@ -6,7 +6,7 @@ import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.WantVO;
 
 public interface WantService {
-	public List<WantVO> getList(PagingVO pgvo); // 가고싶다 목록
-	public int remove(long sno); // 가고싶다 삭제
-	public int getTotalCount(PagingVO pgvo); // 전체 가고싶다 갯수 반환
+	public List<WantVO> getList(PagingVO pgvo, long mno); // 가고싶다 목록
+	public int remove(long sno, long mno); // 가고싶다 삭제
+	public int getTotalCount(PagingVO pgvo, long mno); // 가고싶다 갯수 반환
 }

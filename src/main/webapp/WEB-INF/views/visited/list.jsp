@@ -20,7 +20,7 @@
 					<tr>
 						<th><span id="snoVal">${vvo.sno }</span></th>
 						<th>${vvo.regAt }</th>
-						<th><a href="/visited/remove?sno=${vvo.sno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn btn-danger">삭제</a></th>
+						<th><a href="/visited/remove?sno=${vvo.sno }&mno=${ses.mno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn btn-danger">삭제</a></th>
 					</tr>
 				</c:if>
 			</c:forEach>
@@ -30,13 +30,13 @@
 
 <ul class="pagination justify-content-center">
 	<c:if test="${pgn.prev }">
-		<li class="page-item"><a class="page-link" href="/visited/list?pageNo=${pgn.startPage - 1 }&qty=${pgn.pgvo.qty}">◀</a></li>
+		<li class="page-item"><a class="page-link" href="/visited/list?mno=${ses.mno }&pageNo=${pgn.startPage - 1 }&qty=${pgn.pgvo.qty}">◀</a></li>
 	</c:if>
 	<c:forEach begin="${pgn.startPage }" end="${pgn.endPage }" var="i">
-	    <li class="page-item ${pgn.pgvo.pageNo == i ? 'active' : ''}"><a class="page-link" href="/visited/list?pageNo=${i }&qty=${pgn.pgvo.qty}">${i }</a></li>
+	    <li class="page-item ${pgn.pgvo.pageNo == i ? 'active' : ''}"><a class="page-link" href="/visited/list?mno=${ses.mno }&pageNo=${i }&qty=${pgn.pgvo.qty}">${i }</a></li>
 	</c:forEach>
 	<c:if test="${pgn.next }">
-	   	<li class="page-item"><a class="page-link" href="/visited/list?pageNo=${pgn.endPage + 1 }&qty=${pgn.pgvo.qty}">▶</a></li>
+	   	<li class="page-item"><a class="page-link" href="/visited/list?mno=${ses.mno }&pageNo=${pgn.endPage + 1 }&qty=${pgn.pgvo.qty}">▶</a></li>
 	</c:if>
 </ul>
 

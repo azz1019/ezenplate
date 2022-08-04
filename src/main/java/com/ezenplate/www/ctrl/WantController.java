@@ -23,19 +23,19 @@ public class WantController {
 	private WantService wsv;
 	
 	@GetMapping("/list")
-	public void list(Model model, PagingVO pgvo) {
+	public void list(Model model, PagingVO pgvo, @RequestParam("mno")long mno) {
 		log.info(">>> WantController list - GET");
-		model.addAttribute("list", wsv.getList(pgvo));
-		int totalCount = wsv.getTotalCount(pgvo);
+		model.addAttribute("list", wsv.getList(pgvo, mno));
+		int totalCount = wsv.getTotalCount(pgvo, mno);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
 	@GetMapping("/remove")
-	public String remove(@RequestParam("sno")long sno, RedirectAttributes rttr, PagingVO pgvo) {
-		int isUp = wsv.remove(sno);
+	public String remove(@RequestParam("sno")long sno, @RequestParam("mno")long mno, RedirectAttributes rttr, PagingVO pgvo) {
+		int isUp = wsv.remove(sno, mno);
 		rttr.addAttribute("pageNo", pgvo.getPageNo());
 		rttr.addAttribute("qty", pgvo.getQty());
 		log.info(">>> WantController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/want/list";
+		return "redirect:/want/list?mno=" + mno;
 	}
 }

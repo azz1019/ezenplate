@@ -23,19 +23,19 @@ public class VisitedController {
 	private VisitedService vsv;
 	
 	@GetMapping("/list")
-	public void list(Model model, PagingVO pgvo) {
+	public void list(Model model, PagingVO pgvo, @RequestParam("mno")long mno) {
 		log.info(">>> VisitedController list - GET");
-		model.addAttribute("list", vsv.getList(pgvo));
-		int totalCount = vsv.getTotalCount(pgvo);
+		model.addAttribute("list", vsv.getList(pgvo, mno));
+		int totalCount = vsv.getTotalCount(pgvo, mno);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
 	@GetMapping("/remove")
-	public String remove(@RequestParam("sno")long sno, RedirectAttributes rttr, PagingVO pgvo) {
-		int isUp = vsv.remove(sno);
+	public String remove(@RequestParam("sno")long sno, @RequestParam("mno")long mno, RedirectAttributes rttr, PagingVO pgvo) {
+		int isUp = vsv.remove(sno, mno);
 		rttr.addAttribute("pageNo", pgvo.getPageNo());
 		rttr.addAttribute("qty", pgvo.getQty());
 		log.info(">>> VisitedController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/visited/list";
+		return "redirect:/visited/list?mno=" + mno;
 	}
 }
