@@ -36,7 +36,7 @@
 	
 	<!-- List -->
 	<select id="selectList" parameterType ="pgvo" resultType="bvo">
-		select a.bno, user_locate, bname, writer, mod_at, read_count, cmt_qty from (
+		select a.bno, user_locate, bname, mod_at, read_count, cmt_qty from (
 			select bno from board where bno > 0 
 			<include refid="search" />
 			order by bno desc
@@ -52,6 +52,9 @@
 	<select id="selectTotalCount" parameterType ="pgvo" resultType="int">
 		select count(bno) from board where bno > 0 <include refid="search" />
 	</select>
+	<select id="selectLastBno" resultType="Long">
+    		select max(bno) from board
+    </select>
 	
 	<!-- Update -->
 	<update id="update" parameterType="bvo">

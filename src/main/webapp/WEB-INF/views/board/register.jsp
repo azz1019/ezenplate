@@ -48,14 +48,14 @@
 									</div>
 									<div class="col-md-6 mb-4">
 										<div class="form-outline datepicker">
-											<input type="text" class="form-control" id="nickName"
+											<input type="text" class="form-control" id="writer" name="writer"
 												value="${ses.nickName}" readOnly />
 										</div>
 									</div>
 								</div>
 
 								<div class="form-outline mb-4">
-									<input type="text" class="form-control" id="bname"
+									<input type="text" class="form-control" id="bname" name="bname"
 										placeholder="제목을 입력해주세요" />
 								</div>
 								<div class="form-outline mb-4">
@@ -77,7 +77,7 @@
 										</div>
 										<div class="col-md-10">
 											<div class="d-flex justify-content-center">
-												<button type="button"
+												<button type="submit"
 													class="btn btn-block btn-lg text-body sbmBtn" id="regBtn">올리기</button>
 											</div>
 										</div>

@@ -56,7 +56,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 
-	@GetMapping({"/list", "/mylist"})
+	@GetMapping("/list")
 	public void list(Model model, PagingVO pgvo) {
 		model.addAttribute("list", bsv.getList(pgvo));
 		int totalCount = bsv.getTotalCount(pgvo);

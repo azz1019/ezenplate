@@ -20,17 +20,20 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Inject
 	private BoardDAO bdao;
+	
 	@Inject
 	private FileDAO fdao;
 	
 	@Override
 	public int register(BoardDTO bdto) {
 		int isUp = bdao.insert(bdto.getBvo());
-		if(isUp > 0 && bdto.getFileList().size() > 0) {
-			long bno = bdao.selectLastBno();
-			for(FileVO	fvo	: bdto.getFileList()) {
-				fvo.setBno(bno);
-				isUp *= fdao.insertBoardFile(fvo);
+		if(bdto.getFileList() != null) {
+			if(isUp > 0 && bdto.getFileList().size() > 0) {
+				long bno = bdao.selectLastBno();
+				for(FileVO	fvo	: bdto.getFileList()) {
+					fvo.setBno(bno);
+					isUp *= fdao.insertBoardFile(fvo);
+				}
 			}
 		}
 		return isUp;
@@ -52,11 +55,13 @@ public class BoardServiceImpl implements BoardService {
 	public int modify(BoardDTO bdto) {
 		int isUp = bdao.update(bdto.getBvo());
 		isUp = bdao.updateReadCount(bdto.getBvo().getBno(), -2);
-		if(isUp > 0 && bdto.getFileList().size() > 0) {
-			for (FileVO	fvo	: bdto.getFileList()) {
-				fvo.setBno(bdto.getBvo().getBno());
-				isUp *= fdao.insertBoardFile(fvo); 
-				}
+		if(bdto.getFileList() != null) {
+			if(isUp > 0 && bdto.getFileList().size() > 0) {
+				for (FileVO	fvo	: bdto.getFileList()) {
+					fvo.setBno(bdto.getBvo().getBno());
+					isUp *= fdao.insertBoardFile(fvo); 
+					}
+			}
 		}
 		return isUp;
 	}

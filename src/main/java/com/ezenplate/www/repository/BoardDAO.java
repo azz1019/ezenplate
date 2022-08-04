@@ -15,6 +15,6 @@ public interface BoardDAO {
 	int delete(long bno); // delete
 	int selectTotalCount(PagingVO pgvo);
 	long selectLastBno(); 
-	int updateReadCount(@Param("bno") long bno, @Param("i") int i);
+	int updateReadCount(@Param("bno")long bno, @Param("i")int i);
 	int updateCmtQty(@Param("bno") long bno, @Param("i") int i);
 }
