@@ -10,8 +10,8 @@
 	<sql id="wh_sno">
 		where sno=#{sno}
 	</sql>
-	<sql id="wh_rno">
-		where rno=#{rno}
+		<sql id="wh_bno">
+		where bno=#{bno}
 	</sql>
 	
 	<!-- Member -->
@@ -38,18 +38,17 @@
 	<delete id="deleteAllStoreFile" parameterType="long">
 		delete from attached_file <include refid="wh_sno"/>
 	</delete>
-
-
-	<!-- Review -->
-	<insert id="insertReviewFile">
-		insert into attached_file (uuid, save_dir, file_name, file_type, rno, file_size)
-		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.rno}, #{fvo.fileSize})
+	
+	<!-- BOARD -->
+	<insert id="insertBoardFile">
+		insert into attached_file(uuid, save_dir, file_name, file_type, bno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.bno}, #{fvo.fileSize})
 	</insert>
-	<select id="selectReviewListFile" parameterType="long" resultType="fvo">
-		select * from attached_file <include refid="wh_rno"/>
+	<select id="selectBoardListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_bno"/>
 	</select>
-	<delete id="deleteAllReviewFile" parameterType="long">
-		delete from attached_file <include refid="wh_rno"/>
+	<delete id="deleteBoardFile" parameterType="long">
+		delete from attached_file <include refid="wh_bno"/>
 	</delete>
 	
 	
