@@ -18,4 +18,5 @@ public class ReviewVO {
 	private String content;
 	private int report;
 	private String writer;
+	private String title;
 }
