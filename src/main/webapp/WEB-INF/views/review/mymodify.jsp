@@ -42,6 +42,11 @@
 							      	<option value="5.0">5.0</option>
 							      </select>
 							    </div>
+							    
+							    <div class="mb-3">
+							      <label for="title">제목 : </label>
+							      <input type="text" class="form-control" id="title" value="${rdto.rvo.title }" name="title">
+							    </div>
                             
                             	<div class="mb-3">
 							      <label for="content">내용 : </label>

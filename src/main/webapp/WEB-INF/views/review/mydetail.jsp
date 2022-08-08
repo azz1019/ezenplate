@@ -15,11 +15,12 @@
 		<div class="customer-review_wrap">
     		<div class="customer-img">
     			리뷰순번 : <span id="rnoVal">${rdto.rvo.rno }</span><br>
-  				<span>식당순번 : ${rdto.rvo.sno }</span>
+  				<span>식당 : ${sdto.svo.sname }</span>
   			</div>
   		<div class="customer-content-wrap">
       		<div class="customer-content">
           		<div class="customer-review">
+          			<h6>${rdto.rvo.title }</h6>
           			등록일 : ${rdto.rvo.regAt }<br>
 					수정일 : ${rdto.rvo.modAt }<br>
           		</div>

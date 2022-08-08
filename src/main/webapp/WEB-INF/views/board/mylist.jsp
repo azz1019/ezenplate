@@ -21,9 +21,9 @@
 			<c:forEach items="${list }" var="bvo">
 				<c:if test="${ses.nickName == bvo.writer }">
 					<tr>
-						<th><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bno }</a></th>
+						<th>${bvo.bno }</th>
 						<th>${bvo.userLocate }</th>
-						<th>${bvo.bname }</th>
+						<th><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></th>
 						<th>${bvo.modAt }</th>
 						<th>${bvo.readCount }</th>
 						<th>${bvo.cmtQty }</th>

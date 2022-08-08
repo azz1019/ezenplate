@@ -38,7 +38,7 @@
 	
 	<update id="update">
 		update review set
-		rate = #{rate}, content = #{content},
+		rate = #{rate}, content = #{content}, title = #{title},
 		mod_at = now()
 		where rno = #{rno}
 	</update>
@@ -56,12 +56,12 @@
 	</delete>
 
 	<insert id="insert" parameterType="rvo">
-		insert into review (sno, rate, content, writer)
-		values (#{sno}, #{rate}, #{content}, #{writer})
+		insert into review (sno, rate, content, writer, title)
+		values (#{sno}, #{rate}, #{content}, #{writer}, #{title})
 	</insert>
 	
 	<select id="selectList" resultType="rvo" parameterType="pgvo">
-		select a.rno, sno, writer, rate, reg_at, mod_at
+		select a.rno, sno, title, writer, rate, reg_at, mod_at
 		from (select rno from review where rno > 0 order by rno desc limit #{pageStart}, #{qty}) a left join review b
 		on a.rno = b.rno
 	</select>

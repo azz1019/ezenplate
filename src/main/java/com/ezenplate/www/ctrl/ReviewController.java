@@ -102,6 +102,7 @@ public class ReviewController {
 	@GetMapping({"/mydetail", "/mymodify"})
 	public void mydetail(Model model, @RequestParam("rno")long rno, @ModelAttribute("pgvo")PagingVO pgvo) {
 		model.addAttribute("rdto", rsv.getDetail(rno));
+		model.addAttribute("sdto", ssv.getDetail(rsv.getDetail(rno).getRvo().getSno()));
 	}
 	
 	@PostMapping("/mymodify")
