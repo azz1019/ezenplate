@@ -15,6 +15,7 @@ primary key (mno)
 create table review(
 sno bigint not null,
 rno bigint not null auto_increment,
+title varchar(100) not null,
 rate float,
 reg_at datetime default current_timestamp,
 mod_at datetime default current_timestamp,
@@ -94,12 +95,14 @@ primary key(cno)
 create table want(
 mno bigint not null,
 sno bigint not null,
+sname varchar(100) not null,
 reg_at datetime default current_timestamp
 ) default CHARSET=utf8mb4;
 
 create table visited(
 mno bigint not null,
 sno bigint not null,
+sname varchar(100) not null,
 reg_at datetime default current_timestamp
 ) default CHARSET=utf8mb4;
 

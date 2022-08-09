@@ -5,7 +5,7 @@
     
 <mapper namespace="com.ezenplate.www.repository.WantDAO">
 	<select id="selectList" resultType="wvo" parameterType="hashMap">
-		select mno, sno, reg_at
+		select mno, sno, sname, reg_at
 		from want where mno=#{mno} limit #{pgvo.pageStart}, #{pgvo.qty}
 	</select>
 	

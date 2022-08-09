@@ -5,7 +5,7 @@
     
 <mapper namespace="com.ezenplate.www.repository.VisitedDAO">
 	<select id="selectList" resultType="vvo" parameterType="hashMap">
-		select mno, sno, reg_at
+		select mno, sno, sname, reg_at
 		from visited where mno=#{mno} limit #{pgvo.pageStart}, #{pgvo.qty}
 	</select>
 	

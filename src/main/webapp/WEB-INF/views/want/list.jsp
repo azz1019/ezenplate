@@ -10,6 +10,7 @@
 		<thead>
 			<tr>
 				<th>식당 순번</th>
+				<th>식당 이름</th>
 				<th>등록일</th>
 				<th>삭제</th>
 			</tr>
@@ -19,6 +20,7 @@
 				<c:if test="${ses.mno == wvo.mno }">
 					<tr>
 						<th><span id="snoVal">${wvo.sno }</span></th>
+						<th>${wvo.sname }</th>
 						<th>${wvo.regAt }</th>
 						<th><a href="/want/remove?sno=${wvo.sno }&mno=${ses.mno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn btn-danger">삭제</a></th>
 					</tr>
