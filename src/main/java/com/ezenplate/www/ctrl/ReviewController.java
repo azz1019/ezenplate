@@ -3,28 +3,29 @@ package com.ezenplate.www.ctrl;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.ws.rs.POST;
 
-import org.apache.cxf.jaxrs.ext.multipart.Multipart;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
-import com.ezenplate.www.domain.StoreDTO;
-import com.ezenplate.www.domain.StoreVO;
 import com.ezenplate.www.handler.FileHandler;
 import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.service.ReviewService;
-import com.ezenplate.www.service.StoreService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -102,7 +103,7 @@ public class ReviewController {
 	@GetMapping({"/mydetail", "/mymodify"})
 	public void mydetail(Model model, @RequestParam("rno")long rno, @ModelAttribute("pgvo")PagingVO pgvo) {
 		model.addAttribute("rdto", rsv.getDetail(rno));
-		model.addAttribute("sdto", ssv.getDetail(rsv.getDetail(rno).getRvo().getSno()));
+		model.addAttribute("sdto", rsv.getDetail(rsv.getDetail(rno).getRvo().getSno()));
 	}
 	
 	@PostMapping("/mymodify")

@@ -18,4 +18,5 @@ public interface ReviewService {
 	public int remove(long rno); // 리뷰 삭제
 	public int getTotalCount(PagingVO pgvo); // 전체 리뷰 갯수 반환
 	public int removeFile(String uuid); // 파일 삭제
+	public List<ReviewVO> getlistall();
 }

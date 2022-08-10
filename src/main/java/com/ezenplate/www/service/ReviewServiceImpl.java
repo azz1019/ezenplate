@@ -79,4 +79,28 @@ public class ReviewServiceImpl implements ReviewService {
 		return fdao.deleteFile(uuid);
 	}
 
+	@Override
+	public List<ReviewDTO> get_list(long sno, PagingVO pvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ReviewDTO get_review(long rno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void report(long rno) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<ReviewVO> getlistall() {
+		return rdao.selectAll();
+	}
+
+
 }

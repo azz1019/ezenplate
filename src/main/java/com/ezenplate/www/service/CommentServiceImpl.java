@@ -32,7 +32,7 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public PagingHandler spread(long bno, PagingVO pgvo) {
-		return new PagingHandler(cdao.selectList(bno, pgvo), pgvo, cdao.selectTotalCount(bno));
+		return new PagingHandler(pgvo, cdao.selectTotalCount(bno));
 	}
 
 	@Override

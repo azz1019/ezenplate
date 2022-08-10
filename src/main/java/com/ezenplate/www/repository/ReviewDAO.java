@@ -20,4 +20,5 @@ public interface ReviewDAO {
 	int remove(long rno); // 리뷰 삭제
 	int selectTotalCount(PagingVO pgvo); // 전체 리뷰 갯수 반환
 	long selectLastRno(); // 가장 최근등록한 리뷰의 rno 반환
+	List<ReviewVO> selectAll();
 }

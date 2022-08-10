@@ -14,6 +14,7 @@
  					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
  						<ul class="navbar-nav">
+ 						<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">소식</a></li>
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

@@ -65,4 +65,34 @@ public class StoreServiceImpl implements StoreService {
 		return fdao.deleteFile(uuid);
 	}
 
+	@Override
+	public List<StoreDTO> store_list(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StoreDTO> search_store_list(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getTotal_Count(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int get_search_count(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public StoreDTO get_store(long sno, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
