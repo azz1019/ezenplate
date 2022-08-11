@@ -75,8 +75,11 @@
 	</select>
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 </mapper>
 =======
+=======
+>>>>>>> Stashed changes
 	
 	<!-- 맛집 목록 및 검색 -->
    <insert id="insertFile" parameterType="fvo">
@@ -126,4 +129,7 @@
    </delete>
 	
 </mapper>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

@@ -3,6 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <mapper namespace="com.ezenplate.www.repository.BoardDAO">
 	<sql id ="wh_bno">
 		where bno = #{bno}
@@ -62,6 +63,8 @@
 		update board set user_locate =#{userLocate}, bname =#{bname},
 		content =#{content}, writer =#{writer}, mod_at =now()
 =======
+=======
+>>>>>>> Stashed changes
 
 <mapper namespace="com.ezenplate.www.repository.BoardDAO">
 	<sql id="wh_bno">
@@ -132,6 +135,9 @@
 		update board set user_locate =#{userLocate}, bname =#{bname},
 		content
 		=#{content}, writer =#{writer}, mod_at =now()
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		<include refid="wh_bno" />
 	</update>
@@ -141,7 +147,11 @@
 		<include refid="wh_bno" />
 	</update>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	<!-- Update comment Quantity  -->
+=======
+	<!-- Update comment Quantity -->
+>>>>>>> Stashed changes
 =======
 	<!-- Update comment Quantity -->
 >>>>>>> Stashed changes
@@ -150,16 +160,22 @@
 		<include refid="wh_bno" />
 	</update>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
 	<!-- Delete -->
 	<delete id="delete">
 		delete from board <include refid="wh_bno" />
 =======
+=======
+>>>>>>> Stashed changes
 
 	<!-- Delete -->
 	<delete id="delete">
 		delete from board
 		<include refid="wh_bno" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	</delete>
 </mapper>

@@ -28,6 +28,7 @@
    	</sql>
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	<select id="select_store_list" resultType="svo" parameterType="pgvo">
    		select * from store 
    		order by rate_avg
@@ -60,6 +61,8 @@
    		where sno = #{sno}
    	</update>
 =======
+=======
+>>>>>>> Stashed changes
 	<select id="select_store_list" resultType="svo"
 		parameterType="pgvo">
 		select * from store
@@ -113,6 +116,9 @@
 		rate_avg = #{rate}
 		where sno = #{sno}
 	</update>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 <!--맛집 목록 및 검색 -->
 	<insert id="insert" parameterType="svo">

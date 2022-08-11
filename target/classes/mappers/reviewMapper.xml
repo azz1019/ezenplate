@@ -83,12 +83,15 @@
 	</select>
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	<select id="selectAll" resultType="rvo">
 		select * from review order by rno desc
 	</select>
   
 </mapper>
 =======
+=======
+>>>>>>> Stashed changes
 	<!-- 맛집 검색-->
 		<insert id="insert_review">
   		insert into review(sno, rate, content, report, writer, title)
@@ -105,4 +108,7 @@
 	</select>
   
 </mapper>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
