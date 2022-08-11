@@ -73,4 +73,53 @@
 	<select id="selectAllFiles" resultType="fvo">
 		select * from attached_file
 	</select>
+	
+	
+	<!-- 맛집 목록 및 검색 -->
+   <insert id="insertFile" parameterType="fvo">
+   		insert into attached_file (uuid, save_dir, file_name, file_type, pno, file_size)
+   		values (#{uuid}, #{saveDir}, #{fileName}, #{fileType}, #{pno}, #{fileSize})
+   		
+   </insert>
+   
+   <insert id="insert_review_file" parameterType="fvo">
+   		insert into attached_file (uuid, save_dir, file_name, file_type, rno, file_size)
+   		values (#{uuid}, #{saveDir}, #{fileName}, #{fileType}, #{rno}, #{fileSize})
+   		
+   </insert>
+   
+   <insert id="insert_user_th" parameterType="fvo">
+   	insert into attached_file (uuid, save_dir, file_name, file_type,email, file_size)
+   		values (#{uuid}, #{saveDir}, #{fileName}, #{fileType}, #{email}, #{fileSize})
+   </insert>
+  
+   <select id="selectFile" parameterType="String"  resultType="fvo" >
+    select * from attached_file
+    where email = #{email}
+   </select>
+
+   <select id="select_store_file" resultType="fvo">
+   	select * from attached_file
+   	where sno = #{sno}
+   	order by reg_at
+   	limit 1
+   </select>
+   <select id="select_store_all_file" resultType="fvo">
+    select * from attached_file
+    where sno = #{sno}
+    order by reg_at
+   </select>
+   <select id="select_review" resultType="fvo">
+   	select * from attached_file
+   	where rno = #{rno}
+   </select>
+   
+   
+   
+   
+
+   <delete id="delete_review_File" parameterType="long">
+   		delete from attached_file where rno = #{rno}
+   </delete>
+	
 </mapper>
