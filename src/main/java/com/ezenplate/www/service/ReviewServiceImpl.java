@@ -83,7 +83,7 @@ public class ReviewServiceImpl implements ReviewService {
 		return fdao.deleteFile(uuid);
 	}
 	
-	<!-- 맛집 검색-->
+	
 	@Override
 	public List<ReviewDTO> get_list(long sno) {
 		List<ReviewDTO> dto = new ArrayList<ReviewDTO>();
