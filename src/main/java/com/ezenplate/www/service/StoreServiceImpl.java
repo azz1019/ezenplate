@@ -1,10 +1,13 @@
 package com.ezenplate.www.service;
 
+iimport java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.PagingVO;
