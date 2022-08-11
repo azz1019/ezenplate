@@ -62,7 +62,17 @@ function get_review_list() {
                 }
                 review_inner += `</ul>`;
                 review_inner += `<span>28 people marked this review as helpful</span>`;
-                review_inner += `<a href="#" id="report"><span class="icon-like"></span>Helpful</a>`;
+                if(list.rvo.writer == email){
+
+                }
+                if(email != ''){
+                    
+                    review_inner += `<form action = "/review/report" method="post">`;
+                    review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
+                    review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
+                    review_inner += `<button type="submit"><a id="report"><span class="icon-like"></span>Helpful</a></button>`;
+                    review_inner += `</form>`;
+                }
                 review_inner += `</div>`;
                 review_inner += ` </div>`;
                 review_inner += `<hr>`;
