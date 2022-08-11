@@ -2,6 +2,8 @@ package com.ezenplate.www.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.StoreVO;
 
