@@ -17,6 +17,7 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="/store/list">맛집 찾기</a>
 									<a class="dropdown-item" href="/board/list">지역게시판</a>
 									<a class="dropdown-item" href="/board/register">글쓰기</a>
 								</div>
