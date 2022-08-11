@@ -81,5 +81,22 @@
 	<select id="selectLastRno" resultType="long">
 		select max(rno) from review
 	</select>
+	
+	<!-- 맛집 검색-->
+		<insert id="insert_review">
+  		insert into review(sno, rate, content, report, writer, title)
+  		values(#{sno}, #{rate}, #{content}, 0, #{writer}, #{title})
+  	</insert>
+  	
+  	
+	<select id="select_last_rno" resultType="long">
+		select max(rno) from review 
+	</select> 
+	<select id="review_list" resultType="rvo">
+		select * from review
+		where sno = #{sno}
+		order by reg_at desc
+		
+	</select>
   
 </mapper>
