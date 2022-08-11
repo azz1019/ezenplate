@@ -39,11 +39,7 @@ public class ReviewController {
 	private FileHandler fhd;
 	@Inject
 	private StoreService ssv;
-	
-	@GetMapping("/register")
-	public void register() {
-		
-	}
+
 	
 	@PostMapping("/register")
 	public String register(ReviewVO rvo, 
@@ -60,7 +56,7 @@ public class ReviewController {
 	
 	@GetMapping("/list")
 	public void list(@RequestParam("sno") long sno, Model model, PagingVO pgvo) {
-		List<ReviewDTO> dto = rsv.get_list(sno, pgvo);
+		List<ReviewDTO> dto = rsv.get_list(sno);
 		model.addAttribute("list", dto);
 	}
 	
