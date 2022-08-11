@@ -25,7 +25,12 @@
 <link rel="stylesheet" href="/resources/dist/css/set1.css">
 <!-- Main CSS -->
 <link rel="stylesheet" href="/resources/dist/css/style.css">
-
+<!-- 맛집 검색 -->
+<!-- Swipper Slider -->
+    <link rel="stylesheet" href="/resources/dist/css/swiper.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="/resources/dist/css/magnific-popup.css">
+<!-- 맛집 디테일--
 <!-- jQuery, Bootstrap JS. -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/resources/dist/js/jquery-3.2.1.min.js"></script>
