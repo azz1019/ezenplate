@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
 import com.ezenplate.www.repository.FileDAO;
@@ -73,5 +74,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<MemberVO> getList() {
 		return mdao.selectList();
+	}
+
+	@Override
+	public List<FileVO> getListFile() {
+		return fdao.selectAllFiles();
+		
 	}
 }

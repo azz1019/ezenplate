@@ -9,17 +9,18 @@
 	<div class="mt-3 ml-3"><h2>리뷰</h3></div>
 </div>
 <div class="d-flex justify-content-end">
-	<div class="">전체</div>
-	<div>Holic</div>
-	<div>맛있어요</div>
-	<div>보통이에요</div>
-	<div>별로에요</div>
+	<div class="" href><a>전체</a></div>
+	<div><a href>Holic</a></div>
+	<div><a href>맛있어요</a></div>
+	<div><a href>보통이에요</a></div>
+	<div><a href>별로에요</a></div>
 </div>
 <hr>
+
 <c:forEach items="${mlist }" var="ml">
 <c:forEach items="${relist }" var="rl">
 <c:if test="${ml.email == rl.writer }">
-<div><img src="/upload/${fn:replace(mdto.fvo.saveDir, '\\', '/') }/${mdto.fvo.uuid }_th_${mdto.fvo.fileName }"></div>
+<div><img src="/upload/${fn:replace(fl.fvo.saveDir, '\\', '/') }/${fl.fvo.uuid }_th_${fl.fvo.fileName }"></div>
 <div>${ml.email }</div>
 <div>${rl.content }</div>
 </c:if>
