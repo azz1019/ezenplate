@@ -20,8 +20,7 @@
 					<div class="card-body p-5">
 						<h2 class="text-uppercase text-center mb-5">게시글 작성</h2>
 
-						<form action="/board/register" method="post"
-							enctype="multipart/form-data">
+						<form action="/board/register" method="post" enctype="multipart/form-data">
 							<div class="form-outline">
 								<div class="row">
 									<div class="col-md-6 mb-4">
