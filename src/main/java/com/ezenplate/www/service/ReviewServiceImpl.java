@@ -34,6 +34,7 @@ public class ReviewServiceImpl implements ReviewService {
 				}
 			}
 		}
+		sdao.up_cmt(rdto.getRvo().getSno());
 		return isUp;
 	}
 
