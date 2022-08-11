@@ -140,7 +140,7 @@ public class ReviewController {
 	}
 	
 	
-	<!-- 맛집 검색 -->
+	
 		@GetMapping("/register")
 	public void register(@RequestParam("sno")long sno, Model model) {
 		ReviewVO rvo = new ReviewVO();
