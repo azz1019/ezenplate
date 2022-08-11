@@ -104,5 +104,9 @@ public class ReviewServiceImpl implements ReviewService {
 
 		return new ReviewDTO(rvo, fvo);
 	}
+	@Override
+	public void report(long rno) {
+		rdao.update_report(rno);
 
+	}
 }
