@@ -37,6 +37,8 @@ public class ReviewController {
 	private ReviewService rsv;
 	@Inject
 	private FileHandler fhd;
+	@Inject
+	private StoreService ssv;
 	
 	@GetMapping("/register")
 	public void register() {
@@ -133,5 +135,21 @@ public class ReviewController {
 		rttr.addAttribute("qty", pgvo.getQty());
 		log.info(">>> ReviewController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
 		return "redirect:/review/mylist";
+	}
+	
+	
+	<!-- 맛집 검색 -->
+		@GetMapping("/register")
+	public void register(@RequestParam("sno")long sno, Model model) {
+		ReviewVO rvo = new ReviewVO();
+		rvo.setSno(sno);
+		model.addAttribute("rvo", rvo);
+	}
+	@GetMapping(value="/{sno}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<ReviewDTO>> list(@PathVariable("sno") long sno) {
+		log.info("review list !!!!!");
+		List<ReviewDTO> dto = rsv.get_list(sno);
+		log.info("review end!!!!!!!!!");
+		return new ResponseEntity<List<ReviewDTO>>(dto,HttpStatus.OK);
 	}
 }
