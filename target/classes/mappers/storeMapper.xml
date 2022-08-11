@@ -27,6 +27,7 @@
    		</if>
    	</sql>
 	
+<<<<<<< Updated upstream
 	<select id="select_store_list" resultType="svo" parameterType="pgvo">
    		select * from store 
    		order by rate_avg
@@ -58,6 +59,61 @@
    		read_count = read_count + #{i}
    		where sno = #{sno}
    	</update>
+=======
+	<select id="select_store_list" resultType="svo"
+		parameterType="pgvo">
+		select * from store
+		where 1=1
+		<include refid="search"/>
+		order by rate_avg desc
+		limit #{pageStart}, #{qty}
+	</select>
+	<select id="select_search_store" resultType="svo"
+		parameterType="pgvo">
+		select * from store
+		where 1=1
+		<include refid="search" />
+		order by rate_avg desc
+		limit #{pageStart}, #{qty}
+	</select>
+
+	<select id="select_total_count" resultType="int">
+		select count(sno) from store
+	</select>
+	<select id="select_search_count" resultType="int"
+		parameterType="pgvo">
+		select count(sno) from store
+		where 1=1
+		<include refid="search"/> 
+		
+		
+	</select>
+	<select id="select_one" resultType="svo">
+		select * from store
+		where sno = #{sno}
+	</select>
+	<select id="select_more_view" resultType="svo">
+		select * from store
+		order by rate_avg desc
+		
+	</select>
+
+	<update id="update_readcount">
+		update store set
+		read_count = read_count + #{i}
+		where sno = #{sno}
+	</update>
+	<update id="up_cmt">
+		update store set 
+		cmt_qty = cmt_qty + 1
+		where sno = #{sno}
+	</update>
+	<update id="request_rate">
+		update store set
+		rate_avg = #{rate}
+		where sno = #{sno}
+	</update>
+>>>>>>> Stashed changes
 <!--맛집 목록 및 검색 -->
 	<insert id="insert" parameterType="svo">
 		insert into store (writer, sname, category, locate, tel, content, menu_name1, menu_name2, menu_name3, menu_name4, menu_name5, menu_price1, menu_price2, menu_price3, menu_price4, menu_price5, holiday, rate_avg)

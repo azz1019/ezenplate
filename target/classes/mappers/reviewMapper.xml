@@ -82,8 +82,27 @@
 		select max(rno) from review
 	</select>
 	
+<<<<<<< Updated upstream
 	<select id="selectAll" resultType="rvo">
 		select * from review order by rno desc
 	</select>
   
 </mapper>
+=======
+	<!-- 맛집 검색-->
+		<insert id="insert_review">
+  		insert into review(sno, rate, content, report, writer, title)
+  		values(#{sno}, #{rate}, #{content}, 0, #{writer}, #{title})
+  	</insert>
+  	
+  	
+	
+	<select id="review_list" resultType="rvo">
+		select * from review
+		where sno = #{sno}
+		order by reg_at desc
+		
+	</select>
+  
+</mapper>
+>>>>>>> Stashed changes
