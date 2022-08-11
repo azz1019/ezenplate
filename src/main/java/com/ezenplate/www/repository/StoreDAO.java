@@ -18,6 +18,9 @@ public interface StoreDAO {
 	List<StoreVO> select_search_store(PagingVO pgvo); // 검색한 맛집
 	int select_total_count(PagingVO pgvo); // 맛집 전체 수
 	int select_search_count(PagingVO pgvo); // 검색한 맛집 수
-	void update_readcount(long sno, int i); // 맛집 조회수 증가
+	void update_readcount(@Param("sno") long sno, @Param("i") int i); // 맛집 조회수 증가
 	StoreVO select_one(long sno); // 맛집 detail
+	void up_cmt(long sno); // 조회수 증가
+	void request_rate(@Param("rate") float rate,@Param("sno") long sno); // 평점 
+	List<StoreVO> select_more_view(); // 더보기 
 }
