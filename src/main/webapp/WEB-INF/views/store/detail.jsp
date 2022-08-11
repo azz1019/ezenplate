@@ -40,6 +40,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
+				<input type="hidden" value="${ses.email }" id="email">
 				<h5 id="store_name">${sdto.svo.sname }</h5>
 				<fmt:parseNumber var="rate" value="${sdto.svo.rateAvg }"
 					integerOnly="true" />
