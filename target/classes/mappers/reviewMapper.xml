@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezenplate.www.repository.ReviewDAO">
+	<sql id="wh_rno">
+		where rno=#{rno}
+	</sql>
+
+   <sql id="search">
+   	<if test="type != null">
+   		<trim prefix="and (" suffix=")" prefixOverrides="OR" >
+   			<foreach collection="typeToArray" item="type">
+   				<trim prefix="OR">
+   					<choose>
+   						<when test="type == 'l'.toString()">
+   							locate like concat('%', #{kw}, '%') 
+   						</when>
+   						<when test="type == 'n'.toString()">
+   							sname like concat('%',#{kw},'%')
+   						</when>
+   					</choose>
+   				</trim>
+   			</foreach>
+   		</trim>
+   	</if>
+   </sql>
+  	
+	<select id="select_last_rno" resultType="long">
+		select max(rno) from review 
+	</select> 
+	<select id="get_list" resultType="rvo" parameterType="pgvo">
+		select * from review
+		where sno = #{sno}
+		order by reg_at
+		limit #{pageStart}, #{qty}
+	</select>
+	
+	<update id="update">
+		update review set
+		rate = #{rate}, content = #{content}, title = #{title},
+		mod_at = now()
+		where rno = #{rno}
+	</update>
+	<update id="update_report">
+		update review set
+		report = 1
+		where rno = #{rno}
+	
+	</update>
+	
+	
+	<delete id="delete_review">
+		delete from review 
+		where rno = #{rno}
+	</delete>
+
+	<insert id="insert" parameterType="rvo">
+		insert into review (sno, rate, content, writer, title)
+		values (#{sno}, #{rate}, #{content}, #{writer}, #{title})
+	</insert>
+	
+	<select id="selectList" resultType="rvo" parameterType="pgvo">
+		select a.rno, sno, title, writer, rate, reg_at, mod_at
+		from (select rno from review where rno > 0 order by rno desc limit #{pageStart}, #{qty}) a left join review b
+		on a.rno = b.rno
+	</select>
+	
+	<select id="selectOne" parameterType="long" resultType="rvo">
+		select * from review <include refid="wh_rno"/>
+	</select>
+	
+	<delete id="remove" parameterType="long">
+		delete from review <include refid="wh_rno"/>
+	</delete>
+	
+	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
+		select count(rno) from review where rno > 0
+	</select>
+	
+	<select id="selectLastRno" resultType="long">
+		select max(rno) from review
+	</select>
+	
+	<!-- 맛집 검색-->
+		<insert id="insert_review">
+  		insert into review(sno, rate, content, report, writer, title)
+  		values(#{sno}, #{rate}, #{content}, 0, #{writer}, #{title})
+  	</insert>
+  	
+  	
+	
+	<select id="review_list" resultType="rvo">
+		select * from review
+		where sno = #{sno}
+		order by reg_at desc
+		
+	</select>
+	
+	<select id="selectAll" resultType="rvo">
+		select * from review order by rno desc
+	</select>
+  
+</mapper>
