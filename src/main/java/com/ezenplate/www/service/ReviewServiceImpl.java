@@ -1,5 +1,6 @@
 package com.ezenplate.www.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,6 +13,7 @@ import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.ReviewDAO;
+import com.ezenplate.www.repository.StoreDAO;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -81,7 +83,11 @@ public class ReviewServiceImpl implements ReviewService {
 		return fdao.deleteFile(uuid);
 	}
 	
+<<<<<<< Updated upstream
 	<!-- 맛집 검색-->
+=======
+	//<!-- 맛집 검색-->
+>>>>>>> Stashed changes
 	@Override
 	public List<ReviewDTO> get_list(long sno) {
 		List<ReviewDTO> dto = new ArrayList<ReviewDTO>();
@@ -108,6 +114,11 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void report(long rno) {
 		rdao.update_report(rno);
+<<<<<<< Updated upstream
+=======
+
+	}
+>>>>>>> Stashed changes
 
 	}
 }

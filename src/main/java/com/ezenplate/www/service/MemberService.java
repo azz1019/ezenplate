@@ -14,4 +14,8 @@ public interface MemberService {
 	public int modify(MemberDTO mdto); // 프로필 수정
 	public int remove(String email); // 탈퇴
 	public List<MemberVO> getList(); // 리스트
+<<<<<<< Updated upstream
+=======
+	public List<FileVO> getListFile();// 프로필 파일 전체 리스트
+>>>>>>> Stashed changes
 }

@@ -74,4 +74,12 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> getList() {
 		return mdao.selectList();
 	}
+<<<<<<< Updated upstream
+=======
+
+	@Override
+	public List<FileVO> getListFile() {
+		return fdao.selectAllFiles();
+	}
+>>>>>>> Stashed changes
 }

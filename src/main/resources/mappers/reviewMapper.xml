@@ -95,6 +95,13 @@
 		where sno = #{sno}
 		order by reg_at desc
 		
+<<<<<<< Updated upstream
+=======
+	</select>
+	
+	<select id="selectAll" resultType="rvo">
+		select * from review order by rno desc
+>>>>>>> Stashed changes
 	</select>
   
 </mapper>
