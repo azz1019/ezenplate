@@ -84,9 +84,9 @@ public class ReviewController {
 	}
 	
 	@PostMapping("/report")
-	public String report(@RequestParam("rno") long rno) {
+	public String report(@RequestParam("rno") long rno, @RequestParam("sno") long sno) {
 		rsv.report(rno);
-		return null;
+		return "redirect:/store/detail?sno="+sno;
 	}
 
 	@GetMapping("/mylist")
