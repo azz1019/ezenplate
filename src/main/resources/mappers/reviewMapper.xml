@@ -89,9 +89,7 @@
   	</insert>
   	
   	
-	<select id="select_last_rno" resultType="long">
-		select max(rno) from review 
-	</select> 
+	
 	<select id="review_list" resultType="rvo">
 		select * from review
 		where sno = #{sno}
