@@ -1,5 +1,6 @@
 package com.ezenplate.www.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,6 +13,7 @@ import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.ReviewDAO;
+import com.ezenplate.www.repository.StoreDAO;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
