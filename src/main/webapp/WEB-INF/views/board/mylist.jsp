@@ -12,6 +12,7 @@
 				<th>순번</th>
 				<th>지역</th>
 				<th>제목</th>
+				<th>등록일</th>
 				<th>수정일</th>
 				<th>조회수</th>
 				<th>댓글수</th>
@@ -24,6 +25,7 @@
 						<th>${bvo.bno }</th>
 						<th>${bvo.userLocate }</th>
 						<th><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></th>
+						<th>${bvo.regAt }</th>
 						<th>${bvo.modAt }</th>
 						<th>${bvo.readCount }</th>
 						<th>${bvo.cmtQty }</th>
