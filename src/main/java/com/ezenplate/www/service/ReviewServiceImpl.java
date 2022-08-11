@@ -17,7 +17,8 @@ import com.ezenplate.www.repository.ReviewDAO;
 public class ReviewServiceImpl implements ReviewService {
 	@Inject
 	private ReviewDAO rdao;
-	
+	@Inject
+	private StoreDAO sdao;
 	@Inject
 	private FileDAO fdao;
 
@@ -77,6 +78,31 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int removeFile(String uuid) {
 		return fdao.deleteFile(uuid);
+	}
+	
+	<!-- 맛집 검색-->
+	@Override
+	public List<ReviewDTO> get_list(long sno) {
+		List<ReviewDTO> dto = new ArrayList<ReviewDTO>();
+		List<ReviewVO> rvo = rdao.review_list(sno);
+		float rate = 0;
+		int i=0;
+		for (ReviewVO reviewVO : rvo) {
+			List<FileVO> fvo = fdao.select_review(reviewVO.getRno());
+			dto.add(new ReviewDTO(reviewVO, fvo));
+			rate +=reviewVO.getRate();
+			i++;
+		}
+		sdao.request_rate(rate/i, sno);
+		return dto;
+	}
+
+	@Override
+	public ReviewDTO get_review(long rno) {
+		ReviewVO rvo = rdao.get_review(rno);
+		List<FileVO> fvo = fdao.select_review(rno);
+
+		return new ReviewDTO(rvo, fvo);
 	}
 
 }
