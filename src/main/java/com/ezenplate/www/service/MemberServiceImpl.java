@@ -18,6 +18,12 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Inject
 	private FileDAO fdao;
+
+	@Inject
+	private VisitedDAO vdao;
+	
+	@Inject
+	private WantDAO wdao;
 	
 	@Override
 	public MemberVO login(MemberVO mvo) {
@@ -66,6 +72,8 @@ public class MemberServiceImpl implements MemberService {
 	public int remove(String email) {
 		long mno = mdao.selectMnoMatchEmail(email);
 		fdao.deleteMemberFile(mno);
+		vdao.removeAllList(mno);
+		wdao.removeAllList(mno);
 		int isUp = mdao.delete(email);
 		return isUp;
 	}
