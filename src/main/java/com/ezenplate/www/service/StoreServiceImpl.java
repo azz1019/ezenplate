@@ -1,6 +1,6 @@
 package com.ezenplate.www.service;
 import java.util.ArrayList;
-iimport java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
