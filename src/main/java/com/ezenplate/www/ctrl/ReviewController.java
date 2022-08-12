@@ -1,6 +1,6 @@
 package com.ezenplate.www.ctrl;
 
-mport java.util.List;
+import java.util.List;
 
 import javax.inject.Inject;
 
