@@ -64,7 +64,10 @@
 		order by rate_avg desc
 		
 	</select>
-
+	<select id="select_store_name" resultType="String">
+		select sname from store
+		where sno = #{sno}
+	</select>
 	<update id="update_readcount">
 		update store set
 		read_count = read_count + #{i}
