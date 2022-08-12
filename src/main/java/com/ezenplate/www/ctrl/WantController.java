@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ezenplate.www.domain.PagingVO;
+import com.ezenplate.www.domain.WantVO;
 import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.service.WantService;
 
@@ -21,6 +22,22 @@ import lombok.extern.slf4j.Slf4j;
 public class WantController {
 	@Inject
 	private WantService wsv;
+	
+	@GetMapping("/register")
+	public String register(@RequestParam("sno") long sno, @RequestParam("mno") long mno, RedirectAttributes rttr) {
+		int check = wsv.check(sno, mno);
+		if(check >0) {
+			int ok = wsv.register(sno,mno);
+			if(ok >0) {
+				rttr.addFlashAttribute("want_ok", 1);
+			}else {
+				rttr.addFlashAttribute("want_no", 0);
+			}
+		} else {
+			rttr.addFlashAttribute("want_check", 0);
+		}
+		return "redirect:/store/detail?sno=" + sno;
+	}
 	
 	@GetMapping("/list")
 	public void list(Model model, PagingVO pgvo, @RequestParam("mno")long mno) {
