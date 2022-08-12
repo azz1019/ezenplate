@@ -72,21 +72,12 @@ public class ReviewController {
 		model.addAttribute("rdto", dto);
 	}
 	
-	@PostMapping("/modify")
-	public String modify(ReviewVO rvo, @RequestParam(name="fileAttached", required = false)
-							MultipartFile[] files) {
-		List<FileVO> fileList = null;
-		if(files[0].getSize() > 0) {
-			fileList = fhd.getFileList(files);
-		}
-		int isUp = rsv.modify(new ReviewDTO(rvo, fileList));
-		return null;
-	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("rno") long rno) {
+	public String remove(@RequestParam("rno") long rno, @RequestParam("sno") long sno) {
 		rsv.remove(rno);
-		return null;
+		
+		return "redirect:/store/detail?sno="+sno;
 	}
 	
 	@PostMapping("/report")
