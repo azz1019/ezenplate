@@ -14,6 +14,7 @@ public interface StoreDAO {
 	int remove(long sno); // 식당 삭제
 	int selectTotalCount(PagingVO pgvo); // 전체 식당 갯수 반환
 	long selectLastSno(); // 가장 최근등록한 식당의 sno 반환
+	String select_store_name(long sno); // 식당 이름 반환
 	
 	/* 맛집 목록 및 검색*/
 	List<StoreVO> select_store_list(PagingVO pgvo); // 전체 맛집 목록

@@ -22,6 +22,19 @@ public class VisitedController {
 	@Inject
 	private VisitedService vsv;
 	
+	@GetMapping("/register")
+	public String register(@RequestParam("mno") long mno, @RequestParam("sno") long sno, RedirectAttributes rttr) {
+		int dul = vsv.check(mno,sno);
+		if(dul >0) {
+			int ok = vsv.register(mno, sno);
+			rttr.addFlashAttribute("visit_ok",1);
+		} else {
+			rttr.addFlashAttribute("visit_no",0);
+		}
+		
+		return "redirect:/store/detail?sno="+ sno;
+	}
+	
 	@GetMapping("/list")
 	public void list(Model model, PagingVO pgvo, @RequestParam("mno")long mno) {
 		log.info(">>> VisitedController list - GET");

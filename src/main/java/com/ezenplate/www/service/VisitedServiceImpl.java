@@ -10,12 +10,15 @@ import org.springframework.stereotype.Service;
 
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.VisitedVO;
+import com.ezenplate.www.repository.StoreDAO;
 import com.ezenplate.www.repository.VisitedDAO;
 
 @Service
 public class VisitedServiceImpl implements VisitedService {
 	@Inject
 	private VisitedDAO vdao;
+	@Inject
+	private StoreDAO sdao;
 	
 	@Override
 	public List<VisitedVO> getList(PagingVO pgvo, long mno) {
@@ -42,5 +45,29 @@ public class VisitedServiceImpl implements VisitedService {
 		map.put("mno", mno);
 		
 		return vdao.selectTotalCount(map);
+	}
+
+	@Override
+	public int register(long mno, long sno) {
+		String sname = sdao.select_store_name(sno);
+		int ok = vdao.register(mno, sno, sname);
+		if(ok > 0){
+			return ok;
+		}
+		return 0;
+	}
+
+	@Override
+	public int check(long mno, long sno) {
+		VisitedVO vvo = new VisitedVO();
+		vvo.setMno(mno);
+		vvo.setSno(sno);
+		int ok = vdao.check(vvo);
+		if(ok==0) {
+			return 1;
+		} else {
+			return 0;			
+		}
+		
 	}
 }
