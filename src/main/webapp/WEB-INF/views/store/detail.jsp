@@ -212,7 +212,7 @@
 			</div>
 			<div class="col-md-4 responsive-wrap">
 				<div class="contact-info">
-					<div id="map" style="width: 350px; height: 300px;"></div>
+					<div id="map" style="width: 100%; height: 300px;"></div>
 
 
 					<div class="address">
