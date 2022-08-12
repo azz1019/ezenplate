@@ -31,9 +31,7 @@
 							<div class="form-outline">
 								<div class="row">
 									<div class="col-md-6 mb-4">
-										<input type="hidden" class="form-control" id="userLocateText"
-											value="${bdto.bvo.userLocate }" name="userLocateText">
-										<select class="form-select" id="userLocate" name="userLocate">
+										<select class="form-select" id="userLocate" name="userLocate" value="${bdto.bvo.userLocate }">
 											<option value="서울">서울</option>
 											<option value="경기">경기</option>
 											<option value="인천">인천</option>
@@ -55,15 +53,15 @@
 									</div>
 									<div class="col-md-6 mb-4">
 										<div class="form-outline datepicker">
-											<input type="text" class="form-control" id="nickName"
+											<input type="text" class="form-control" id="writer" name="writer"
 												value="${ses.nickName}" readOnly />
 										</div>
 									</div>
 								</div>
 
 								<div class="form-outline mb-4">
-									<input type="text" class="form-control" id="bname"
-										value="${bdto.bvo.bname }" />
+									<input type="text" class="form-control" id="bname" 
+										value="${bdto.bvo.bname }" name="bname" />
 								</div>
 								<div class="form-outline mb-4">
 									<textarea id="content" name="content" class="form-control"
