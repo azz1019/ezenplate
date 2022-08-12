@@ -30,12 +30,17 @@
     <link rel="stylesheet" href="/resources/dist/css/swiper.min.css">
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="/resources/dist/css/magnific-popup.css">
-<!-- 맛집 디테일--
+<!-- 맛집 디테일-->
 <!-- jQuery, Bootstrap JS. -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/resources/dist/js/jquery-3.2.1.min.js"></script>
 <script src="/resources/dist/js/popper.min.js"></script>
 <script src="/resources/dist/js/bootstrap.min.js"></script>
+
+<!-- 부트스트랩 select -->
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-select.min.css">
+<script src="/resources/bootstrap/js/bootstrap-select.min.js"></script>
+<script src="/resources/bootstrap/js/defaults-ko_KR.min.js"></script>
 
 <script>
     $(window).scroll(function() {
