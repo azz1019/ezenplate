@@ -14,9 +14,12 @@
  					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
  						<ul class="navbar-nav">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
  						<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">소식</a></li>
+=======
+>>>>>>> 96c37dc098093db8d9109992087531ffe661d994
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -32,6 +35,7 @@
 								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리자메뉴<span class="icon-arrow-down"></span></a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 									<a class="dropdown-item" href="/member/list">사용자 관리</a>
+<<<<<<< HEAD
 									<a class="dropdown-item" href="/">식당 관리</a>
 									<a class="dropdown-item" href="/">게시판 관리</a>
 									<a class="dropdown-item" href="/">신고 관리</a>
@@ -39,20 +43,15 @@
 							</li>
 							</c:if>                           
 >>>>>>> Stashed changes
+=======
+									<a class="dropdown-item" href="/store/approve">식당 관리</a>
+									<a class="dropdown-item" href="/board/report">신고 관리</a>
+								</div>
+							</li>
+							</c:if>                           
+>>>>>>> 96c37dc098093db8d9109992087531ffe661d994
 							<c:choose>
-								<%-- 로그인 O 상태 --%>
 								<c:when test="${ses.email ne null && ses.email ne '' }">
-									<!-- 커뮤니티 -->
-									<li class="nav-item dropdown">
-										<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-											<a class="dropdown-item" href="/store/list">맛집 찾기</a>
-											<a class="dropdown-item" href="/board/list">지역게시판</a>
-											<a class="dropdown-item" href="/board/register">글쓰기</a>
-										</div>
-									</li>
-								
-									<!-- 내정보 -->
 									<li class="nav-item dropdown">
 										<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">내정보<span class="icon-arrow-down"></span></a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -64,37 +63,11 @@
 											<a class="dropdown-item" href="/visited/list?mno=${ses.mno }">가봤어요</a>
 										</div>
 									</li>
-									
-									<!-- 관리자메뉴 -->
-									<c:if test="${ses.grade eq 99 }">
-										<li class="nav-item dropdown">
-											<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리자메뉴<span class="icon-arrow-down"></span></a>
-											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="/member/list">사용자 관리</a>
-												<a class="dropdown-item" href="/">식당 관리</a>
-												<a class="dropdown-item" href="/">게시판 관리</a>
-												<a class="dropdown-item" href="/">신고 관리</a>
-											</div>
-										</li>
-									</c:if>
-									
-									<!-- 로그아웃, 탈퇴 -->
+
 									<li class="nav-item active"><a class="nav-link" href="/member/logout">로그아웃</a></li>
 									<li><a href="/member/remove?email=${ses.email }" class="btn btn-outline-light top-btn"><span class="ti-minus"></span> 탈퇴</a></li>
 					          	</c:when>
-					          	
-					          	<%-- 로그인 X 상태 --%>
 				        		<c:otherwise>
-				        			<!-- 커뮤니티 -->
-				        			<li class="nav-item dropdown">
-										<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-											<a class="dropdown-item" href="/store/list">맛집 찾기</a>
-											<a class="dropdown-item" href="/board/list">지역게시판</a>
-										</div>
-									</li>
-				        		
-				        			<!-- 회원가입 -->
 				        			<li class="nav-item active"><a class="nav-link" href="/member/login">로그인</a></li>
 	                                <li><a href="/member/register" class="btn btn-outline-light top-btn"><span class="ti-plus"></span>회원가입</a></li>
 				        		</c:otherwise>

@@ -69,6 +69,10 @@
 	<select id="selectOne" parameterType="long" resultType="rvo">
 		select * from review <include refid="wh_rno"/>
 	</select>
+	<select id="select_sno" resultType="long">
+	select sno from review
+	where rno = #{rno}
+	</select>
 	
 	<delete id="remove" parameterType="long">
 		delete from review <include refid="wh_rno"/>
@@ -95,10 +99,13 @@
 		where sno = #{sno}
 		order by reg_at desc
 		
+<<<<<<< Updated upstream
+=======
 	</select>
 	
 	<select id="selectAll" resultType="rvo">
 		select * from review order by rno desc
+>>>>>>> Stashed changes
 	</select>
   
 </mapper>

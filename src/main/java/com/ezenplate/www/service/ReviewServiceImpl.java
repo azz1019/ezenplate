@@ -66,10 +66,12 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public int remove(long rno) {
+		long sno = rdao.select_sno(rno);
 		int isUp = rdao.remove(rno);
 		if(isUp > 0) {
 			isUp = fdao.deleteAllReviewFile(rno);
 		}
+		sdao.down_cmt(sno);
 		return isUp;
 	}
 
@@ -83,11 +85,15 @@ public class ReviewServiceImpl implements ReviewService {
 		return fdao.deleteFile(uuid);
 	}
 	
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 	<!-- 맛집 검색-->
 =======
 	//<!-- 맛집 검색-->
 >>>>>>> Stashed changes
+=======
+	
+>>>>>>> 96c37dc098093db8d9109992087531ffe661d994
 	@Override
 	public List<ReviewDTO> get_list(long sno) {
 		List<ReviewDTO> dto = new ArrayList<ReviewDTO>();

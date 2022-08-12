@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezenplate.www.repository.FileDAO">
+	<sql id="wh_mno">
+		where mno=#{mno}
+	</sql>
+	<sql id="wh_sno">
+		where sno=#{sno}
+	</sql>
+	<sql id="wh_rno">
+		where rno=#{rno}
+	</sql>
+	<sql id="wh_bno">
+		where bno=#{bno}
+	</sql>
+	
+	<!-- Member -->
+	<insert id="insertMemberFile">
+		insert into attached_file (uuid, save_dir, file_name, file_type, mno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.mno}, #{fvo.fileSize}) 
+	</insert>
+	<select id="selectMemberListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_mno"/>
+	</select>
+	<delete id="deleteMemberFile" parameterType="long">
+		delete from attached_file <include refid="wh_mno"/>
+	</delete>
+	
+	<!-- Review -->
+	<insert id="insertReviewFile">
+		insert into attached_file (uuid, save_dir, file_name, file_type, rno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.rno}, #{fvo.fileSize})
+	</insert>
+	<select id="selectReviewListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_rno"/>
+	</select>
+	<delete id="deleteAllReviewFile" parameterType="long">
+		delete from attached_file <include refid="wh_rno"/>
+	</delete>
+
+	<!-- Store -->
+	<insert id="insertStoreFile">
+		insert into attached_file (uuid, save_dir, file_name, file_type, sno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.sno}, #{fvo.fileSize})
+	</insert>
+	<select id="selectStoreListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_sno"/>
+	</select>
+	<delete id="deleteAllStoreFile" parameterType="long">
+		delete from attached_file <include refid="wh_sno"/>
+	</delete>
+	
+	<!-- BOARD -->
+	<insert id="insertBoardFile">
+		insert into attached_file(uuid, save_dir, file_name, file_type, bno, file_size)
+		values (#{fvo.uuid}, #{fvo.saveDir}, #{fvo.fileName}, #{fvo.fileType}, #{fvo.bno}, #{fvo.fileSize})
+	</insert>
+	<select id="selectBoardListFile" parameterType="long" resultType="fvo">
+		select * from attached_file <include refid="wh_bno"/>
+	</select>
+	<delete id="deleteBoardFile" parameterType="long">
+		delete from attached_file <include refid="wh_bno"/>
+	</delete>
+	
+	
+	<!-- Common -->
+	<delete id="deleteFile" parameterType="string">
+		delete from attached_file where uuid=#{uuid}
+	</delete>
+	<select id="selectAllFiles" resultType="fvo">
+		select * from attached_file
+	</select>
+	
+	
+	<!-- 맛집 목록 및 검색 -->
+   <insert id="insertFile" parameterType="fvo">
+   		insert into attached_file (uuid, save_dir, file_name, file_type, pno, file_size)
+   		values (#{uuid}, #{saveDir}, #{fileName}, #{fileType}, #{pno}, #{fileSize})
+   		
+   </insert>
+   
+   <insert id="insert_review_file" parameterType="fvo">
+   		insert into attached_file (uuid, save_dir, file_name, file_type, rno, file_size)
+   		values (#{uuid}, #{saveDir}, #{fileName}, #{fileType}, #{rno}, #{fileSize})
+   		
+   </insert>
+   
+   <insert id="insert_user_th" parameterType="fvo">
+   	insert into attached_file (uuid, save_dir, file_name, file_type,email, file_size)
+   		values (#{uuid}, #{saveDir}, #{fileName}, #{fileType}, #{email}, #{fileSize})
+   </insert>
+  
+   <select id="selectFile" parameterType="String"  resultType="fvo" >
+    select * from attached_file
+    where email = #{email}
+   </select>
+
+   <select id="select_store_file" resultType="fvo">
+   	select * from attached_file
+   	where sno = #{sno}
+   	order by reg_at
+   	limit 1
+   </select>
+   <select id="select_store_all_file" resultType="fvo">
+    select * from attached_file
+    where sno = #{sno}
+    order by reg_at
+   </select>
+   <select id="select_review" resultType="fvo">
+   	select * from attached_file
+   	where rno = #{rno}
+   </select>
+   
+   
+   
+   
+
+   <delete id="delete_review_File" parameterType="long">
+   		delete from attached_file where rno = #{rno}
+   </delete>
+	
+</mapper>
