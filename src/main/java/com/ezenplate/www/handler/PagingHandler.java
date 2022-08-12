@@ -2,6 +2,11 @@ package com.ezenplate.www.handler;
 
 import com.ezenplate.www.domain.PagingVO;
 
+import java.util.List;
+
+import com.ezenplate.www.domain.CommentVO;
+import com.ezenplate.www.domain.PagingVO;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +19,7 @@ public class PagingHandler {
 	
 	private int totalCount; // 총 게시글의 수
 	private PagingVO pgvo; // 사용자가 입력하거나 전달되는 페이징 정보값을 갖고 있는 객체
+	private List<CommentVO> cmtList;//comment 페이지 리스트 
 	
 	public PagingHandler(PagingVO pgvo, int totalCount) {
 		this.pgvo = pgvo;
@@ -30,5 +36,10 @@ public class PagingHandler {
 		
 		this.prev = this.startPage > 1;
 		this.next = this.endPage < realEndPage;
+	}
+	
+	public PagingHandler(List<CommentVO> cmtList, PagingVO pgvo, int totalCount) {
+		this(pgvo, totalCount);
+		this.cmtList = cmtList;
 	}
 }

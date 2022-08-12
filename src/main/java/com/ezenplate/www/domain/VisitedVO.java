@@ -12,5 +12,6 @@ import lombok.ToString;
 public class VisitedVO {
 	private long mno;
 	private long sno;
+	private String sname;
 	private String regAt;
 }

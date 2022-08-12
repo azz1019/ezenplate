@@ -5,7 +5,7 @@
     
 <mapper namespace="com.ezenplate.www.repository.WantDAO">
 	<select id="selectList" resultType="wvo" parameterType="hashMap">
-		select mno, sno, reg_at
+		select mno, sno, sname, reg_at
 		from want where mno=#{mno} limit #{pgvo.pageStart}, #{pgvo.qty}
 	</select>
 	
@@ -16,4 +16,8 @@
 	<select id="selectTotalCount" resultType="int" parameterType="hashMap">
 		select count(mno) from want where mno=#{mno};
 	</select>
+
+	<delete id="removeAllList" parameterType="long">
+		delete from want where mno=#{mno}
+	</delete>
 </mapper>

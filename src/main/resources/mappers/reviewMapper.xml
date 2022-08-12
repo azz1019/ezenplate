@@ -38,7 +38,7 @@
 	
 	<update id="update">
 		update review set
-		rate = #{rate}, content = #{content},
+		rate = #{rate}, content = #{content}, title = #{title},
 		mod_at = now()
 		where rno = #{rno}
 	</update>
@@ -56,18 +56,22 @@
 	</delete>
 
 	<insert id="insert" parameterType="rvo">
-		insert into review (sno, rate, content, writer)
-		values (#{sno}, #{rate}, #{content}, #{writer})
+		insert into review (sno, rate, content, writer, title)
+		values (#{sno}, #{rate}, #{content}, #{writer}, #{title})
 	</insert>
 	
 	<select id="selectList" resultType="rvo" parameterType="pgvo">
-		select a.rno, sno, writer, rate, reg_at, mod_at
+		select a.rno, sno, title, writer, rate, reg_at, mod_at
 		from (select rno from review where rno > 0 order by rno desc limit #{pageStart}, #{qty}) a left join review b
 		on a.rno = b.rno
 	</select>
 	
 	<select id="selectOne" parameterType="long" resultType="rvo">
 		select * from review <include refid="wh_rno"/>
+	</select>
+	<select id="select_sno" resultType="long">
+	select sno from review
+	where rno = #{rno}
 	</select>
 	
 	<delete id="remove" parameterType="long">
@@ -80,6 +84,21 @@
 	
 	<select id="selectLastRno" resultType="long">
 		select max(rno) from review
+	</select>
+	
+	<!-- 맛집 검색-->
+		<insert id="insert_review">
+  		insert into review(sno, rate, content, report, writer, title)
+  		values(#{sno}, #{rate}, #{content}, 0, #{writer}, #{title})
+  	</insert>
+  	
+  	
+	
+	<select id="review_list" resultType="rvo">
+		select * from review
+		where sno = #{sno}
+		order by reg_at desc
+		
 	</select>
   
 </mapper>

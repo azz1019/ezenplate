@@ -6,26 +6,61 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <div class="container mt-3">
-	<h2>식당 상세</h2>
 	<section class="light-bg booking-details_wrap">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                            <h5>${sdto.svo.sname }</h5>
-                            순번 : <span id="snoVal">${sdto.svo.sno }</span><br>
-                            카테고리 : ${sdto.svo.category }<br>
-                            소개 : ${sdto.svo.content }<br>
-                            주소 : ${sdto.svo.locate }<br>
-                            연락처 : ${sdto.svo.tel }<br>
-                            휴일 : ${sdto.svo.holiday }<br>
-                            <c:choose>
-								<c:when test="${sdto.svo.approve eq 1}">승인여부 : 승인<br></c:when>
-								<c:otherwise>승인여부 : 미승인<br></c:otherwise>
-							</c:choose>
-							등록일 : ${sdto.svo.regAt }<br>
-							수정일 : ${sdto.svo.modAt }<br>
+							<div class="reserve-seat-block">
+								<h5>${sdto.svo.sname }</h5>
+			  					<c:choose>
+									<c:when test="${sdto.svo.approve eq 1}">
+										<div class="reserve-rating">
+											<span>승인</span>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="reserve-rating" style="background-color:rgb(243, 78, 121)">
+											<span>미승인</span>
+										</div>
+									</c:otherwise>
+								</c:choose>
+								
+								<div class="review-btn">
+			                        <a href="/store/mylist?pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
+			                        <span>목록으로</span>
+			                        
+			                        <c:if test="${sdto.svo.approve eq 0}">
+										<a class="btn btn-outline-danger" id="storeRemove">삭제</a>
+										<span>식당삭제</span>
+									</c:if>
+			                    </div>
+							</div>
+							<div class="address">
+	                            <span class="icon-check"></span>
+	                            <p>순번 : <span id="snoVal">${sdto.svo.sno }</span></p>
+	                            <p>카테고리 : ${sdto.svo.category }</p>
+	                            <p>소개 : ${sdto.svo.content }</p>
+	                        </div>                       
+                        	<div class="address">
+	                            <span class="icon-location-pin"></span>
+	                            <p>주소 : ${sdto.svo.locate }</p>
+	                        </div>
+	                        <div class="address">
+	                            <span class="icon-screen-smartphone"></span>
+	                            <p>연락처 : ${sdto.svo.tel }</p>
+	                        </div>
+                        	<div class="address">
+	                            <span class="icon-clock"></span>
+	                            <p>휴일 : ${sdto.svo.holiday }</p>
+	                        </div>
+   							<div class="address">
+	                            <span class="icon-calendar"></span>
+	                            <p>등록일 : ${sdto.svo.regAt }</p>
+	                            <p>수정일 : ${sdto.svo.modAt }</p>
+	                        </div>							
+							<br>
                             <table class="table table-hover">
 								<thead>
 									<tr>
@@ -75,12 +110,6 @@
 			</div>
 		</div>
 	</section>
-	
-	<a href="/store/mylist?pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-warning">목록</a>
-	
-	<c:if test="${sdto.svo.approve eq 0}">
-		<a class="btn btn-danger" id="storeRemove">삭제</a>
-	</c:if>
 	<form action="" id="storeRmForm" style="display: none;" method="post">
 		<input type="hidden" id="sno" value="" name="sno">
 		<input type="hidden" value="${pgvo.pageNo }" name="pageNo">

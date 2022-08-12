@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
 <jsp:include page="../common/header.jsp" />
@@ -18,14 +19,19 @@
 				class="register row d-flex justify-content-center align-items-center">
 				<div class="card" style="border-radius: 15px;">
 					<div class="card-body p-5">
-						<h2 class="text-uppercase text-center mb-5">게시글 작성</h2>
+						<h2 class="text-uppercase text-center mb-5">게시글 수정</h2>
 
-						<form action="/board/register" method="post" enctype="multipart/form-data">
+						<form action="/board/modify" method="post"
+							enctype="multipart/form-data">
+								<input type="hidden" value="${bdto.bvo.bno }" name="bno">
+								<input type="hidden" value="${pgvo.pageNo }" name="pageNo">
+								<input type="hidden" value="${pgvo.qty }" name="qty"> 
+								<input type="hidden" value="${pgvo.type }" name="type"> 
+								<input type="hidden" value="${pgvo.kw }" name="kw">
 							<div class="form-outline">
 								<div class="row">
 									<div class="col-md-6 mb-4">
-										<select class="form-select" id="userLocate" name="userLocate">
-											<option value="지역" selected>지역</option>
+										<select class="form-select" id="userLocate" name="userLocate" value="${bdto.bvo.userLocate }">
 											<option value="서울">서울</option>
 											<option value="경기">경기</option>
 											<option value="인천">인천</option>
@@ -54,8 +60,8 @@
 								</div>
 
 								<div class="form-outline mb-4">
-									<input type="text" class="form-control" id="bname" name="bname"
-										placeholder="제목을 입력해주세요" />
+									<input type="text" class="form-control" id="bname" 
+										value="${bdto.bvo.bname }" name="bname" />
 								</div>
 								<div class="form-outline mb-4">
 									<textarea id="content" name="content" class="form-control"
@@ -77,7 +83,7 @@
 										<div class="col-md-10">
 											<div class="d-flex justify-content-center">
 												<button type="submit"
-													class="btn btn-block btn-lg text-body sbmBtn" id="regBtn">올리기</button>
+													class="btn btn-block btn-lg text-body sbmBtn" id="regBtn">수정</button>
 											</div>
 										</div>
 									</div>
@@ -86,10 +92,25 @@
 									<div class="my-3" id="fileZone"></div>
 								</div>
 
+								<div class="container mt-3">
+									<ul class="list-group list-group-flush">
+										<c:forEach items="${bdto.fileList }" var="fvo">
+											<li
+												class="list-group-item d-flex justify-content-between align-items-center">
+												${fvo.fileName } <span class="badge bg-primary rounded-pill">${fvo.fileSize }</span>
+												<button data-uuid="${fvo.uuid }"
+													class="btn btn-outline-danger btn-sm fileDelBtn">X</button>
+											</li>
+										</c:forEach>
+									</ul>
+								</div>
+
+
 								<p class="text-center text-muted mt-5 mb-0">
 									글 등록을 취소하고 돌아가고 싶다면? <a href="/board/list"
 										class="fw-bold text-body listBtn"><u>뒤로 돌아가기</u></a>
 								</p>
+								</div>
 						</form>
 					</div>
 				</div>
@@ -97,14 +118,14 @@
 		</div>
 	</div>
 </section>
-<!-- // END Register Form // -->
-
+<!-- // END Modify Form // -->
 
 <script>
 	document.getElementById('attachTrigger').addEventListener('click', () => {
 		document.getElementById('files').click();
 	});
 </script>
-<script src="/resources/js/board.register.js"></script>
+
+<script src="/resources/js/board.modify.js"></script>
 
 <jsp:include page="../common/footer.jsp" />

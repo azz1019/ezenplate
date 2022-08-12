@@ -9,8 +9,9 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>순번</th>
-				<th>식당 순번</th>
+				<th>리뷰순번</th>
+				<th>식당순번</th>
+				<th>제목</th>
 				<th>평점</th>
 				<th>등록일</th>
 				<th>수정일</th>
@@ -20,8 +21,9 @@
 			<c:forEach items="${list }" var="rvo">
 				<c:if test="${ses.email == rvo.writer }">
 					<tr>
-						<th><a href="/review/mydetail?rno=${rvo.rno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${rvo.rno }</a></th>
+						<th>${rvo.rno }</th>
 						<th>${rvo.sno }</th>
+						<th><a href="/review/mydetail?rno=${rvo.rno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${rvo.title }</a></th>
 						<th>${rvo.rate }</th>
 						<th>${rvo.regAt }</th>
 						<th>${rvo.modAt }</th>

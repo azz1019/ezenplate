@@ -1,19 +1,25 @@
 package com.ezenplate.www.ctrl;
 
-import java.util.List;
+mport java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.POST;
 
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.PagingVO;
@@ -37,11 +43,9 @@ public class ReviewController {
 	private ReviewService rsv;
 	@Inject
 	private FileHandler fhd;
-	
-	@GetMapping("/register")
-	public void register() {
-		
-	}
+	@Inject
+	private StoreService ssv;
+
 	
 	@PostMapping("/register")
 	public String register(ReviewVO rvo, 
@@ -58,7 +62,7 @@ public class ReviewController {
 	
 	@GetMapping("/list")
 	public void list(@RequestParam("sno") long sno, Model model, PagingVO pgvo) {
-		List<ReviewDTO> dto = rsv.get_list(sno, pgvo);
+		List<ReviewDTO> dto = rsv.get_list(sno);
 		model.addAttribute("list", dto);
 	}
 	
@@ -68,27 +72,18 @@ public class ReviewController {
 		model.addAttribute("rdto", dto);
 	}
 	
-	@PostMapping("/modify")
-	public String modify(ReviewVO rvo, @RequestParam(name="fileAttached", required = false)
-							MultipartFile[] files) {
-		List<FileVO> fileList = null;
-		if(files[0].getSize() > 0) {
-			fileList = fhd.getFileList(files);
-		}
-		int isUp = rsv.modify(new ReviewDTO(rvo, fileList));
-		return null;
-	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("rno") long rno) {
+	public String remove(@RequestParam("rno") long rno, @RequestParam("sno") long sno) {
 		rsv.remove(rno);
-		return null;
+		
+		return "redirect:/store/detail?sno="+sno;
 	}
 	
 	@PostMapping("/report")
-	public String report(@RequestParam("rno") long rno) {
+	public String report(@RequestParam("rno") long rno, @RequestParam("sno") long sno) {
 		rsv.report(rno);
-		return null;
+		return "redirect:/store/detail?sno="+sno;
 	}
 
 	@GetMapping("/mylist")
@@ -102,6 +97,7 @@ public class ReviewController {
 	@GetMapping({"/mydetail", "/mymodify"})
 	public void mydetail(Model model, @RequestParam("rno")long rno, @ModelAttribute("pgvo")PagingVO pgvo) {
 		model.addAttribute("rdto", rsv.getDetail(rno));
+		model.addAttribute("sdto", ssv.getDetail(rsv.getDetail(rno).getRvo().getSno()));
 	}
 	
 	@PostMapping("/mymodify")
@@ -132,5 +128,21 @@ public class ReviewController {
 		rttr.addAttribute("qty", pgvo.getQty());
 		log.info(">>> ReviewController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
 		return "redirect:/review/mylist";
+	}
+	
+	
+	
+		@GetMapping("/register")
+	public void register(@RequestParam("sno")long sno, Model model) {
+		ReviewVO rvo = new ReviewVO();
+		rvo.setSno(sno);
+		model.addAttribute("rvo", rvo);
+	}
+	@GetMapping(value="/{sno}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<ReviewDTO>> list(@PathVariable("sno") long sno) {
+		log.info("review list !!!!!");
+		List<ReviewDTO> dto = rsv.get_list(sno);
+		log.info("review end!!!!!!!!!");
+		return new ResponseEntity<List<ReviewDTO>>(dto,HttpStatus.OK);
 	}
 }
