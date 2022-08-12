@@ -10,13 +10,16 @@ import org.springframework.stereotype.Service;
 
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.WantVO;
+import com.ezenplate.www.repository.StoreDAO;
 import com.ezenplate.www.repository.WantDAO;
 
 @Service
 public class WantServiceImpl implements WantService {
 	@Inject
 	private WantDAO wdao;
-
+	@Inject
+	private StoreDAO sdao;
+	
 	@Override
 	public List<WantVO> getList(PagingVO pgvo, long mno) {
 		Map map = new HashMap();
@@ -42,5 +45,30 @@ public class WantServiceImpl implements WantService {
 		map.put("mno", mno);
 		
 		return wdao.selectTotalCount(map);
+	}
+
+	@Override
+	public int check(long sno, long mno) {
+		WantVO wvo = new WantVO();
+		wvo.setSno(sno);
+		wvo.setMno(mno);
+		int check= wdao.check_dul(wvo);
+		if(check == 0) {
+			return 1;
+		} else {
+			return 0;
+		}
+		
+	}
+
+	@Override
+	public int register(long sno, long mno) {
+		String sname = sdao.select_store_name(sno);
+		WantVO wvo = new WantVO();
+		wvo.setMno(mno);
+		wvo.setSname(sname);
+		wvo.setSno(sno);
+		int ok = wdao.insert_want(wvo);
+		return ok;
 	}
 }
