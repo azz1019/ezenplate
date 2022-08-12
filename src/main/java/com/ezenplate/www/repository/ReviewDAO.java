@@ -13,7 +13,8 @@ public interface ReviewDAO {
 	int delete_review(long rno); // 리뷰 삭제
 	int update(ReviewVO rvo); // 리뷰 수정
 	void update_report(long rno); // 리뷰 신고
-
+	long select_sno(long rno); // rno로 sno 반환
+	
 	int insert(ReviewVO rvo); // 리뷰 등록
 	List<ReviewVO> selectList(PagingVO pgvo); // 리뷰 목록
 	ReviewVO selectOne(long rno); // 리뷰 상세
