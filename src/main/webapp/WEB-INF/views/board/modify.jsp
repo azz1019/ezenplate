@@ -23,15 +23,13 @@
 
 						<form action="/board/modify" method="post"
 							enctype="multipart/form-data">
-								<input type="hidden" value="${bdto.bvo.bno }" name="bno">
-								<input type="hidden" value="${pgvo.pageNo }" name="pageNo">
-								<input type="hidden" value="${pgvo.qty }" name="qty"> 
-								<input type="hidden" value="${pgvo.type }" name="type"> 
-								<input type="hidden" value="${pgvo.kw }" name="kw">
+							<input type="hidden" value="${bdto.bvo.bno }" name="bno">
 							<div class="form-outline">
 								<div class="row">
 									<div class="col-md-6 mb-4">
-										<select class="form-select" id="userLocate" name="userLocate" value="${bdto.bvo.userLocate }">
+										<input type="hidden" class="form-control" id="userLocateText"
+											value="${bdto.bvo.userLocate }" name="userLocateText">
+										<select class="form-select" id="userLocate" name="userLocate">
 											<option value="서울">서울</option>
 											<option value="경기">경기</option>
 											<option value="인천">인천</option>
@@ -53,15 +51,15 @@
 									</div>
 									<div class="col-md-6 mb-4">
 										<div class="form-outline datepicker">
-											<input type="text" class="form-control" id="writer" name="writer"
-												value="${ses.nickName}" readOnly />
+											<input type="text" class="form-control" id="writer"
+												name="writer" value="${ses.nickName}" readOnly />
 										</div>
 									</div>
 								</div>
 
 								<div class="form-outline mb-4">
-									<input type="text" class="form-control" id="bname" 
-										value="${bdto.bvo.bname }" name="bname" />
+									<input type="text" class="form-control" id="bname" name="bname"
+										value="${bdto.bvo.bname }" />
 								</div>
 								<div class="form-outline mb-4">
 									<textarea id="content" name="content" class="form-control"
@@ -110,7 +108,7 @@
 									글 등록을 취소하고 돌아가고 싶다면? <a href="/board/list"
 										class="fw-bold text-body listBtn"><u>뒤로 돌아가기</u></a>
 								</p>
-								</div>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -124,6 +122,14 @@
 	document.getElementById('attachTrigger').addEventListener('click', () => {
 		document.getElementById('files').click();
 	});
+	
+	const userLocateCtrl = document.getElementById('userLocate');
+	const userLocateValue = document.getElementById('userLocateText').value;
+	for(let index = 0; index < userLocate.length; index++) {
+		if(userLocate[index].value == userLocateValue) {
+			userLocate[index].selected = true;
+		}
+	}
 </script>
 
 <script src="/resources/js/board.modify.js"></script>
