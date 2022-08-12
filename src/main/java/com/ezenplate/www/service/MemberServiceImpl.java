@@ -10,6 +10,8 @@ import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.MemberDAO;
+import com.ezenplate.www.repository.VisitedDAO;
+import com.ezenplate.www.repository.WantDAO;
 
 @Service
 public class MemberServiceImpl implements MemberService {

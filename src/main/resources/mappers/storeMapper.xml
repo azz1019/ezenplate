@@ -75,6 +75,11 @@
 		cmt_qty = cmt_qty + 1
 		where sno = #{sno}
 	</update>
+	<update id="down_cmt">
+		update store set
+		cmt_qty = cmt_qty - 1
+		where sno = #{sno}
+	</update>
 	<update id="request_rate">
 		update store set
 		rate_avg = #{rate}
