@@ -84,17 +84,12 @@
 										<p>${bvo.content }</p>
 
 										<div class="board-pic">
-											<c:forEach items="${pdto.fileList }" var="fvo">
-												<c:choose>
-													<c:when test="${fvo.fileType == 1 }">
-														<div class="p-2 flex-fill bg-warning">
-															<img class="th_img"
-																src="/upload/${fn:replace(fvo.saveDir, '//','/')}/${fvo.uuid}_th_${fvo.fileName}">
-														</div>
-													</c:when>
-													<c:otherwise></c:otherwise>
-												</c:choose>
-											</c:forEach>
+											<c:forEach items="${bdto.fileList }" var="fvo">
+													<div class="flex-fill mt-3 p-4">
+														<img class="img"
+															src="/upload/${fn:replace(fvo.saveDir, '//','/')}/${fvo.uuid}_th_${fvo.fileName}">
+													</div>
+										</c:forEach>
 										</div>
 									</a>
 								</div>
