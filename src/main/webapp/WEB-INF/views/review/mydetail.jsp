@@ -25,8 +25,11 @@
 					수정일 : ${rdto.rvo.modAt }<br>
           		</div>
           		<c:choose>
-					<c:when test="${rdto.rvo.rate < 3.0}">
+          			<c:when test="${rdto.rvo.rate < 3.0}">
 						<div class="customer-rating customer-rating-red">${rdto.rvo.rate }</div>
+					</c:when>
+					<c:when test="${rdto.rvo.rate > 3.0 && rdto.rvo.rate < 4.0}">
+						<div class="customer-rating customer-rating" style="background-color: yellow; color: black;">${rdto.rvo.rate }</div>
 					</c:when>
 					<c:otherwise>
 						<div class="customer-rating">${rdto.rvo.rate }</div>
