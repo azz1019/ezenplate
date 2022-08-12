@@ -66,10 +66,12 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public int remove(long rno) {
+		int sno = rdao.select_sno(rno);
 		int isUp = rdao.remove(rno);
 		if(isUp > 0) {
 			isUp = fdao.deleteAllReviewFile(rno);
 		}
+		sdao.down_cmt(sno);
 		return isUp;
 	}
 
