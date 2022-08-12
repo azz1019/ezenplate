@@ -69,10 +69,13 @@
 	<select id="selectOne" parameterType="long" resultType="rvo">
 		select * from review <include refid="wh_rno"/>
 	</select>
+<<<<<<< HEAD
 	<select id="select_sno" resultType="long">
 	select sno from review
 	where rno = #{rno}
 	</select>
+=======
+>>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 	
 	<delete id="remove" parameterType="long">
 		delete from review <include refid="wh_rno"/>
@@ -86,6 +89,26 @@
 		select max(rno) from review
 	</select>
 	
+<<<<<<< HEAD
+=======
+	<select id="selectgetHolicTotalCount" resultType="int" parameterType="pgvo">
+		select count(b.rno) from (select grade ,email from member where grade = 50) a left join review b on a.email = b.writer 
+	</select>
+	
+	<select id="selectListGood" resultType="rvo">
+		select * from review order by rate desc 
+	</select>
+	<select id="selectGoodHolicTotalCount" resultType="int" parameterType="pgvo">
+		select count(rno) from review order by rate desc 
+	</select>
+	<select id="selectListBad" resultType="rvo">
+		select * from review order by rate asc
+	</select>
+	<select id="selectBadTotalCount" resultType="int" parameterType="pgvo">
+		select count(rno) from review order by rate asc
+	</select>
+	
+>>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 	<!-- 맛집 검색-->
 		<insert id="insert_review">
   		insert into review(sno, rate, content, report, writer, title)
@@ -98,14 +121,23 @@
 		select * from review
 		where sno = #{sno}
 		order by reg_at desc
+<<<<<<< HEAD
 		
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 	</select>
 	
 	<select id="selectAll" resultType="rvo">
 		select * from review order by rno desc
+<<<<<<< HEAD
 >>>>>>> Stashed changes
 	</select>
   
 </mapper>
+=======
+	</select>
+  
+</mapper>
+>>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2

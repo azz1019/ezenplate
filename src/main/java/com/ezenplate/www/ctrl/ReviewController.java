@@ -3,9 +3,11 @@ package com.ezenplate.www.ctrl;
 mport java.util.List;
 
 import javax.inject.Inject;
-import javax.ws.rs.POST;
+
+
 
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +27,9 @@ import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
-import com.ezenplate.www.domain.StoreDTO;
-import com.ezenplate.www.domain.StoreVO;
 import com.ezenplate.www.handler.FileHandler;
 import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.service.ReviewService;
-import com.ezenplate.www.service.StoreService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -97,7 +96,7 @@ public class ReviewController {
 	@GetMapping({"/mydetail", "/mymodify"})
 	public void mydetail(Model model, @RequestParam("rno")long rno, @ModelAttribute("pgvo")PagingVO pgvo) {
 		model.addAttribute("rdto", rsv.getDetail(rno));
-		model.addAttribute("sdto", ssv.getDetail(rsv.getDetail(rno).getRvo().getSno()));
+		model.addAttribute("sdto", rsv.getDetail(rsv.getDetail(rno).getRvo().getSno()));
 	}
 	
 	@PostMapping("/mymodify")
@@ -131,9 +130,15 @@ public class ReviewController {
 	}
 	
 	
+
+	//<!-- 맛집 검색 -->
+		@GetMapping("/register1")
+	public void register1(@RequestParam("sno")long sno, Model model) {
+
 	
 		@GetMapping("/register")
 	public void register(@RequestParam("sno")long sno, Model model) {
+
 		ReviewVO rvo = new ReviewVO();
 		rvo.setSno(sno);
 		model.addAttribute("rvo", rvo);
@@ -141,6 +146,7 @@ public class ReviewController {
 	@GetMapping(value="/{sno}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<List<ReviewDTO>> list(@PathVariable("sno") long sno) {
 		log.info("review list !!!!!");
+		List<ReviewDTO> dto = rsv.get_list(sno, null);
 		List<ReviewDTO> dto = rsv.get_list(sno);
 		log.info("review end!!!!!!!!!");
 		return new ResponseEntity<List<ReviewDTO>>(dto,HttpStatus.OK);

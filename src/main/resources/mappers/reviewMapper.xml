@@ -86,6 +86,22 @@
 		select max(rno) from review
 	</select>
 	
+	<select id="selectgetHolicTotalCount" resultType="int" parameterType="pgvo">
+		select count(b.rno) from (select grade ,email from member where grade = 50) a left join review b on a.email = b.writer 
+	</select>
+	
+	<select id="selectListGood" resultType="rvo">
+		select * from review order by rate desc 
+	</select>
+	<select id="selectGoodHolicTotalCount" resultType="int" parameterType="pgvo">
+		select count(rno) from review order by rate desc 
+	</select>
+	<select id="selectListBad" resultType="rvo">
+		select * from review order by rate asc
+	</select>
+	<select id="selectBadTotalCount" resultType="int" parameterType="pgvo">
+		select count(rno) from review order by rate asc
+	</select>
 	<!-- 맛집 검색-->
 		<insert id="insert_review">
   		insert into review(sno, rate, content, report, writer, title)
@@ -98,6 +114,10 @@
 		select * from review
 		where sno = #{sno}
 		order by reg_at desc
+	</select>
+	
+	<select id="selectAll" resultType="rvo">
+		select * from review order by rno desc
 		
 <<<<<<< Updated upstream
 =======

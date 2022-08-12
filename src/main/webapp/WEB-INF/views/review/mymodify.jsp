@@ -30,7 +30,7 @@
                             	<div class="mb-3">
 							      <label for="rate">평점 : </label>
 							      <input type="hidden" class="form-control" id="rateText" value="${rdto.rvo.rate }" name="rateText">
-							      <select class="form-select" id="rate" name="rate">
+							      <select class="selectpicker show-tick" data-style="btn-inverse" data-container="body" id="rate" name="rate">
 							      	<option value="1.0">1.0</option>
 							      	<option value="1.5">1.5</option>
 							      	<option value="2.0">2.0</option>

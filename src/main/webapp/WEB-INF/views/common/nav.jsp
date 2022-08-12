@@ -15,11 +15,15 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
  						<ul class="navbar-nav">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
  						<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">소식</a></li>
 =======
 >>>>>>> 96c37dc098093db8d9109992087531ffe661d994
+=======
+ 						<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">소식</a></li>
+>>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

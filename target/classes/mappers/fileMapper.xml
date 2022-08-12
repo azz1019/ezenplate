@@ -74,6 +74,7 @@
 		select * from attached_file
 	</select>
 	
+<<<<<<< HEAD
 	
 	<!-- 맛집 목록 및 검색 -->
    <insert id="insertFile" parameterType="fvo">
@@ -123,3 +124,8 @@
    </delete>
 	
 </mapper>
+=======
+	<!-- profile -->
+	
+</mapper>
+>>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2

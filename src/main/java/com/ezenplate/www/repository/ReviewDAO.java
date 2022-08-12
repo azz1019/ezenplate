@@ -21,8 +21,18 @@ public interface ReviewDAO {
 	int remove(long rno); // 리뷰 삭제
 	int selectTotalCount(PagingVO pgvo); // 전체 리뷰 갯수 반환
 	long selectLastRno(); // 가장 최근등록한 리뷰의 rno 반환
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 	List<ReviewVO> selectAll(); // 리뷰 전체 리스트
 >>>>>>> Stashed changes
+=======
+	List<ReviewVO> selectAll(); // 리뷰 전체 리스트
+	List<ReviewVO> selectListGood(); // good 순 리스트
+//	List<ReviewVO> selectListNomal(); // nomal 순 리스트
+	List<ReviewVO> selectListBad(); // bad 순 리스트
+	int selectgetHolicTotalCount(); // holic 총 갯수
+	int selectGoodHolicTotalCount();// good 총 갯수
+	int selectBadTotalCount(); // bad 총 갯수
+>>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 }

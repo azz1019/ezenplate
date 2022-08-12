@@ -74,6 +74,9 @@
 		select * from attached_file
 	</select>
 	
+	<!-- profile -->
+	
+</mapper>
 	
 	<!-- 맛집 목록 및 검색 -->
    <insert id="insertFile" parameterType="fvo">
