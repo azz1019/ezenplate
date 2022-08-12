@@ -10,4 +10,6 @@ public interface WantDAO {
 	int remove(Map map); // 가고싶다 삭제
 	int selectTotalCount(Map map); // 가고싶다 갯수 반환
 	int removeAllList(long mno); // 탈퇴시 가고싶다 목록 삭제
+	int check_dul(WantVO wvo); // 중복확인
+	int insert_want(WantVO wvo); // 가고싶다 추가
 }
