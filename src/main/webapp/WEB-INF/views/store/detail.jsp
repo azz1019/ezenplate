@@ -113,7 +113,14 @@
 					</c:choose>
 					<div class="reserve-btn">
 						<div class="featured-btn-wrap">
-							<a href="#" class="btn btn-danger">가고싶다</a>
+							<c:choose>
+								<c:when test="${ses.email ne null && ses.email ne '' }">
+									<a href="/want/register?sno=${sdto.svo.sno }&mno=${ses.mno}" class="btn btn-danger">가고싶다</a>
+								</c:when>
+								<c:otherwise>
+									<a class="btn btn-danger" id="login_plz">가고싶다</a>
+								</c:otherwise>							
+							</c:choose>
 						</div>
 					</div>
 				</div>
@@ -377,6 +384,20 @@ if(visit_ok){
 }
 if(visit_no){
 	alert("이미 가봤어요를 등록되어 있습니다");
+}
+</script>
+<script type="text/javascript">
+let want_ok = '<c:out value="${want_ok}"/>';
+let want_no = '<c:out value="${want_no}"/>';
+let want_check = '<c:out value="${want_check}"/>';
+if(want_ok){
+	alert("가고싶다를 등록했습니다.");
+}
+if(want_no){
+	alert("가고싶다 등록을 실패 했습니다.");
+}
+if(want_check){
+	alert("가고싶다가 이미 등록되어 있습니다.");
 }
 </script>
 <jsp:include page="../common/footer.jsp" />
