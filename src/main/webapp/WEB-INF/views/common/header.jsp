@@ -25,6 +25,9 @@
 <link rel="stylesheet" href="/resources/dist/css/set1.css">
 <!-- Main CSS -->
 <link rel="stylesheet" href="/resources/dist/css/style.css">
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/0f4d545e13.js" crossorigin="anonymous"></script>
+
 <!-- 맛집 검색 -->
 <!-- Swipper Slider -->
     <link rel="stylesheet" href="/resources/dist/css/swiper.min.css">
