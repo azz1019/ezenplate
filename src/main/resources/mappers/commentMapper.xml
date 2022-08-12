@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ezenplate.www.repository.CommentDAO">
+	<sql id="wh_cno">
+		where cno =#{cno}
+	</sql>
+
+	<!-- insert -->
+	<insert id="insert" parameterType="cvo">
+		insert into comment (bno,
+		writer, content)
+		values (#{bno}, #{writer}, #{content})
+	</insert>
+
+	<!-- list -->
+	<select id="selectList" resultType="cvo">
+		select a.cno, writer,
+		content, mod_at
+		from(
+		select cno from comment
+		where bno =#{bno}
+		limit
+		#{pgvo.pageStart}, #{pgvo.qty}
+		) a left join comment b
+		on a.cno = b.cno
+	</select>
+	<select id="selectTotalCount" resultType="int">
+		select count(cno) from
+		comment where bno =#{bno}
+	</select>
+	
+	<select id="selectBno" resultType="long">
+		select bno from comment <include refid="wh_cno" />
+	</select>
+
+	<!-- update -->
+	<update id="update" parameterType="cvo">
+		update comment set
+		content =#{content}, mod_at = now()
+		<include refid="wh_cno" />
+	</update>
+
+	<!-- delete -->
+	<delete id="delete">
+		delete from comment
+		<include refid="wh_cno" />
+	</delete>
+	
+</mapper>
+    

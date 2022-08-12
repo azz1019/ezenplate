@@ -1,8 +1,12 @@
 package com.ezenplate.www.ctrl;
 
-import java.util.List;
+mport java.util.List;
 
 import javax.inject.Inject;
+
+
+
+import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -38,11 +42,9 @@ public class ReviewController {
 	private ReviewService rsv;
 	@Inject
 	private FileHandler fhd;
-	
-	@GetMapping("/register")
-	public void register() {
-		
-	}
+	@Inject
+	private StoreService ssv;
+
 	
 	@PostMapping("/register")
 	public String register(ReviewVO rvo, 
@@ -59,7 +61,7 @@ public class ReviewController {
 	
 	@GetMapping("/list")
 	public void list(@RequestParam("sno") long sno, Model model, PagingVO pgvo) {
-		List<ReviewDTO> dto = rsv.get_list(sno, pgvo);
+		List<ReviewDTO> dto = rsv.get_list(sno);
 		model.addAttribute("list", dto);
 	}
 	
@@ -69,27 +71,18 @@ public class ReviewController {
 		model.addAttribute("rdto", dto);
 	}
 	
-	@PostMapping("/modify")
-	public String modify(ReviewVO rvo, @RequestParam(name="fileAttached", required = false)
-							MultipartFile[] files) {
-		List<FileVO> fileList = null;
-		if(files[0].getSize() > 0) {
-			fileList = fhd.getFileList(files);
-		}
-		int isUp = rsv.modify(new ReviewDTO(rvo, fileList));
-		return null;
-	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("rno") long rno) {
+	public String remove(@RequestParam("rno") long rno, @RequestParam("sno") long sno) {
 		rsv.remove(rno);
-		return null;
+		
+		return "redirect:/store/detail?sno="+sno;
 	}
 	
 	@PostMapping("/report")
-	public String report(@RequestParam("rno") long rno) {
+	public String report(@RequestParam("rno") long rno, @RequestParam("sno") long sno) {
 		rsv.report(rno);
-		return null;
+		return "redirect:/store/detail?sno="+sno;
 	}
 
 	@GetMapping("/mylist")
@@ -137,9 +130,15 @@ public class ReviewController {
 	}
 	
 	
+
 	//<!-- 맛집 검색 -->
 		@GetMapping("/register1")
 	public void register1(@RequestParam("sno")long sno, Model model) {
+
+	
+		@GetMapping("/register")
+	public void register(@RequestParam("sno")long sno, Model model) {
+
 		ReviewVO rvo = new ReviewVO();
 		rvo.setSno(sno);
 		model.addAttribute("rvo", rvo);
@@ -148,6 +147,7 @@ public class ReviewController {
 	public ResponseEntity<List<ReviewDTO>> list(@PathVariable("sno") long sno) {
 		log.info("review list !!!!!");
 		List<ReviewDTO> dto = rsv.get_list(sno, null);
+		List<ReviewDTO> dto = rsv.get_list(sno);
 		log.info("review end!!!!!!!!!");
 		return new ResponseEntity<List<ReviewDTO>>(dto,HttpStatus.OK);
 	}

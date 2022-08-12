@@ -16,4 +16,8 @@
 	<select id="selectTotalCount" resultType="int" parameterType="hashMap">
 		select count(mno) from want where mno=#{mno};
 	</select>
+
+	<delete id="removeAllList" parameterType="long">
+		delete from want where mno=#{mno}
+	</delete>
 </mapper>

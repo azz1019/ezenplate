@@ -19,6 +19,8 @@ public interface StoreService {
 	List<StoreDTO> store_list(PagingVO pgvo); // 맛집 전체 목록
 	List<StoreDTO> search_store_list(PagingVO pgvo); // 맛집 검색 목록
 	int getTotal_Count(PagingVO pgvo); // 전체 맛집 수
+	int get_search_all_Count(PagingVO pgvo); // 전체 맛집 수
 	int get_search_count(PagingVO pgvo); // 검색한 맛집 수
 	StoreDTO get_store(long sno, int i); // 맛집 detail
+	List<StoreDTO> view_more(); // 
 }

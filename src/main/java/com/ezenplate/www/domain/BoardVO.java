@@ -16,7 +16,7 @@ public class BoardVO {
 	private String userLocate;
 	private String bname;
 	private String content;
-	private String regAt;
+	private Date regAt;
 	private String modAt;
 	private String writer;
 	private int readCount;

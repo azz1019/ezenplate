@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
@@ -12,6 +13,7 @@
 				<th>순번</th>
 				<th>지역</th>
 				<th>제목</th>
+				<th>등록일</th>
 				<th>수정일</th>
 				<th>조회수</th>
 				<th>댓글수</th>
@@ -24,7 +26,8 @@
 						<th>${bvo.bno }</th>
 						<th>${bvo.userLocate }</th>
 						<th><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></th>
-						<th>${bvo.modAt }</th>
+						<th><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.regAt}" /></span></th>
+						<th><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.modAt}" /></span></th>
 						<th>${bvo.readCount }</th>
 						<th>${bvo.cmtQty }</th>
 					</tr>

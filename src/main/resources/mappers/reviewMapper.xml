@@ -69,6 +69,10 @@
 	<select id="selectOne" parameterType="long" resultType="rvo">
 		select * from review <include refid="wh_rno"/>
 	</select>
+	<select id="select_sno" resultType="long">
+	select sno from review
+	where rno = #{rno}
+	</select>
 	
 	<delete id="remove" parameterType="long">
 		delete from review <include refid="wh_rno"/>
@@ -98,7 +102,6 @@
 	<select id="selectBadTotalCount" resultType="int" parameterType="pgvo">
 		select count(rno) from review order by rate asc
 	</select>
-	
 	<!-- 맛집 검색-->
 		<insert id="insert_review">
   		insert into review(sno, rate, content, report, writer, title)
@@ -115,6 +118,7 @@
 	
 	<select id="selectAll" resultType="rvo">
 		select * from review order by rno desc
+		
 	</select>
   
 </mapper>

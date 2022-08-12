@@ -7,7 +7,7 @@ import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
 
 public interface ReviewService {
-	List<ReviewDTO> get_list(long sno, PagingVO pvo); // 리뷰 목록
+	List<ReviewDTO> get_list(long sno); // 리뷰 목록
 	ReviewDTO get_review(long rno); // 리뷰 detail
 	void report(long rno); // 리뷰 신고
 

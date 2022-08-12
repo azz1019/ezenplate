@@ -11,6 +11,8 @@ import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.MemberDAO;
+import com.ezenplate.www.repository.VisitedDAO;
+import com.ezenplate.www.repository.WantDAO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -19,6 +21,12 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Inject
 	private FileDAO fdao;
+
+	@Inject
+	private VisitedDAO vdao;
+	
+	@Inject
+	private WantDAO wdao;
 	
 	@Override
 	public MemberVO login(MemberVO mvo) {
@@ -67,6 +75,8 @@ public class MemberServiceImpl implements MemberService {
 	public int remove(String email) {
 		long mno = mdao.selectMnoMatchEmail(email);
 		fdao.deleteMemberFile(mno);
+		vdao.removeAllList(mno);
+		wdao.removeAllList(mno);
 		int isUp = mdao.delete(email);
 		return isUp;
 	}

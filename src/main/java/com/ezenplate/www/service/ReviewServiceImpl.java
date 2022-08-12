@@ -1,5 +1,6 @@
 package com.ezenplate.www.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,12 +13,14 @@ import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.ReviewDAO;
+import com.ezenplate.www.repository.StoreDAO;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
 	@Inject
 	private ReviewDAO rdao;
-	
+	@Inject
+	private StoreDAO sdao;
 	@Inject
 	private FileDAO fdao;
 
@@ -33,6 +36,7 @@ public class ReviewServiceImpl implements ReviewService {
 				}
 			}
 		}
+		sdao.up_cmt(rdto.getRvo().getSno());
 		return isUp;
 	}
 
@@ -62,10 +66,12 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public int remove(long rno) {
+		long sno = rdao.select_sno(rno);
 		int isUp = rdao.remove(rno);
 		if(isUp > 0) {
 			isUp = fdao.deleteAllReviewFile(rno);
 		}
+		sdao.down_cmt(sno);
 		return isUp;
 	}
 
@@ -136,5 +142,33 @@ public class ReviewServiceImpl implements ReviewService {
 		return rdao.selectBadTotalCount();
 	}
 
+	
+	@Override
+	public List<ReviewDTO> get_list(long sno) {
+		List<ReviewDTO> dto = new ArrayList<ReviewDTO>();
+		List<ReviewVO> rvo = rdao.review_list(sno);
+		float rate = 0;
+		int i=0;
+		for (ReviewVO reviewVO : rvo) {
+			List<FileVO> fvo = fdao.select_review(reviewVO.getRno());
+			dto.add(new ReviewDTO(reviewVO, fvo));
+			rate +=reviewVO.getRate();
+			i++;
+		}
+		sdao.request_rate(rate/i, sno);
+		return dto;
+	}
 
+	@Override
+	public ReviewDTO get_review(long rno) {
+		ReviewVO rvo = rdao.get_review(rno);
+		List<FileVO> fvo = fdao.select_review(rno);
+
+		return new ReviewDTO(rvo, fvo);
+	}
+	@Override
+	public void report(long rno) {
+		rdao.update_report(rno);
+
+	}
 }

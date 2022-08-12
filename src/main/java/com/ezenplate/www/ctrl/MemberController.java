@@ -150,7 +150,11 @@ public class MemberController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("email")String email) {
+	public String remove(@RequestParam("email")String email, HttpSession ses, RedirectAttributes rttr) {
+		ses.removeAttribute("ses");
+		ses.invalidate();
+		rttr.addFlashAttribute("isLogout", 1);
+		
 		int isUp = msv.remove(email);
 		log.info(">>> MemberController remove - POST : {}", isUp > 0 ? "OK":"FAIL");
 		return "redirect:/";

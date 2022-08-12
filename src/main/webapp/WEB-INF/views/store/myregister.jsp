@@ -19,7 +19,7 @@
     	
     	<div class="mb-3 mt-3">
 	    	<label for="category">카테고리 : </label>
-			<select class="form-select" id="category" name="category" required>
+			<select class="selectpicker show-tick" data-style="btn-inverse" data-container="body" id="category" name="category" required>
 	    		<option value="한식">한식</option>
 	    		<option value="일식">일식</option>
 	    		<option value="중식">중식</option>

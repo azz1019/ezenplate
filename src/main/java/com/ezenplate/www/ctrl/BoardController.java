@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.ezenplate.www.domain.BoardDTO;
 import com.ezenplate.www.domain.BoardVO;
 import com.ezenplate.www.domain.FileVO;
+import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.handler.FileHandler;
 import com.ezenplate.www.handler.PagingHandler;
@@ -64,12 +65,13 @@ public class BoardController {
 	}
 	
 	@GetMapping({"/detail", "/modify"})
-	public void detail(@RequestParam("bno") Long bno, Model model, RedirectAttributes rttr, PagingVO pgvo) {
+	public void detail(@RequestParam("bno") long bno, Model model, RedirectAttributes rttr, PagingVO pgvo) {
 		model.addAttribute("bdto", bsv.getDetail(bno));
 	}
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO bvo, @RequestParam(name = "fileAttached", required = false) MultipartFile[] files, RedirectAttributes rttr, PagingVO pgvo) {
+	public String modify(BoardVO bvo, RedirectAttributes rttr, PagingVO pgvo,
+			@RequestParam(name = "fileAttached", required = false) MultipartFile[] files) {
 		List<FileVO> fileList = null;
 		if(files[0].getSize() > 0 ) {
 			fileList = fhd.getFileList(files);
@@ -80,18 +82,24 @@ public class BoardController {
 		rttr.addAttribute("qty", pgvo.getQty());
 		rttr.addAttribute("type", pgvo.getType());
 		rttr.addAttribute("kw", pgvo.getKw());
+		log.info(">>> Board Modify : {}", isUp > 0 ? "OK" : "FAIL");
 		return "redirect:/board/detail?bno=" + bvo.getBno();
 	}
 	
+	@GetMapping("/remove")
+	public void remove(Model model, @RequestParam("bno") long bno) {
+		log.info(">>> Board Controller remove - GET");
+		BoardDTO bdto = bsv.getDetail(bno);
+		model.addAttribute("bdto", bdto);
+	}
+	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, PagingVO pgvo) {
+	public String remove(@RequestParam("bno")long bno) {
 		int isUp = bsv.remove(bno);
-		rttr.addAttribute("pageNo", pgvo.getPageNo());
-		rttr.addAttribute("qty", pgvo.getQty());
-		rttr.addAttribute("type", pgvo.getType());
-		rttr.addAttribute("kw", pgvo.getKw());
+		log.info(">>> Board Controller remove - POST : {}", isUp > 0 ? "OK":"FAIL");
 		return "redirect:/board/list";
 	}
+	
 	
 	@DeleteMapping(value = "/file/{uuid}", produces = MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> removeFile(@PathVariable("uuid") String uuid){		
