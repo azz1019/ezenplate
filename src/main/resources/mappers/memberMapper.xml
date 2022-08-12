@@ -40,6 +40,13 @@
 		select * from member <include refid="wh_email"/>
 	</select>
 	
+	<select id="selectListHolic" resultType="mvo">
+		select * from member where grade = 50 order by grade desc
+	</select>
+	
+	
+	
+	
 	<update id="update" parameterType="mvo">
 		update member set pwd=#{pwd}, nick_name=#{nickName}, user_locate=#{userLocate} <include refid="wh_email"/>
 	</update>

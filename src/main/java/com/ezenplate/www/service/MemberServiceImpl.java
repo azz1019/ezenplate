@@ -81,4 +81,14 @@ public class MemberServiceImpl implements MemberService {
 		return fdao.selectAllFiles();
 		
 	}
+
+	@Override
+	public List<MemberVO> getListHolic() {
+		return mdao.selectListHolic();
+	}
+
+
+
+
+
 }

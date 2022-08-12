@@ -33,12 +33,12 @@
 
 <div class="d-flex flex-column align-self-center" id="listBody">
 <c:forEach items="${filelist }" var="fi">
-<c:forEach items="${mlist }" var="ml">
-<c:if test="${ml.mno == fi.mno }">
+<c:forEach items="${holic }" var="ho">
+<c:if test="${ho.mno == fi.mno }">
 <c:forEach items="${relist }" var="re">
-<c:if test="${re.writer == ml.email }">
+<c:if test="${re.writer == ho.email }">
   <a href="../review/mydetail?rno=${re.rno }" class="list-group-item list-group-item-action w-50 align-self-center" aria-current="true">
-   <div class="row">
+<div class="row">
 <div class="col">
     <div class="row-col">
 		<div class="col"><img src="/upload/${fn:replace(fi.saveDir, '\\', '/') }/${fi.uuid }_th_${fi.fileName }" class="rounded-circle"></div>
@@ -76,10 +76,4 @@
 </c:forEach>
 </div>
 
-  <div class="text-center" style="visibility: hidden;">
-		<button type="button" data-page="1" id="moreBtn"
-			class="btn btn-outline-secondary" onclick="moreList();">MORE +</button>
-	</div>
-	<scrip src="../list/listmore.js">
-	</script>
 <jsp:include page="../common/footer.jsp"/>

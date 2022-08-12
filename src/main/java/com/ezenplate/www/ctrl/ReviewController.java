@@ -135,4 +135,20 @@ public class ReviewController {
 		log.info(">>> ReviewController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
 		return "redirect:/review/mylist";
 	}
+	
+	
+	//<!-- 맛집 검색 -->
+		@GetMapping("/register1")
+	public void register1(@RequestParam("sno")long sno, Model model) {
+		ReviewVO rvo = new ReviewVO();
+		rvo.setSno(sno);
+		model.addAttribute("rvo", rvo);
+	}
+	@GetMapping(value="/{sno}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<ReviewDTO>> list(@PathVariable("sno") long sno) {
+		log.info("review list !!!!!");
+		List<ReviewDTO> dto = rsv.get_list(sno, null);
+		log.info("review end!!!!!!!!!");
+		return new ResponseEntity<List<ReviewDTO>>(dto,HttpStatus.OK);
+	}
 }

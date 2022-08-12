@@ -14,4 +14,5 @@ public interface MemberDAO {
 	int update(MemberVO mvo); // 프로필 수정
 	int delete(String email); // 탈퇴
 	List<MemberVO> selectList(); // 리스트
+	List<MemberVO> selectListHolic(); // holic 순
 }

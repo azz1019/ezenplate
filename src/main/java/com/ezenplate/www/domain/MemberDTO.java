@@ -1,5 +1,6 @@
 package com.ezenplate.www.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
