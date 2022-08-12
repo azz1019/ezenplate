@@ -8,9 +8,50 @@
 		where email=#{email}
 	</sql>
 
+	<select id="selectList" resultType="mvo">
+		select * from member
+		order by mno
+	</select>
+	
 	<select id="selectOne" parameterType="mvo" resultType="mvo">
-		select email, nick_name
+		select email, nick_name, grade, mno
 		from member
 		<include refid="wh_email"/> and pwd=#{pwd}
 	</select>
+	
+	<insert id="insert" parameterType="mvo">
+		insert into member(email, pwd, nick_name, user_locate) 
+		values (#{email}, #{pwd}, #{nickName}, #{userLocate})
+	</insert>
+	
+	<select id="selectEmail" parameterType="string" resultType="long">
+		select count(email) from member <include refid="wh_email"/>
+	</select>
+	
+	<select id="selectLastMno" resultType="long">
+		select max(mno) from member
+	</select>
+	
+	<select id="selectMnoMatchEmail" parameterType="string" resultType="long">
+		select mno from member <include refid="wh_email"/>
+	</select>
+	
+	<select id="selectDetail" parameterType="string" resultType="mvo">
+		select * from member <include refid="wh_email"/>
+	</select>
+	
+	<select id="selectListHolic" resultType="mvo">
+		select * from member where grade = 50 order by grade desc
+	</select>
+	
+	
+	
+	
+	<update id="update" parameterType="mvo">
+		update member set pwd=#{pwd}, nick_name=#{nickName}, user_locate=#{userLocate} <include refid="wh_email"/>
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		delete from member <include refid="wh_email"/>
+	</delete>
 </mapper>

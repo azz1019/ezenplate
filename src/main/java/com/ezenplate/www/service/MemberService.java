@@ -2,8 +2,10 @@ package com.ezenplate.www.service;
 
 import java.util.List;
 
+import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
+import com.ezenplate.www.domain.PagingVO;
 
 public interface MemberService {
 	public MemberVO login(MemberVO mvo); // 로그인
@@ -14,4 +16,6 @@ public interface MemberService {
 	public int modify(MemberDTO mdto); // 프로필 수정
 	public int remove(String email); // 탈퇴
 	public List<MemberVO> getList(); // 리스트
+	public List<FileVO> getListFile();// 프로필 파일 전체 리스트
+	public List<MemberVO> getListHolic(); // holic순
 }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezenplate.www.repository.StoreDAO">
+	<sql id="wh_sno">
+		where sno=#{sno}
+	</sql>
+<!-- 맛집 목록 및 검색 -->
+	<sql id="search">
+   	<if test="type != null">
+   		<trim prefix="and (" suffix=")" prefixOverrides="OR" >
+   			<foreach collection="typeToArray" item="type">
+   				<trim prefix="OR">
+   					<choose>
+   						<when test="type == 'l'.toString()">
+   							locate like concat('%', #{kw}, '%') 
+   						</when>
+   						<when test="type == 'n'.toString()">
+   							sname like concat('%',#{kw},'%')
+   						</when>
+   					</choose>
+   				</trim>
+   			</foreach>
+   			</trim>
+   		</if>
+   	</sql>
+	
+	<select id="select_store_list" resultType="svo" parameterType="pgvo">
+   		select * from store 
+   		order by rate_avg
+   		limit #{pageStart}, #{qty}
+   	</select>
+   	<select id="select_search_store" resultType="svo" parameterType="pgvo">
+   		select * from store
+   		where 1=1
+   		<include refid="search"/>
+   		order by rate_avg
+   		limit #{pageStart}, #{qty}
+   	</select>
+   
+   	<select id="select_total_count" resultType="int">
+  		 select count(sno) from store
+   	</select>
+   	<select id="select_search_count" resultType="int" parameterType="pgvo">
+	   	select count(sno) from store
+   		where sname = #{kw}
+   	</select>
+   	<select id="select_one" resultType="svo">
+   		select * from store
+   		where sno = #{sno}
+   	</select>
+   
+   
+   	<update id="update_readcount">
+	   	update store set
+   		read_count = read_count + #{i}
+   		where sno = #{sno}
+   	</update>
+<!--맛집 목록 및 검색 -->
+	<insert id="insert" parameterType="svo">
+		insert into store (writer, sname, category, locate, tel, content, menu_name1, menu_name2, menu_name3, menu_name4, menu_name5, menu_price1, menu_price2, menu_price3, menu_price4, menu_price5, holiday, rate_avg)
+		values (#{writer}, #{sname}, #{category}, #{locate}, #{tel}, #{content}, #{menuName1}, #{menuName2}, #{menuName3}, #{menuName4}, #{menuName5}, #{menuPrice1}, #{menuPrice2}, #{menuPrice3}, #{menuPrice4}, #{menuPrice5}, #{holiday}, 0)
+	</insert>
+	
+	<select id="selectList" resultType="svo" parameterType="pgvo">
+		select a.sno, writer, sname, category, locate, reg_at, approve
+		from (select sno from store where sno > 0 order by sno desc limit #{pageStart}, #{qty}) a left join store b
+		on a.sno = b.sno
+	</select>
+	
+	<select id="selectOne" parameterType="long" resultType="svo">
+		select * from store <include refid="wh_sno"/>
+	</select>
+	
+	<delete id="remove" parameterType="long">
+		delete from store <include refid="wh_sno"/>
+	</delete>
+	
+	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
+		select count(sno) from store where sno > 0
+	</select>
+	
+	<select id="selectLastSno" resultType="long">
+		select max(sno) from store
+	</select>
+</mapper>

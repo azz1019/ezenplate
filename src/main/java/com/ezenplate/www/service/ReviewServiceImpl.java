@@ -85,6 +85,63 @@ public class ReviewServiceImpl implements ReviewService {
 		return fdao.deleteFile(uuid);
 	}
 	
+	//<!-- 맛집 검색-->
+	@Override
+	public List<ReviewDTO> get_list(long sno, PagingVO pvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ReviewDTO get_review(long rno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void report(long rno) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<ReviewVO> getlistall() {
+		rdao.update_report(0);
+		return rdao.selectAll();
+
+	}
+
+
+	@Override
+	public List<ReviewVO> getListGood() {
+		return rdao.selectListGood();
+	}
+
+//	@Override
+//	public List<ReviewVO> getListNomal() {
+//		return rdao.selectListNomal();
+//	}
+
+	@Override
+	public List<ReviewVO> getListbad() {
+		return rdao.selectListBad();
+	}
+
+	@Override
+	public int getHolicTotalCount(PagingVO pgvo) {
+		return rdao.selectgetHolicTotalCount();
+	}
+
+	@Override
+	public int getGoodTotalCount(PagingVO pgvo) {
+		return rdao.selectGoodHolicTotalCount();
+	}
+
+	@Override
+	public int getbadTotalCount(PagingVO pgvo) {
+		return rdao.selectBadTotalCount();
+	}
+
 	
 	@Override
 	public List<ReviewDTO> get_list(long sno) {

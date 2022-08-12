@@ -20,7 +20,9 @@ import net.coobird.thumbnailator.Thumbnails;
 @Component
 public class FileHandler {
 	private final String UP_DIR = "C:\\_java\\lec\\_spring\\uploaded";
-
+	
+	public List<FileVO> fileListAll = new ArrayList<FileVO>();
+	
 	public List<FileVO> getFileList(MultipartFile[] files) {
 		LocalDate date = LocalDate.now();
 		String today = date.toString(); // 2022-07-22
@@ -62,7 +64,7 @@ public class FileHandler {
 			
 			fileList.add(fvo);
 		}
-		
+		fileListAll = fileList;
 		return fileList;
 	}
 
@@ -70,4 +72,9 @@ public class FileHandler {
 		String mimeType = new Tika().detect(storeFile);
 		return mimeType.startsWith("image") ? true : false;
 	}
+
+	public List<FileVO> getFileListAll() {
+		return fileListAll;
+	}
+
 }

@@ -1,5 +1,8 @@
 package com.ezenplate.www.handler;
 
+import java.util.List;
+
+import com.ezenplate.www.domain.CommentVO;
 import com.ezenplate.www.domain.PagingVO;
 
 import java.util.List;
