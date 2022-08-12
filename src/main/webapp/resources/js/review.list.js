@@ -13,7 +13,7 @@ async function spread_review_sno(sno) {
 function get_review_list() {
 
     let sno = document.getElementById('sno').value;
-    
+    let email = document.getElementById('email').value
     
     spread_review_sno(sno).then(result => {
         if (result != null) {
@@ -31,13 +31,25 @@ function get_review_list() {
                 if(list.rvo.title == null){
                     review_inner += `<h6>제목 없음</h6>`;
                 } else {
-                    review_inner += `<h6>${list.rvo.title}</h6>`;
+                    
+                    review_inner += `<a style="inherited:no; border:0px;" href="/review/mydetail?rno=${list.rvo.rno}"><h6>${list.rvo.title}</h6></a>`;
+                    
                 }
-                review_inner += `<span></span>`;
-                review_inner += `<span></span>`;
-                review_inner += `<span></span>`;
-                review_inner += `<span></span>`;
-                review_inner += `<span class="round-icon-blank"></span>`;
+                let rate = Math.floor(list.rvo.rate);
+                console.log(rate);
+                for (let i = 1; i <= 5; i++) {          
+                    if(rate<2 && rate >= i){
+                        review_inner += `<span class="bg-danger"></span>`;
+                    } else if (rate<4 && rate >= i){
+                        review_inner += `<span class="bg-warning"></span>`;
+                    } else if (rate >=4 && rate >= i){
+                        review_inner += `<span></span>`;
+                    } else {
+                        review_inner += `<span class="round-icon-blank"></span>`;
+                    }
+                }
+                
+                
                 review_inner += `<p>${list.rvo.modAt}</p>`;
                 review_inner += `</div>`;
                 if (list.rvo.rate < 2) {
@@ -62,15 +74,28 @@ function get_review_list() {
                 }
                 review_inner += `</ul>`;
                 review_inner += `<span>28 people marked this review as helpful</span>`;
+                console.log(list.rvo.writer == email);
+                console.log(list.rvo.writer);
+                console.log(email);
                 if(list.rvo.writer == email){
-
+                    review_inner += `<form action = "/review/mymodify" method="get">`;
+                    review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
+                    review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
+                    review_inner += `<button type="submit" class="bg-warning"><a id="report"><span class="icon-like"></span>modify</a></button>`;
+                    review_inner += `</form>`;
+                    review_inner += `<form action = "/review/remove" method="post">`;
+                    review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
+                    review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
+                    review_inner += `<button type="submit" class="bg-danger"><a id="report"><span class="icon-like"></span>Remove</a></button>`;
+                    review_inner += `</form>`;
+                    
                 }
                 if(email != ''){
                     
                     review_inner += `<form action = "/review/report" method="post">`;
                     review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
                     review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
-                    review_inner += `<button type="submit"><a id="report"><span class="icon-like"></span>Helpful</a></button>`;
+                    review_inner += `<button type="submit"><a id="report"><span class="icon-like"></span>reprot</a></button>`;
                     review_inner += `</form>`;
                 }
                 review_inner += `</div>`;
