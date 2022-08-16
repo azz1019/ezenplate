@@ -16,6 +16,8 @@ public interface MemberService {
 	public int modify(MemberDTO mdto); // 프로필 수정
 	public int remove(String email); // 탈퇴
 	public List<MemberVO> getList(); // 리스트
+	public int gradeChange(MemberVO mvo);
+	public int lastLogin(String email);
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
