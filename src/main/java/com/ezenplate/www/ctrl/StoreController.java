@@ -48,8 +48,10 @@ public class StoreController {
 	}
 	
 	@PostMapping("/myregister")
-	public String register(StoreVO svo, RedirectAttributes rttr, @RequestParam(name = "fileAttached", required = false)MultipartFile[] files) {
+	public String register(StoreVO svo, RedirectAttributes rttr, @RequestParam(name = "fileAttached", required = false)MultipartFile[] files,
+							@RequestParam(name="locate_detail") String detail) {
 		List<FileVO> fileList = null;
+		svo.setLocate(svo.getLocate()+' '+detail);
 		if(files[0].getSize() > 0) {
 			fileList = fhd.getFileList(files);
 		}

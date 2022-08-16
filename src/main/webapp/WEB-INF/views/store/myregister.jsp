@@ -38,7 +38,11 @@
     	
     	<div class="mb-3 mt-3">
       		<label for="locate">주소 : </label>
-      		<input type="text" class="form-control" id="locate" placeholder="식당주소를 입력해주세요" name="locate" required>
+      		<input type="text" id="address_kakao" name="locate" readonly />
+    	</div>
+    	<div class="mb-3 mt-3">
+      		<label for="locate">상세 주소 : </label>
+      		<input type="text" name="locate_detail" />
     	</div>
     	
     	<div class="mb-3 mt-3">
@@ -120,5 +124,18 @@
 	});
 </script>
 <script src="/resources/js/store.myregister.js"></script>
-
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+window.onload = function(){
+    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+</script>
 <jsp:include page="../common/footer.jsp"/>

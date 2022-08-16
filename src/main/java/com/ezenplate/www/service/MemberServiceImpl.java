@@ -85,7 +85,7 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> getList() {
 		return mdao.selectList();
 	}
-	
+
 	@Override
 	public int gradeChange(MemberVO mvo) {
 		return mdao.gradeUpdate(mvo);
@@ -96,21 +96,12 @@ public class MemberServiceImpl implements MemberService {
 		return mdao.lastLogin(email);
 	}
 	
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
-
 	@Override
 	public List<FileVO> getListFile() {
 		return fdao.selectAllFiles();
-<<<<<<< HEAD
+
 	}
->>>>>>> Stashed changes
-=======
-		
-	}
+
 
 	@Override
 	public List<MemberVO> getListHolic() {
@@ -121,5 +112,5 @@ public class MemberServiceImpl implements MemberService {
 
 
 
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
+
 }

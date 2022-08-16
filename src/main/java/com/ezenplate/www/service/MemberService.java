@@ -15,17 +15,14 @@ public interface MemberService {
 	public int removeFile(String uuid); // 파일 삭제
 	public int modify(MemberDTO mdto); // 프로필 수정
 	public int remove(String email); // 탈퇴
+
 	public List<MemberVO> getList(PagingVO pgvo); // 리스트
 	public int gradeChange(MemberVO mvo);
 	public int lastLogin(String email);
 	public int getTotalCount(PagingVO pgvo);
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
+
 	public List<FileVO> getListFile();// 프로필 파일 전체 리스트
->>>>>>> Stashed changes
-=======
-	public List<FileVO> getListFile();// 프로필 파일 전체 리스트
+	public List<MemberVO> getList(); // 리스트
 	public List<MemberVO> getListHolic(); // holic순
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
+
 }

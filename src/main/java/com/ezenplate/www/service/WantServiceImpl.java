@@ -71,4 +71,9 @@ public class WantServiceImpl implements WantService {
 		int ok = wdao.insert_want(wvo);
 		return ok;
 	}
+	@Override
+	public List<WantVO> want_list(long mno) {
+		
+		return wdao.want_get_list(mno);
+	}
 }
