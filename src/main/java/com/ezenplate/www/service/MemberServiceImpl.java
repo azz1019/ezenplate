@@ -86,15 +86,22 @@ public class MemberServiceImpl implements MemberService {
 		return mdao.selectList();
 	}
 
+	@Override
+	public int gradeChange(MemberVO mvo) {
+		return mdao.gradeUpdate(mvo);
+	}
 
+	@Override
+	public int lastLogin(String email) {
+		return mdao.lastLogin(email);
+	}
+	
 	@Override
 	public List<FileVO> getListFile() {
 		return fdao.selectAllFiles();
 
 	}
 
-		
-	}
 
 	@Override
 	public List<MemberVO> getListHolic() {

@@ -15,4 +15,6 @@ public interface MemberDAO {
 	int delete(String email); // 탈퇴
 	List<MemberVO> selectList(); // 리스트
 	List<MemberVO> selectListHolic(); // holic 순
+	int gradeUpdate(MemberVO mvo);
+	int lastLogin(String email);
 }
