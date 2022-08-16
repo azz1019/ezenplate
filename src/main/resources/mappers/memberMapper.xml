@@ -43,6 +43,9 @@
 	<select id="selectListHolic" resultType="mvo">
 		select * from member where grade = 50 order by grade desc
 	</select>
+	<select id="select_mno" resultType="long">
+		select mno from member where email=#{email}
+	</select>
 	
 	<update id="gradeUpdate" parameterType="mvo">
 		update member set grade = #{grade} <include refid="wh_email"/>
