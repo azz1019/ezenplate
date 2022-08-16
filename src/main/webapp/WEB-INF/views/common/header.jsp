@@ -38,6 +38,7 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/resources/dist/js/jquery-3.2.1.min.js"></script>
 <script src="/resources/dist/js/popper.min.js"></script>
+<script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/resources/dist/js/bootstrap.min.js"></script>
 
 <!-- 부트스트랩 select -->
