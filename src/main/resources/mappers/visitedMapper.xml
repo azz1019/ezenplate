@@ -14,6 +14,9 @@
 		select mno, sno, sname, reg_at
 		from visited where mno=#{mno} limit #{pgvo.pageStart}, #{pgvo.qty}
 	</select>
+	<select id="get_list" resultType="vvo">
+		select * from visited where mno=#{mno}
+	</select>
 	
 	<delete id="remove" parameterType="hashMap">
 		delete from visited where mno=#{mno} and sno=#{sno}
