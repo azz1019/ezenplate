@@ -85,6 +85,17 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> getList() {
 		return mdao.selectList();
 	}
+	
+	@Override
+	public int gradeChange(MemberVO mvo) {
+		return mdao.gradeUpdate(mvo);
+	}
+
+	@Override
+	public int lastLogin(String email) {
+		return mdao.lastLogin(email);
+	}
+	
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
