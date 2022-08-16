@@ -70,4 +70,9 @@ public class VisitedServiceImpl implements VisitedService {
 		}
 		
 	}
+	@Override
+	public List<VisitedVO> visit_list(long mno) {
+		
+		return vdao.get_list(mno);
+	}
 }
