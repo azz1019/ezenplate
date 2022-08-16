@@ -34,6 +34,14 @@ public class StoreController {
 	@Inject
 	private FileHandler fhd;
 	
+	@GetMapping("/approve")
+	public void approve(Model model, PagingVO pgvo) {
+		log.info(">>> StoreController approve - GET");
+		model.addAttribute("list", ssv.getList(pgvo));
+		int totalCount = ssv.getTotalCount(pgvo);
+		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
+	}
+	
 	@GetMapping("/myregister")
 	public void register() {
 		log.info(">>> StoreController register - GET");
