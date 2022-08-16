@@ -17,4 +17,5 @@ public interface MemberDAO {
 	List<MemberVO> selectListHolic(); // holic 순
 	int gradeUpdate(MemberVO mvo);
 	int lastLogin(String email);
+	long select_mno(String email); // mno 찾기
 }
