@@ -11,4 +11,5 @@ public interface VisitedService {
 	public int getTotalCount(PagingVO pgvo, long mno); // 가봤어요 갯수 반환
 	public int register(long mno, long sno);
 	public int check(long mno, long sno);
+	public List<VisitedVO> visit_list(long mno); // 회원 가봤어요 리스트 
 }
