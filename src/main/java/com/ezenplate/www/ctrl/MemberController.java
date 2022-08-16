@@ -47,6 +47,12 @@ public class MemberController {
 	private MemberService msv;
 	
 	@Inject
+	private WantService wsv;
+	
+	@Inject
+	private VisitedService vsv;
+	
+	@Inject
 	private FileHandler fhd;
 	
 	@GetMapping("/list")

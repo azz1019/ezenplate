@@ -4,8 +4,16 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
+<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
+
 <div class="container mt-3">
-	<h2>내가 쓴 리뷰</h2>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>내가 쓴 리뷰</h3>
+			</div>
+		</div>
+	</div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -21,12 +29,12 @@
 			<c:forEach items="${list }" var="rvo">
 				<c:if test="${ses.email == rvo.writer }">
 					<tr>
-						<th>${rvo.rno }</th>
-						<th>${rvo.sno }</th>
-						<th><a href="/review/mydetail?rno=${rvo.rno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${rvo.title }</a></th>
-						<th>${rvo.rate }</th>
-						<th>${rvo.regAt }</th>
-						<th>${rvo.modAt }</th>
+						<td>${rvo.rno }</td>
+						<td>${rvo.sno }</td>
+						<td><a href="/review/mydetail?rno=${rvo.rno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${rvo.title }</a></td>
+						<td>${rvo.rate }</td>
+						<td>${rvo.regAt }</td>
+						<td>${rvo.modAt }</td>
 					</tr>
 				</c:if>
 			</c:forEach>

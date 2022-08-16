@@ -4,9 +4,18 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
+<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
+
 <div class="container mt-3">
-	<h2>내가등록한 식당</h2>
-	<a href="/store/myregister" class="btn btn-success">등록</a>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>내가등록한 식당</h3>
+			</div>
+		</div>
+	</div>
+	<a href="/store/myregister" class="btn btn-outline-dark">등록</a>
+	<hr>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -22,17 +31,17 @@
 			<c:forEach items="${list }" var="svo">
 				<c:if test="${ses.email == svo.writer }">
 					<tr>
-						<th>${svo.sno }</th>
-						<th><a href="/store/mydetail?sno=${svo.sno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${svo.sname }</a></th>
-						<th>${svo.category }</th>
-						<th>${svo.locate }</th>
-						<th>${svo.regAt }</th>
-						<th>
+						<td>${svo.sno }</td>
+						<td><a href="/store/mydetail?sno=${svo.sno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${svo.sname }</a></td>
+						<td>${svo.category }</td>
+						<td>${svo.locate }</td>
+						<td>${svo.regAt }</td>
+						<td>
 							<c:choose>
 								<c:when test="${svo.approve eq 1}">승인</c:when>
 								<c:otherwise>미승인</c:otherwise>
 							</c:choose>
-						</th>
+						</td>
 					</tr>
 				</c:if>
 			</c:forEach>

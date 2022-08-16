@@ -5,8 +5,16 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
+<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
+
 <div class="container mt-3">
-	<h2>내가 쓴 지역게시판</h2>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>내가 쓴 지역게시판</h3>
+			</div>
+		</div>
+	</div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -23,13 +31,13 @@
 			<c:forEach items="${list }" var="bvo">
 				<c:if test="${ses.nickName == bvo.writer }">
 					<tr>
-						<th>${bvo.bno }</th>
-						<th>${bvo.userLocate }</th>
-						<th><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></th>
-						<th><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.regAt}" /></span></th>
-						<th><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.modAt}" /></span></th>
-						<th>${bvo.readCount }</th>
-						<th>${bvo.cmtQty }</th>
+						<td>${bvo.bno }</td>
+						<td>${bvo.userLocate }</td>
+						<td><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></td>
+						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.regAt}" /></span></td>
+						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.modAt}" /></span></td>
+						<td>${bvo.readCount }</td>
+						<td>${bvo.cmtQty }</td>
 					</tr>
 				</c:if>
 			</c:forEach>

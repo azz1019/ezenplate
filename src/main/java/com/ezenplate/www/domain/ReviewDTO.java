@@ -9,8 +9,8 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
+@ToString
 public class ReviewDTO {
 	private ReviewVO rvo;
 	private List<FileVO> fileList;

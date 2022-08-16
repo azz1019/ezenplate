@@ -103,20 +103,28 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
-
 	@Override
 	public List<MemberVO> getListHolic() {
 		return mdao.selectListHolic();
 	}
 
+	@Override
+	public List<MemberVO> getList(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
+	public int getTotalCount(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+  
+  @Override
 	public FileVO get_mno(String email) {
 		long mno = mdao.select_mno(email);
 		
 		return fdao.select_member_img(mno);
 	}
-
-
 
 }

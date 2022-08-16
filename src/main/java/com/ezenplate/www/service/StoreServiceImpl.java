@@ -1,6 +1,5 @@
 package com.ezenplate.www.service;
 import java.util.ArrayList;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -116,33 +115,9 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public List<StoreDTO> store_list(PagingVO pgvo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<StoreDTO> search_store_list(PagingVO pgvo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int getTotal_Count(PagingVO pgvo) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	@Override
-	public int get_search_count(PagingVO pgvo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public StoreDTO get_store(long sno, int i) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public List<StoreDTO> view_more() {

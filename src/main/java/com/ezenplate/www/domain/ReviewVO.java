@@ -8,16 +8,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
 public class ReviewVO {
-	private long sno;
 	private long rno;
+	private long sno;
+	private String title;
 	private float rate;
 	private String regAt;
 	private String modAt;
 	private String content;
 	private int report;
 	private String writer;
-	private String title;
 }

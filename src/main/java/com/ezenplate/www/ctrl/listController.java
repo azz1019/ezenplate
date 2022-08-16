@@ -1,10 +1,8 @@
 package com.ezenplate.www.ctrl;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.Iterator;
-=======
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,25 +11,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-=======
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
-<<<<<<< HEAD
+
 import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
 import com.ezenplate.www.handler.FileHandler;
 import com.ezenplate.www.repository.MemberDAO;
-=======
+
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.handler.FileHandler;
 import com.ezenplate.www.handler.PagingHandler;
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 import com.ezenplate.www.service.MemberService;
 import com.ezenplate.www.service.ReviewService;
 
@@ -43,14 +38,7 @@ public class listController {
 	private ReviewService rsv;
 	@Inject
 	private MemberService msv;
-<<<<<<< HEAD
 
-	@GetMapping("/reviewlist")
-	public void reviewlist(Model model) {
-		model.addAttribute("mlist",msv.getList());
-		model.addAttribute("relist",rsv.getlistall());
-		model.addAttribute("flist",msv.getListFile());
-=======
 	@Inject
 	private FileHandler fhd;
 	
@@ -125,6 +113,5 @@ public class listController {
 		int totalCount3 = rsv.getbadTotalCount(pgvo);
 		model.addAttribute("pgn3",new PagingHandler(pgvo, totalCount3));
 		model.addAttribute("filelist",msv.getListFile());
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 	}
 }
