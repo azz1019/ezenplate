@@ -42,7 +42,6 @@
 <<<<<<< HEAD
 									<a class="dropdown-item" href="/">식당 관리</a>
 									<a class="dropdown-item" href="/">게시판 관리</a>
-									<a class="dropdown-item" href="/">신고 관리</a>
 								</div>
 							</li>
 							</c:if>                           
