@@ -23,9 +23,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ezenplate.www.service.MemberService;
+import com.ezenplate.www.service.VisitedService;
+import com.ezenplate.www.service.WantService;
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
+import com.ezenplate.www.domain.VisitedVO;
+import com.ezenplate.www.domain.WantVO;
 import com.ezenplate.www.handler.FileHandler;
 
 import lombok.extern.slf4j.Slf4j;
@@ -61,9 +65,13 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(MemberVO mvo, HttpSession ses, RedirectAttributes rttr) {
 		MemberVO sesMvo = msv.login(mvo);
+		List<WantVO> wvo = wsv.want_list(sesMvo.getMno());
+		List<VisitedVO> vvo = vsv.visit_list(sesMvo.getMno());
 		if(sesMvo != null) {
 			log.info(">>> MemberController login - OK");
 			ses.setAttribute("ses", sesMvo);
+			ses.setAttribute("want", wvo);
+			ses.setAttribute("visit", vvo);
 			ses.setMaxInactiveInterval(60 * 10);
 			rttr.addFlashAttribute("isLogin", 1);
 			return "redirect:/";
