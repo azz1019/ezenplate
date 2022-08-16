@@ -18,6 +18,7 @@ public interface MemberService {
 	public List<MemberVO> getList(PagingVO pgvo); // 리스트
 	public int gradeChange(MemberVO mvo);
 	public int lastLogin(String email);
+	public int getTotalCount(PagingVO pgvo);
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
