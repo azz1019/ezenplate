@@ -172,8 +172,25 @@
                                 			<div class="open-now">OPEN NOW</div>
                                 		</c:otherwise>
                                 	</c:choose>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
+                                		
+                                	<c:forEach items="${visit }" var="vvo">
+                                		<c:if test="${list.svo.sno eq vvo.sno }">
+		                                	<span class="ti-heart"></span>                                		
+                                		</c:if>
+                                	</c:forEach>
+                                	
+                        			<c:forEach items="${want }" var="wvo">
+                                		<c:if test="${list.svo.sno eq wvo.sno }">
+                                			<span class="ti-bookmark"></span>
+                                		</c:if>
+                           
+                        			</c:forEach>
+                                    
+                                    
+              							                 
+                                		
+                               		
+                                    
                                 </div>
                             </div>
                         </a>
