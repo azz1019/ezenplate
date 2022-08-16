@@ -85,19 +85,14 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> getList() {
 		return mdao.selectList();
 	}
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
+
 
 	@Override
 	public List<FileVO> getListFile() {
 		return fdao.selectAllFiles();
-<<<<<<< HEAD
+
 	}
->>>>>>> Stashed changes
-=======
+
 		
 	}
 
@@ -110,5 +105,5 @@ public class MemberServiceImpl implements MemberService {
 
 
 
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
+
 }
