@@ -15,7 +15,7 @@ public interface MemberService {
 	public int removeFile(String uuid); // 파일 삭제
 	public int modify(MemberDTO mdto); // 프로필 수정
 	public int remove(String email); // 탈퇴
-	public List<MemberVO> getList(); // 리스트
+	public List<MemberVO> getList(PagingVO pgvo); // 리스트
 	public int gradeChange(MemberVO mvo);
 	public int lastLogin(String email);
 <<<<<<< HEAD
