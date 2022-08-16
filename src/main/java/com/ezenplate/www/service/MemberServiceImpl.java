@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
+import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.MemberDAO;
 import com.ezenplate.www.repository.VisitedDAO;
@@ -109,7 +110,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
-
+	@Override
+	public FileVO get_mno(String email) {
+		long mno = mdao.select_mno(email);
+		
+		return fdao.select_member_img(mno);
+	}
 
 
 
