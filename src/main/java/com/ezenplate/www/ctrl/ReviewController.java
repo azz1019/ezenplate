@@ -30,6 +30,7 @@ import com.ezenplate.www.domain.ReviewVO;
 import com.ezenplate.www.handler.FileHandler;
 import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.service.ReviewService;
+import com.ezenplate.www.service.StoreService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,8 +43,6 @@ public class ReviewController {
 	private ReviewService rsv;
 	@Inject
 	private FileHandler fhd;
-	@Inject
-	private StoreService ssv;
 
 	
 	@PostMapping("/register")
@@ -129,14 +128,7 @@ public class ReviewController {
 		return "redirect:/review/mylist";
 	}
 	
-	
-
-	//<!-- 맛집 검색 -->
-		@GetMapping("/register1")
-	public void register1(@RequestParam("sno")long sno, Model model) {
-
-	
-		@GetMapping("/register")
+	@GetMapping("/register")
 	public void register(@RequestParam("sno")long sno, Model model) {
 
 		ReviewVO rvo = new ReviewVO();
@@ -146,7 +138,6 @@ public class ReviewController {
 	@GetMapping(value="/{sno}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<List<ReviewDTO>> list(@PathVariable("sno") long sno) {
 		log.info("review list !!!!!");
-		List<ReviewDTO> dto = rsv.get_list(sno, null);
 		List<ReviewDTO> dto = rsv.get_list(sno);
 		log.info("review end!!!!!!!!!");
 		return new ResponseEntity<List<ReviewDTO>>(dto,HttpStatus.OK);

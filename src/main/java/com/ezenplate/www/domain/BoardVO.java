@@ -2,7 +2,6 @@ package com.ezenplate.www.domain;
 
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,7 +11,6 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class BoardVO {
 	private long bno;
 	private String userLocate;

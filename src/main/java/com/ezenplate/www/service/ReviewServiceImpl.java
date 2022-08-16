@@ -84,42 +84,41 @@ public class ReviewServiceImpl implements ReviewService {
 	public int removeFile(String uuid) {
 		return fdao.deleteFile(uuid);
 	}
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-	<!-- 맛집 검색-->
-=======
-	//<!-- 맛집 검색-->
->>>>>>> Stashed changes
-=======
-=======
-	//<!-- 맛집 검색-->
+
 	@Override
-	public List<ReviewDTO> get_list(long sno, PagingVO pvo) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ReviewDTO> get_list(long sno) {
+		List<ReviewDTO> dto = new ArrayList<ReviewDTO>();
+		List<ReviewVO> rvo = rdao.review_list(sno);
+		float rate = 0;
+		int i=0;
+		for (ReviewVO reviewVO : rvo) {
+			List<FileVO> fvo = fdao.select_review(reviewVO.getRno());
+			dto.add(new ReviewDTO(reviewVO, fvo));
+			rate +=reviewVO.getRate();
+			i++;
+		}
+		sdao.request_rate(rate/i, sno);
+		return dto;
 	}
 
 	@Override
 	public ReviewDTO get_review(long rno) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		ReviewVO rvo = rdao.get_review(rno);
+		List<FileVO> fvo = fdao.select_review(rno);
 
+		return new ReviewDTO(rvo, fvo);
+	}
+	
 	@Override
 	public void report(long rno) {
-		// TODO Auto-generated method stub
-		
+		rdao.update_report(rno);
 	}
 
 	@Override
 	public List<ReviewVO> getlistall() {
 		rdao.update_report(0);
 		return rdao.selectAll();
-
 	}
-
 
 	@Override
 	public List<ReviewVO> getListGood() {
@@ -149,42 +148,5 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int getbadTotalCount(PagingVO pgvo) {
 		return rdao.selectBadTotalCount();
-	}
-
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
-	
->>>>>>> 96c37dc098093db8d9109992087531ffe661d994
-	@Override
-	public List<ReviewDTO> get_list(long sno) {
-		List<ReviewDTO> dto = new ArrayList<ReviewDTO>();
-		List<ReviewVO> rvo = rdao.review_list(sno);
-		float rate = 0;
-		int i=0;
-		for (ReviewVO reviewVO : rvo) {
-			List<FileVO> fvo = fdao.select_review(reviewVO.getRno());
-			dto.add(new ReviewDTO(reviewVO, fvo));
-			rate +=reviewVO.getRate();
-			i++;
-		}
-		sdao.request_rate(rate/i, sno);
-		return dto;
-	}
-
-	@Override
-	public ReviewDTO get_review(long rno) {
-		ReviewVO rvo = rdao.get_review(rno);
-		List<FileVO> fvo = fdao.select_review(rno);
-
-		return new ReviewDTO(rvo, fvo);
-	}
-	@Override
-	public void report(long rno) {
-		rdao.update_report(rno);
-<<<<<<< Updated upstream
-=======
-
-	}
->>>>>>> Stashed changes
-
 	}
 }

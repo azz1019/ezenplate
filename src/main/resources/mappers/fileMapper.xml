@@ -76,8 +76,6 @@
 	
 	<!-- profile -->
 	
-</mapper>
-	
 	<!-- 맛집 목록 및 검색 -->
    <insert id="insertFile" parameterType="fvo">
    		insert into attached_file (uuid, save_dir, file_name, file_type, pno, file_size)

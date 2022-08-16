@@ -5,11 +5,6 @@ import java.util.List;
 import com.ezenplate.www.domain.CommentVO;
 import com.ezenplate.www.domain.PagingVO;
 
-import java.util.List;
-
-import com.ezenplate.www.domain.CommentVO;
-import com.ezenplate.www.domain.PagingVO;
-
 import lombok.Getter;
 import lombok.Setter;
 

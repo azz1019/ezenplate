@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
+import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.MemberDAO;
 import com.ezenplate.www.repository.VisitedDAO;
@@ -102,15 +103,20 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
-
 	@Override
 	public List<MemberVO> getListHolic() {
 		return mdao.selectListHolic();
 	}
 
+	@Override
+	public List<MemberVO> getList(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-
-
-
-
+	@Override
+	public int getTotalCount(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
