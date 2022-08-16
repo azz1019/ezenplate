@@ -5,7 +5,13 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <div class="container mt-3">
-	<h2>식당 등록</h2>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>식당 등록</h3>
+			</div>
+		</div>
+	</div>
 	<form action="/store/myregister" method="post" enctype="multipart/form-data">
 		<div class="mb-3 mt-3">
       		<label for="writer">닉네임 : </label>

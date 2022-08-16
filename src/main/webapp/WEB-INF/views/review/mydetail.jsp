@@ -6,12 +6,18 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <div class="container mt-3">
-	<div class="booking-checkbox_wrap mt-4">
-		<h5>리뷰 상세</h5>
-		<a href="/review/mylist?pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
-		<a href="/review/mymodify?rno=${rdto.rvo.rno }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-warning">수정</a>
-		<a class="btn btn-outline-danger" id="reviewRemove">삭제</a>
-		<hr>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>리뷰 상세</h3>
+			</div>
+		</div>
+	</div>
+	<a href="/review/mylist?pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
+	<a href="/review/mymodify?rno=${rdto.rvo.rno }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-warning">수정</a>
+	<a class="btn btn-outline-danger" id="reviewRemove">삭제</a>
+	<hr>
+	<div class="booking-checkbox_wrap">
 		<div class="customer-review_wrap">
     		<div class="customer-img">
     			리뷰순번 : <span id="rnoVal">${rdto.rvo.rno }</span><br>

@@ -6,7 +6,13 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <div class="container mt-3">
-	<h2>리뷰 수정</h2>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>리뷰 수정</h3>
+			</div>
+		</div>
+	</div>
 	<section class="light-bg booking-details_wrap">
 		<div class="container">
 			<div class="row">
