@@ -14,4 +14,5 @@ public interface VisitedDAO {
 	int removeAllList(long mno); // 탈퇴시 가봤어요 목록 삭제
 	int register(@Param("mno") long mno,@Param("sno") long sno,@Param("sname") String sname); // 가봤어요 생성
 	int check(VisitedVO vvo); // 가봣어요 중복 확인
+	List<VisitedVO> get_list(long mno);// 회원의 가봣어요 리스트 가져오기
 }
