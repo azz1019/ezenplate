@@ -44,8 +44,14 @@
 		select * from member where grade = 50 order by grade desc
 	</select>
 	
+	<update id="gradeUpdate" parameterType="mvo">
+		update member set grade = #{grade} <include refid="wh_email"/>
+	</update>
 	
-	
+	<update id="lastLogin" parameterType="string">
+		update member set last_login = now()
+		where email = #{email}
+	</update>
 	
 	<update id="update" parameterType="mvo">
 		update member set pwd=#{pwd}, nick_name=#{nickName}, user_locate=#{userLocate} <include refid="wh_email"/>
