@@ -26,7 +26,9 @@ import com.ezenplate.www.service.MemberService;
 import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.MemberDTO;
 import com.ezenplate.www.domain.MemberVO;
+import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.handler.FileHandler;
+import com.ezenplate.www.handler.PagingHandler;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,9 +43,11 @@ public class MemberController {
 	private FileHandler fhd;
 	
 	@GetMapping("/list")
-	public void list(Model model) {
+	public void list(Model model, PagingVO pgvo) {
 		log.info(">>> MemberController list - GET");
-		model.addAttribute("list", msv.getList());
+		model.addAttribute("list", msv.getList(pgvo));
+		int totalCount = msv.getTotalCount(pgvo);
+		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
 	@GetMapping("/detail")
