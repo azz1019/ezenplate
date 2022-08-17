@@ -7,6 +7,7 @@
 <jsp:include page="../common/nav.jsp" />
 <!-- Board Style CSS-->
 <link rel="stylesheet" href="/resources/board/css/board.list.style.css">
+<script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- ==================== Start Header ==================== -->
 
@@ -29,43 +30,56 @@
 	<div class="container mb-5">
 		<div class="buttons">
 			<div class="text-lg-start float-left">
-				<select class="form-select" id="userLocate" name="userLocate">
-					<option value="지역" selected>지역</option>
-					<option value="서울">서울</option>
-					<option value="경기">경기</option>
-					<option value="인천">인천</option>
-					<option value="강원">강원</option>
-					<option value="충북">충북</option>
-					<option value="충남">충남</option>
-					<option value="세종">세종</option>
-					<option value="대전">대전</option>
-					<option value="전북">전북</option>
-					<option value="전남">전남</option>
-					<option value="광주">광주</option>
-					<option value="경북">경북</option>
-					<option value="경남">경남</option>
-					<option value="대구">대구</option>
-					<option value="울산">울산</option>
-					<option value="부산">부산</option>
-					<option value="제주">제주</option>
-				</select>
+				<form class="d-flex" action="/board/list" method="get"
+					id="inputForm">
+					<input type="hidden" name="pageNo" value="${pgn.pgvo.pageNo }">
+					<input type="hidden" name="qty" value="${pgn.pgvo.qty }">
+					<div class="input-group">
+					<c:set value="${pgn.pgvo.userLocate }" var="typed" />
+						<select class="form-select" id="userLocate"  name="type" onchange="this.form.submit()">
+							<option value="지역" selected>지역</option>
+							<option value="서울">서울</option>
+							<option value="경기" ${typed eq '경기' ? 'selected':'' }>경기</option>
+							<option value="인천">인천</option>
+							<option value="강원">강원</option>
+							<option value="충북">충북</option>
+							<option value="충남">충남</option>
+							<option value="세종">세종</option>
+							<option value="대전">대전</option>
+							<option value="전북">전북</option>
+							<option value="전남">전남</option>
+							<option value="광주">광주</option>
+							<option value="경북">경북</option>
+							<option value="경남">경남</option>
+							<option value="대구">대구</option>
+							<option value="울산">울산</option>
+							<option value="부산">부산</option>
+							<option value="제주">제주</option>
+						</select>
+					</div>
+				</form>
 			</div>
-			<!-- 로그인 안되면 로그인 페이지로 보내기-->
-			<div class="text-lg-end float-right">
-				<c:choose>
-					<c:when test="${ses.email ne null && ses.email ne '' }">
-						<button type="button" class="btn regBtn"
-							onclick="location.href='/board/register'">글쓰기</button>
-					</c:when>
-					<c:otherwise>
-						<button type="button" class="btn regBtn"
-							onclick="location.href='/member/login'">글쓰기</button>
-					</c:otherwise>
-				</c:choose>
+	
+
+
+
+
+					<!-- 로그인 안되면 로그인 페이지로 보내기-->
+					<div class="text-lg-end float-right">
+						<c:choose>
+							<c:when test="${ses.email ne null && ses.email ne '' }">
+								<button type="button" class="btn regBtn"
+									onclick="location.href='/board/register'">글쓰기</button>
+							</c:when>
+							<c:otherwise>
+								<button type="button" class="btn regBtn"
+									onclick="location.href='/member/login'">글쓰기</button>
+							</c:otherwise>
+						</c:choose>
+					</div>
+					<!-- // -->
 			</div>
-			<!-- // -->
 		</div>
-	</div>
 </section>
 <!-- ==================== End Board Button ====================  -->
 <!--  ==================== Start Board List ====================  -->
@@ -73,31 +87,32 @@
 	<div class="container">
 		<div class="justify-content-center">
 			<div class="col-lg-12 mt-5 ml-4">
-				<c:forEach items="${list }" var="bvo">
+				<c:forEach items="${list }" var="list">
 					<div class="posts">
 						<div class="item mb-8">
 							<div class="col-11 content blog-table">
 								<div class="row">
 									<a class="links" style="text-decoration: none;"
-										href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">
-										<h4 class="title">${bvo.bname }</h4>
-										<p>${bvo.content }</p>
+										href="/board/detail?bno=${list.bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">
+										<h4 class="title">${list.bvo.bname }</h4>
+										<p>${list.bvo.content }</p>
 
 										<div class="board-pic">
-											<c:forEach items="${bdto.fileList }" var="fvo">
-													<div class="flex-fill mt-3 p-4">
-														<img class="img"
-															src="/upload/${fn:replace(fvo.saveDir, '//','/')}/${fvo.uuid}_th_${fvo.fileName}">
-													</div>
-										</c:forEach>
+											<c:forEach items="${list.fileList }" var="fvo">
+												<div class="flex-fill p-4">
+													<img class="img"
+														src="/upload/${fn:replace(fvo.saveDir, '//','/')}/${fvo.uuid}_${fvo.fileName}">
+												</div>
+											</c:forEach>
 										</div>
 									</a>
 								</div>
 								<div class="tags mb-3">
-									<a href="/board/detail?bno=${bvo.bno}">${bvo.writer }</a> <span><fmt:formatDate
-											pattern="yyyy. MM. dd. HH시mm분" value="${bvo.regAt}" /></span> <a
-										href="/board/detail?bno=${bvo.bno}">댓글 <span>${bvo.cmtQty }</span></a>
-									<span>조회 ${bvo.readCount }</span>
+									<a href="/board/detail?bno=${list.bvo.bno}">${list.bvo.writer }</a>
+									<span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분"
+											value="${list.bvo.regAt}" /></span> <a
+										href="/board/detail?bno=${list.bvo.bno}">댓글 <span>${list.bvo.cmtQty }</span></a>
+									<span>조회 ${list.bvo.readCount }</span>
 								</div>
 							</div>
 						</div>
@@ -115,7 +130,8 @@
 	<div class="container justify-content-center">
 		<div class="col-lg-12 ml-4">
 			<div class="col-md-11">
-				<form class="d-flex" action="/board/list" method="get">
+				<form class="d-flex" action="/board/list" method="get"
+					id="inputForm">
 					<input type="hidden" name="pageNo" value="${pgn.pgvo.pageNo }">
 					<input type="hidden" name="qty" value="${pgn.pgvo.qty }">
 					<div class="input-group">
@@ -128,7 +144,7 @@
 							<option value="c" ${typed eq 'c' ? 'selected':'' }>내용</option>
 						</select> <input class="form-control ml-3 searchInput" type="search"
 							placeholder="검색어를 입력해보세요" aria-label="Search" name="kw"
-							value="${pgn.pgvo.kw }">
+							id="searchID" value="${pgn.pgvo.kw }">
 						<div class="input-group-append">
 							<button class="btn searchBtn" type="submit">
 								<i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
@@ -164,6 +180,5 @@
 <!-- ==================== End Pagination ====================  -->
 
 <script src="/resources/js/board.register.js"></script>
-
 
 <jsp:include page="../common/footer.jsp" />

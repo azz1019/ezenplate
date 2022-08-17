@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
@@ -20,16 +19,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list }" var="bvo">
-				<c:if test="${ses.nickName == bvo.writer }">
+			<c:forEach items="${list }" var="list">
+				<c:if test="${ses.nickName == list.bvo.writer }">
 					<tr>
-						<th>${bvo.bno }</th>
-						<th>${bvo.userLocate }</th>
-						<th><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></th>
-						<th><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.regAt}" /></span></th>
-						<th><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.modAt}" /></span></th>
-						<th>${bvo.readCount }</th>
-						<th>${bvo.cmtQty }</th>
+						<th>${list.bvo.bno }</th>
+						<th>${list.bvo.userLocate }</th>
+						<th><a href="/board/detail?bno=${list.bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${list.bvo.bname }</a></th>
+						<th>${list.bvo.regAt }</th>
+						<th>${list.bvo.modAt }</th>
+						<th>${list.bvo.readCount }</th>
+						<th>${list.bvo.cmtQty }</th>
 					</tr>
 				</c:if>
 			</c:forEach>

@@ -44,4 +44,5 @@ public interface FileDAO {
 //	int deleteBoardFile(long bno);  //중복
 //	int insertBoardFile(FileVO fvo); //중복
 	int insert_review_file(FileVO fvo); // 리뷰 이미지 추가
+	public FileVO select_member_img(long mno); // 회원 프로필
 }

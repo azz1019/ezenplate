@@ -30,6 +30,7 @@
 										<input type="hidden" class="form-control" id="userLocateText"
 											value="${bdto.bvo.userLocate }" name="userLocateText">
 										<select class="form-select" id="userLocate" name="userLocate">
+											<option value="지역" selected>지역</option>
 											<option value="서울">서울</option>
 											<option value="경기">경기</option>
 											<option value="인천">인천</option>

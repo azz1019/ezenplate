@@ -6,7 +6,13 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <div class="container mt-3">
-	<h2>프로필 수정</h2>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>프로필 수정</h3>
+			</div>
+		</div>
+	</div>
 	<div class="row d-flex justify-content-center">
 	    <div class="col-sm-8 p-3 bg-light">
 	    	<form action="/member/modify" method="post" enctype="multipart/form-data">

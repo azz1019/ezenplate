@@ -114,7 +114,10 @@
    	select * from attached_file
    	where rno = #{rno}
    </select>
-   
+   <select id="select_member_img" resultType="fvo">
+   	select * from attached_file
+   	where mno = #{mno}
+   </select>
    
    
    

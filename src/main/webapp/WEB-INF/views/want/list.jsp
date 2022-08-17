@@ -4,8 +4,16 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
+<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
+
 <div class="container mt-3">
-	<h2>가고싶다</h2>
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="styled-heading">
+				<h3>가고싶다</h3>
+			</div>
+		</div>
+	</div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -19,10 +27,10 @@
 			<c:forEach items="${list }" var="wvo">
 				<c:if test="${ses.mno == wvo.mno }">
 					<tr>
-						<th><span id="snoVal">${wvo.sno }</span></th>
-						<th>${wvo.sname }</th>
-						<th>${wvo.regAt }</th>
-						<th><a href="/want/remove?sno=${wvo.sno }&mno=${ses.mno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn btn-danger">삭제</a></th>
+						<td><span id="snoVal">${wvo.sno }</span></td>
+						<td>${wvo.sname }</td>
+						<td>${wvo.regAt }</td>
+						<td><a href="/want/remove?sno=${wvo.sno }&mno=${ses.mno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn btn-danger">삭제</a></td>
 					</tr>
 				</c:if>
 			</c:forEach>

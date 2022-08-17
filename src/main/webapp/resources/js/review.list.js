@@ -10,19 +10,40 @@ async function spread_review_sno(sno) {
     }
 }
 
+async function member_img(email){
+    try {
+        const resp = await fetch('/member/' + email);
+        const result = await resp.json();
+        return await result;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 function get_review_list() {
 
     let sno = document.getElementById('sno').value;
     let email = document.getElementById('email').value
     
     spread_review_sno(sno).then(result => {
+        
         if (result != null) {
             for (const list of result) {
+                member_img(list.rvo.writer).then(img => {
 
+                
                 let review_list = document.getElementById('review_list');
                 let review_inner = '';
                 review_inner += `<div class="customer-review_wrap">`;
                 review_inner += `<div class="customer-img">`;
+                
+                
+                
+                let dir = img.saveDir.toString();
+                let saveDir = dir.replace("/\\/g",'/');
+                review_inner +=`<img src="/upload/${saveDir}/${img.uuid}_th_${img.fileName}" class="img-fluid">`;
+               
                 review_inner += `<p>${list.rvo.writer}</p>`;
                 review_inner += `</div>`;
                 review_inner += `<div class="customer-content-wrap">`;
@@ -73,35 +94,36 @@ function get_review_list() {
 
                 }
                 review_inner += `</ul>`;
-                review_inner += `<span>28 people marked this review as helpful</span>`;
+                
                 console.log(list.rvo.writer == email);
                 console.log(list.rvo.writer);
                 console.log(email);
                 if(list.rvo.writer == email){
-                    review_inner += `<form action = "/review/mymodify" method="get">`;
+                    review_inner += `<form action = "/review/mymodify" method="get" style="display:inline-block;">`;
                     review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
                     review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
-                    review_inner += `<button type="submit" class="bg-warning"><a id="report"><span class="icon-like"></span>modify</a></button>`;
+                    review_inner += `<button type="submit" class="bg-warning"><a id="report" style="border:0px;"><span class="icon-note"></span>modify</a></button>`;
                     review_inner += `</form>`;
-                    review_inner += `<form action = "/review/remove" method="post">`;
+                    review_inner += `<form action = "/review/remove" method="post" style="display:inline-block;">`;
                     review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
                     review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
-                    review_inner += `<button type="submit" class="bg-danger"><a id="report"><span class="icon-like"></span>Remove</a></button>`;
+                    review_inner += `<button type="submit" class="bg-danger"><a id="report" style="border:0px;"><span class="icon-trash"></span>Remove</a></button>`;
                     review_inner += `</form>`;
                     
                 }
                 if(email != ''){
                     
-                    review_inner += `<form action = "/review/report" method="post">`;
+                    review_inner += `<form action = "/review/report" method="post" style="display:inline-block;">`;
                     review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
                     review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
-                    review_inner += `<button type="submit"><a id="report"><span class="icon-like"></span>reprot</a></button>`;
+                    review_inner += `<button type="submit"><a id="report" style="border:0px;"><span class="icon-ban" ></span>reprot</a></button>`;
                     review_inner += `</form>`;
                 }
                 review_inner += `</div>`;
                 review_inner += ` </div>`;
                 review_inner += `<hr>`;
                 review_list.innerHTML += review_inner;
+                })
             }
         }
     }

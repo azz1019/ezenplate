@@ -4,14 +4,18 @@ import java.util.List;
 
 import com.ezenplate.www.domain.BoardDTO;
 import com.ezenplate.www.domain.BoardVO;
+import com.ezenplate.www.domain.CommentDTO;
 import com.ezenplate.www.domain.PagingVO;
+import com.ezenplate.www.domain.ReviewDTO;
 
 public interface BoardService {
 	int register(BoardDTO bdto); // register
-	List<BoardVO> getList(PagingVO pgvo); // list
 	BoardDTO getDetail(long bno); // detail
 	int modify(BoardDTO bdto); // modify
 	int remove(long bno); // remove
 	int getTotalCount(PagingVO pgvo);
 	int removeFile(String uuid);
+	
+	List<BoardDTO> getList(PagingVO pgvo);//list 
+	
 }

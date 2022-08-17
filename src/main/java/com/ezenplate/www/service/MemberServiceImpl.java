@@ -119,4 +119,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+  
+  @Override
+	public FileVO get_mno(String email) {
+		long mno = mdao.select_mno(email);
+		
+		return fdao.select_member_img(mno);
+	}
+
 }

@@ -180,4 +180,10 @@ public class MemberController {
 		log.info(">>> MemberController remove - POST : {}", isUp > 0 ? "OK":"FAIL");
 		return "redirect:/";
 	}
+	@GetMapping(value="/{email}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<FileVO>img(@PathVariable("email") String email){
+		
+		FileVO img = msv.get_mno(email);
+		return new ResponseEntity<FileVO>(img,HttpStatus.OK);
+	}
 }

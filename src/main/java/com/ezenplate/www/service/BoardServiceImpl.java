@@ -1,5 +1,6 @@
 package com.ezenplate.www.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -28,9 +29,9 @@ public class BoardServiceImpl implements BoardService {
 	public int register(BoardDTO bdto) {
 		int isUp = bdao.insert(bdto.getBvo());
 		if(bdto.getFileList() != null) {
-			if(isUp > 0 && bdto.getFileList().size() > 0) {
+			if((isUp > 0) && (bdto.getFileList().size() > 0)) {
 				long bno = bdao.selectLastBno();
-				for(FileVO	fvo	: bdto.getFileList()) {
+				for(FileVO fvo : bdto.getFileList()) {
 					fvo.setBno(bno);
 					isUp *= fdao.insertBoardFile(fvo);
 				}
@@ -39,9 +40,22 @@ public class BoardServiceImpl implements BoardService {
 		return isUp;
 	}
 
+
+//	@Override
+//	public List<BoardVO> getList(PagingVO pgvo) {
+//		return bdao.selectList(pgvo);
+//	}
+
 	@Override
-	public List<BoardVO> getList(PagingVO pgvo) {
-		return bdao.selectList(pgvo);
+	public List<BoardDTO> getList(PagingVO pgvo) {
+		List<BoardDTO> bdto = new ArrayList<BoardDTO>();
+		List<BoardVO> bvo = bdao.selectList(pgvo);
+		for(BoardVO boardVO : bvo) {
+			long bno = boardVO.getBno();
+			List<FileVO> list = fdao.selectBoardListFile(bno);
+			bdto.add(new BoardDTO(boardVO, list));
+		}
+		return bdto;
 	}
 	
 	@Transactional(isolation = Isolation.READ_COMMITTED)
@@ -55,12 +69,11 @@ public class BoardServiceImpl implements BoardService {
 	public int modify(BoardDTO bdto) {
 		int isUp = bdao.update(bdto.getBvo());
 		isUp = bdao.updateReadCount(bdto.getBvo().getBno(), -2);
-		if(bdto.getFileList() != null) {
-			if(isUp > 0 && bdto.getFileList().size() > 0) {
-				for (FileVO	fvo	: bdto.getFileList()) {
-					fvo.setBno(bdto.getBvo().getBno());
-					isUp *= fdao.insertBoardFile(fvo); 
-					}
+		if(bdto.getFileList() != null && isUp > 0) {
+			long bno = bdto.getBvo().getBno();
+			for(FileVO fvo : bdto.getFileList()) {
+				fvo.setBno(bno);
+				isUp *= fdao.insertBoardFile(fvo);
 			}
 		}
 		return isUp;
@@ -85,6 +98,5 @@ public class BoardServiceImpl implements BoardService {
 		return fdao.deleteFile(uuid);
 	}
 
-	
 
 }
