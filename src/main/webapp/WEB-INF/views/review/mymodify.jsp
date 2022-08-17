@@ -8,9 +8,7 @@
 <div class="container mt-3">
 	<div class="row justify-content-center">
 		<div class="col-md-5">
-			<div class="styled-heading">
-				<h3>리뷰 수정</h3>
-			</div>
+			<h3>리뷰 수정</h3>
 		</div>
 	</div>
 	<section class="light-bg booking-details_wrap">
@@ -63,12 +61,12 @@
 									<label for="attach">사진 :</label>
 									<input type="file" class="form-control" style="display: none;" id="files" name="fileAttached" multiple>
 									<div class="d-grid">
-										<button type="button" id="attachTrigger" class="btn btn-outline-primary btn-block d-block">이미지 첨부</button>
+										<button type="button" id="attachTrigger" class="btn btn-outline-warning btn-block d-block">이미지 첨부</button>
 									</div>
 									<div class="my-3" id="fileZone"></div> 
 							    </div>
 							    
-							    <button type="submit" class="btn btn-primary" id="regBtn">수정</button>
+							    <button type="submit" class="btn btn-outline-warning" id="regBtn">수정</button>
                             </form>
 						</div>
 					</div>

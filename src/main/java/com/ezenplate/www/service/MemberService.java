@@ -25,5 +25,6 @@ public interface MemberService {
 	public List<MemberVO> getList(); // 리스트
 	public List<MemberVO> getListHolic(); // holic순
 	public FileVO get_mno(String email); // mno 가져오기
+	public MemberVO get_detail(String email); // email로 정보가져오기
 
 }

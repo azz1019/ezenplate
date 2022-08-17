@@ -8,9 +8,7 @@
 <div class="container mt-3">
 	<div class="row justify-content-center">
 		<div class="col-md-5">
-			<div class="styled-heading">
-				<h3>프로필 수정</h3>
-			</div>
+			<h3>프로필 수정</h3>
 		</div>
 	</div>
 	<div class="row d-flex justify-content-center">
@@ -60,20 +58,20 @@
 		    	<div class="mb-3">
 					<label for="attach">프로필 사진 :</label>
 					<input type="file" class="form-control" style="display: none;" id="files" name="fileAttached" multiple>
-					<button type="button" id="attachTrigger" class="btn btn-outline-danger">이미지 첨부</button>
+					<button type="button" id="attachTrigger" class="btn btn-outline-warning">이미지 첨부</button>
 					<div class="my-3" id="fileZone"></div> 
 			    </div>
 		    
-		    	<button type="submit" class="btn-form" id="regBtn">수정</button> 	
+		    	<button type="submit" class="btn-form" id="regBtn" style="background-color: rgb(255, 113, 0);">수정</button> 	
 			</form>
 	    </div>
-	    <div class="col-sm-4 p-3 bg-dark text-white" style="text-align: center;">
+	    <div class="col-sm-4 p-3 bg-light text-white" style="text-align: center;">
 	    	<c:if test="${mdto.fvo.uuid ne null && mdto.fvo.uuid ne '' }">
 				<img src="/upload/${fn:replace(mdto.fvo.saveDir, '\\', '/') }/${mdto.fvo.uuid }_th_${mdto.fvo.fileName }" style="margin-top: 50px"><br>
-    			<span class="badge bg-primary rounded-pill">현재 프로필 사진</span><br>
-    			<span class="badge bg-primary rounded-pill">이름 : ${mdto.fvo.fileName }</span><br>
-    			<span class="badge bg-primary rounded-pill">용량 : ${mdto.fvo.fileSize }</span><br>
-    			<button data-uuid="${mdto.fvo.uuid }" class="mt-3 btn btn-outline-danger btn-sm fileDelBtn">삭제</button>
+    			<span class="badge bg-warning rounded-pill">현재 프로필 사진</span><br>
+    			<span class="badge bg-warning rounded-pill">이름 : ${mdto.fvo.fileName }</span><br>
+    			<span class="badge bg-warning rounded-pill">용량 : ${mdto.fvo.fileSize }</span><br>
+    			<button data-uuid="${mdto.fvo.uuid }" class="mt-3 btn btn-outline-warning btn-sm fileDelBtn">삭제</button>
 			</c:if>
 	    </div>
 	</div>

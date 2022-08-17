@@ -181,9 +181,9 @@ public class MemberController {
 		return "redirect:/";
 	}
 	@GetMapping(value="/{email}", produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<FileVO>img(@PathVariable("email") String email){
-		
+	public ResponseEntity<MemberDTO>img(@PathVariable("email") String email){
+		MemberVO mvo = msv.get_detail(email);
 		FileVO img = msv.get_mno(email);
-		return new ResponseEntity<FileVO>(img,HttpStatus.OK);
+		return new ResponseEntity<MemberDTO>(new MemberDTO(mvo, img),HttpStatus.OK);
 	}
 }

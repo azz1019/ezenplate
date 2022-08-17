@@ -9,9 +9,7 @@
 <div class="container mt-3">
 	<div class="row justify-content-center">
 		<div class="col-md-5">
-			<div class="styled-heading">
-				<h3>내가등록한 식당</h3>
-			</div>
+			<h3>내가등록한 식당</h3>
 		</div>
 	</div>
 	<a href="/store/myregister" class="btn btn-outline-dark">등록</a>

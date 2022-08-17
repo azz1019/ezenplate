@@ -18,7 +18,7 @@
 	<!-- //today  -->
 	
     <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
-    <section class="slider d-flex align-items-center">
+    <section class="slider d-flex align-items-center" style="background-image: url('/resources/mylist/photo/background.jpg');">
     
     
     
@@ -48,8 +48,8 @@
 					</select> 
 					<input class="form-control me-2" type="search"
 						placeholder="Search" aria-label="Search" name="kw" value="${pgn.pgvo.kw }">
-					<button class="btn-form" type="submit"><span class="icon-magnifier search-icon">Search</span><i class="pe-7s-angle-right"></i> 
-					
+					<button class="btn-form" type="submit" style="background-color: rgb(255, 113, 0);">
+						<span class="icon-magnifier search-icon">Search</span><i class="pe-7s-angle-right"></i> 
 					</button>
 				</div>
 			</form>	
@@ -113,7 +113,7 @@
                         
                         <c:forEach items="${list.fileList }" var="fvo">
                         
-                            <img src="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_th_${fvo.fileName}" class="img-fluid">
+                            <img src="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_${fvo.fileName}" class="img-fluid">
                             
                         </c:forEach>    
                             <c:choose>

@@ -9,9 +9,7 @@
 <div class="container mt-3">
 	<div class="row justify-content-center">
 		<div class="col-md-5">
-			<div class="styled-heading">
-				<h3>내가 쓴 리뷰</h3>
-			</div>
+			<h3>내가 쓴 리뷰</h3>
 		</div>
 	</div>
 	<table class="table table-hover">
