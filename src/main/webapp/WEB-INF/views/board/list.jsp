@@ -35,7 +35,8 @@
 					<input type="hidden" name="pageNo" value="${pgn.pgvo.pageNo }">
 					<input type="hidden" name="qty" value="${pgn.pgvo.qty }">
 					<div class="input-group">
-					<c:set value="${pgn.pgvo.userLocate }" var="typed" />
+					<%-- <c:set value="${pgn.pgvo.userLocate }" var="typed" /> --%>
+					
 						<select class="form-select" id="userLocate"  name="type" onchange="this.form.submit()">
 							<option value="지역" selected>지역</option>
 							<option value="서울">서울</option>
