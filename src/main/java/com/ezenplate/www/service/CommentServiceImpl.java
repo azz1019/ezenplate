@@ -1,5 +1,6 @@
 package com.ezenplate.www.service;
 
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -21,13 +22,14 @@ public class CommentServiceImpl implements CommentService {
 	private CommentDAO cdao;
 	@Inject
 	private BoardDAO bdao;
-	
-	public CommentServiceImpl() {}
-	
+
+	public CommentServiceImpl() {
+	}
+
 	@Override
 	public int post(CommentVO cvo) {
 		int isUp = cdao.insert(cvo);
-		if(isUp > 0) {
+		if (isUp > 0) {
 			isUp = bdao.updateCmtQty(cvo.getBno(), 1);
 		}
 		return isUp;
@@ -35,7 +37,8 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public PagingHandler spread(long bno, PagingVO pgvo) {
-		return new PagingHandler(pgvo, cdao.selectTotalCount(bno));
+		return new PagingHandler(cdao.selectList(bno, pgvo), 
+				pgvo, cdao.selectTotalCount(bno));
 	}
 
 	@Override
@@ -48,9 +51,9 @@ public class CommentServiceImpl implements CommentService {
 	public int remove(long cno) {
 		long bno = cdao.selectBno(cno);
 		int isDown = cdao.delete(cno);
-		if(isDown > 0) {
+		if (isDown > 0) {
 			isDown = bdao.updateCmtQty(bno, -1);
-			log.info(">>> Comment remove -get : {}", isDown > 0? "OK":"FAIL");
+			log.info(">>> Comment remove -get : {}", isDown > 0 ? "OK" : "FAIL");
 		}
 		return isDown;
 	}

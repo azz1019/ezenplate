@@ -1,20 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
-<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
-
 <div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<div class="styled-heading">
-				<h3>내가 쓴 지역게시판</h3>
-			</div>
-		</div>
-	</div>
+	<h2>내가 쓴 지역게시판</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -28,16 +19,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list }" var="bvo">
-				<c:if test="${ses.nickName == bvo.writer }">
+			<c:forEach items="${list }" var="list">
+				<c:if test="${ses.nickName == list.bvo.writer }">
 					<tr>
-						<td>${bvo.bno }</td>
-						<td>${bvo.userLocate }</td>
-						<td><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></td>
-						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.regAt}" /></span></td>
-						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.modAt}" /></span></td>
-						<td>${bvo.readCount }</td>
-						<td>${bvo.cmtQty }</td>
+						<th>${list.bvo.bno }</th>
+						<th>${list.bvo.userLocate }</th>
+						<th><a href="/board/detail?bno=${list.bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${list.bvo.bname }</a></th>
+						<th>${list.bvo.regAt }</th>
+						<th>${list.bvo.modAt }</th>
+						<th>${list.bvo.readCount }</th>
+						<th>${list.bvo.cmtQty }</th>
 					</tr>
 				</c:if>
 			</c:forEach>

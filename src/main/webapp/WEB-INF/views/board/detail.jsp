@@ -32,10 +32,10 @@
 											</form>
 										</div>
 										<h4>${bdto.bvo.userLocate }</h4>
-										<span class ="titleCss">${bdto.bvo.bname }</span>
-										<span>
-										<c:if test="${ses.nickName == bdto.bvo.writer}">
-												<a class ="modifyBtn" href="/board/modify?bno=${bdto.bvo.bno }">수정</a>
+										<span class="titleCss">${bdto.bvo.bname }</span> <span>
+											<c:if test="${ses.nickName == bdto.bvo.writer}">
+												<a class="modifyBtn"
+													href="/board/modify?bno=${bdto.bvo.bno }">수정</a>
 												<button type="button" id="boardRemove">삭제</button>
 											</c:if>
 										</span>
@@ -43,17 +43,17 @@
 									</div>
 									<div class="post-meta">
 										<ul class="list-unstyled">
-											<li class="author">by: ${bdto.bvo.writer }</li>
+											<li class="author">by: ${bdto.bvo.writer}</li>
 											<li class="date"><fmt:formatDate
 													pattern="yyyy. MM. dd. HH시mm분" value="${bdto.bvo.regAt}" /></li>
 											<li class="comment"><i class="ion-ios-heart-outline"></i>댓글
-												<span class="commentQty">${bdto.bvo.cmtQty }</span></li>
-											<li id="bnoVal">${bdto.bvo.bno }</li>
+												<span class="commentQty">${bdto.bvo.cmtQty}</span></li>
+											<li id="bnoVal">${bdto.bvo.bno}</li>
 										</ul>
 									</div>
 
 									<div class="d-flex">
-										<c:forEach items="${bdto.fileList }" var="fvo">
+										<c:forEach items="${bdto.fileList}" var="fvo">
 											<c:choose>
 												<c:when test="${fvo.fileType == 1 }">
 													<div class="flex-fill mt-3 p-4">
@@ -66,7 +66,7 @@
 										</c:forEach>
 									</div>
 									<div class="content-main single-post padDiv">
-										<p class="mb-3 content">${bdto.bvo.content }</p>
+										<p class="mb-3 content">${bdto.bvo.content}</p>
 									</div>
 								</div>
 							</div>
@@ -74,50 +74,21 @@
 								<div class="comments text-left padDiv mb-30">
 									<div class="entry-comments">
 										<div class="input-group mb-3">
-											<span class="input-group-text" id="cmtWriter">${ses.nickName }</span>
-											<input type="text" class="form-control"
-												placeholder="댓글을 남겨보세요" id="cmtText">
+											<span class="input-group-text" id="cmtWriter"><i
+												class="fa-solid fa-quote-left"></i>${ses.nickName}<i
+												class="fa-solid fa-quote-right"></i></span> 
+												<input type="text" class="form-control" placeholder="댓글을 남겨보세요" id="cmtText">
 											<button type="button" class="btn" id="cmtSbmBtn">ADD</button>
 										</div>
-										<div>
-											<p>예시</p>
-										</div>
 										<h6 class="mb-3">
-											<span class="commentQty">${bdto.bvo.cmtQty } </span> Comments
+											<span class="commentQty">${bdto.bvo.cmtQty} </span> Comments
 										</h6>
-										<div class="commentForm">
-											<div class="entry-comments-body">
-												<span class="entry-comments-author">TESTER</span> <span><a
-													href="#">2022.08.11. 14시 35분</a></span>
-												<p class="mb-10">저도 너무 가고싶어요ㅠㅠㅠ!</p>
-											</div>
-											<div class="entry-comments-body">
-												<span class="entry-comments-author">USER1</span> <span><a
-													href="#">2022.08.11. 14시 42분</a></span>
-												<p class="mb-10">독일 가는건가요~?</p>
-											</div>
-											<div class="entry-comments-body">
-												<span class="entry-comments-author">ADMIN</span> <span><a
-													href="#">2022.08.11. 14시 45분</a></span>
-												<p class="mb-10">갑시다!!!!!!!!</p>
-											</div>
-										</div>
-									</div>
-
-
-
-
-
-									<div class="container mt-3">
-
 										<div id="accordionExample"></div>
-										<table class="table table-hover" id="cmtZone"></table>
-										<div class="text-center" style="visibility: hidden;">
-											<button type="button" data-page="1" id="moreBtn"
-												class="btn btn-outline-secondary">MORE +</button>
+										<div class="commentForm" id="cmtZone"></div>
+										<div class="text-center" style="visibility:hidden;">
+											<button type="button" data-page="1" id="moreBtn" class="btn">더보기</button>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -126,13 +97,42 @@
 			</div>
 		</div>
 	</div>
-	<!-- End Blog Single -->
+	<!-- End Board Single -->
+	
+<!-- Button to Open the Modal -->
+<button type="button" style="display:none;" id="modalBtn" 
+class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Open modal
+</button>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
+      <!-- Modal Header -->
+      <div class="modal-header">
+	        <button type="button" class="btn-close" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      	 	<img src="/resources/board/photo/modi.png" style="height:auto; width:250px;"/>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn modSbmBtn" data-cno="">수정</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 	<!-- End #main -->
-
-
-
-
+	
+	
+	
+	
 
 
 	<script src="/resources/js/board.register.js"></script>
