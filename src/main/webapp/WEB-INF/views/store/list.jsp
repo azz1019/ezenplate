@@ -113,7 +113,7 @@
                         
                         <c:forEach items="${list.fileList }" var="fvo">
                         
-                            <img src="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_th_${fvo.fileName}" class="img-fluid">
+                            <img src="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_${fvo.fileName}" class="img-fluid">
                             
                         </c:forEach>    
                             <c:choose>
