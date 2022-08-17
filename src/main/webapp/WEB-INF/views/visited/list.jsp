@@ -10,7 +10,7 @@
 	<div class="row justify-content-center">
 		<div class="col-md-5">
 			<div class="styled-heading">
-				<h3>가봤어요</h3>
+				<h3>내가 방문한 식당</h3>
 			</div>
 		</div>
 	</div>
