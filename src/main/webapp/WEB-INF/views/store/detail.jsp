@@ -197,23 +197,32 @@
 								</label>
 							</div>
 						</c:if>
-
+						<fmt:parseDate value='${sdto.svo.modAt }' var='review_modAt' pattern='yyyymmdd'/>
+						
+						<fmt:formatDate pattern="yy년MM월dd일" value="${review_modAt }" var="update"></fmt:formatDate>
 						<div class="col-md-4">
 							<label class="custom-checkbox"> <span
-								class="ti-check-box"></span> <span
+								class="icon-exclamation"></span> <span
 								class="custom-control-description">최근 업데이트 :
-									${sdto.svo.modAt }</span>
+									${update }</span>
 							</label>
 						</div>
 					</div>
 				</div>
 				<!-- 리뷰 -->
 				<div class="booking-checkbox_wrap mt-4">
-					<h5>${sdto.svo.cmtQty }Reviews</h5>
+					<h5>${sdto.svo.cmtQty } Reviews</h5>
 					<hr>
 					<input type="hidden" id="sno" value="${sdto.svo.sno }">
 
-					<div id="review_list"></div>
+					<div id="review_list">
+						<c:if test="${sdto.svo.cmtQty eq 0 }">
+							<div>
+								<h5 class="text-center">리뷰가 없습니다. <a href="/review/register?sno=${sdto.svo.sno }">리뷰를 등록해 주세요</a></h2>
+							</div>
+						</c:if>
+					
+					</div>
 
 				</div>
 			</div>
@@ -233,15 +242,16 @@
 
 					<div class="address">
 						<span class="icon-clock"></span>
+						
 						<p>${sdto.svo.holiday } 
 							
 							<c:choose>
 								<c:when test="${sdto.svo.holiday eq now_today }">
-									<span class="close-now">CLOSE NOW</span>
+									<span class="close-now text-danger">CLOSE NOW</span>
 						</p>
 						</c:when>
 						<c:when test="${sdto.svo.holiday ne now_today }">
-							<span class="open-now">OPEN NOW</span>
+							<span class="open-now text-success">OPEN NOW</span>
 					</p>
 						</c:when>
 						</c:choose>
@@ -255,25 +265,7 @@
 						</c:otherwise>
 					</c:choose>
 				</div>
-				<div class="follow">
-					<div class="follow-img">
-						<img src="" class="img-fluid" alt="#">
-						<h6>Christine Evans</h6>
-						<span>New York</span>
-					</div>
-					<ul class="social-counts">
-						<li>
-							<h6>26</h6> <span>Listings</span>
-						</li>
-						<li>
-							<h6>326</h6> <span>Followers</span>
-						</li>
-						<li>
-							<h6>12</h6> <span>Followers</span>
-						</li>
-					</ul>
-					<a href="#">FOLLOW</a>
-				</div>
+				
 			</div>
 		</div>
 	</div>
