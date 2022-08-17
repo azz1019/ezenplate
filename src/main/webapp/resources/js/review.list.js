@@ -44,6 +44,7 @@ function get_review_list() {
                 let saveDir = dir.replace("/\\/g",'/');
                 review_inner +=`<img src="/upload/${saveDir}/${img.uuid}_th_${img.fileName}" class="img-fluid">`;
                
+                review_inner += `<br>`;
                 review_inner += `<p>${list.rvo.writer}</p>`;
                 review_inner += `</div>`;
                 review_inner += `<div class="customer-content-wrap">`;
@@ -51,9 +52,11 @@ function get_review_list() {
                 review_inner += `<div class="customer-review">`;
                 if(list.rvo.title == null){
                     review_inner += `<h6>제목 없음</h6>`;
+                    review_inner += `<br>`;
                 } else {
                     
                     review_inner += `<a style="inherited:no; border:0px;" href="/review/mydetail?rno=${list.rvo.rno}"><h6>${list.rvo.title}</h6></a>`;
+                    review_inner += `<br>`;
                     
                 }
                 let rate = Math.floor(list.rvo.rate);
@@ -102,12 +105,12 @@ function get_review_list() {
                     review_inner += `<form action = "/review/mymodify" method="get" style="display:inline-block;">`;
                     review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
                     review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
-                    review_inner += `<button type="submit" class="bg-warning"><a id="report" style="border:0px;"><span class="icon-note"></span>modify</a></button>`;
+                    review_inner += `<button type="submit" class="btn btn-warning"><a id="report" style="border:0px;"><span class="icon-note"></span>리뷰 수정</a></button>`;
                     review_inner += `</form>`;
                     review_inner += `<form action = "/review/remove" method="post" style="display:inline-block;">`;
                     review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
                     review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
-                    review_inner += `<button type="submit" class="bg-danger"><a id="report" style="border:0px;"><span class="icon-trash"></span>Remove</a></button>`;
+                    review_inner += `<button type="submit" class="btn btn-danger"><a id="report" style="border:0px;"><span class="icon-trash"></span>리뷰 삭제</a></button>`;
                     review_inner += `</form>`;
                     
                 }
@@ -116,7 +119,7 @@ function get_review_list() {
                     review_inner += `<form action = "/review/report" method="post" style="display:inline-block;">`;
                     review_inner += `<input type="hidden" value="${list.rvo.rno}" name="rno">`;
                     review_inner += `<input type="hidden" value="${list.rvo.sno}" name="sno">`;
-                    review_inner += `<button type="submit"><a id="report" style="border:0px;"><span class="icon-ban" ></span>reprot</a></button>`;
+                    review_inner += `<button type="submit" class="btn btn-outline-danger"><a id="report" style="border:0px;"><span class="icon-ban" ></span>신고하기</a></button>`;
                     review_inner += `</form>`;
                 }
                 review_inner += `</div>`;
