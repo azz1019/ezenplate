@@ -59,13 +59,20 @@ public class BoardController {
 
 	@GetMapping({"/list", "/mylist"})
 	public void list(Model model, PagingVO pgvo) {
-		model.addAttribute("list", bsv.getList(pgvo));
+		List<BoardDTO> list = bsv.getList(pgvo);
+		model.addAttribute("list", list);
 		int totalCount = bsv.getTotalCount(pgvo);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
-	@GetMapping({"/detail", "/modify"})
-	public void detail(@RequestParam("bno") long bno, Model model, RedirectAttributes rttr, PagingVO pgvo) {
+	@GetMapping("/detail")
+	public void detail(@RequestParam("bno") long bno, Model model, PagingVO pgvo) {
+		model.addAttribute("bdto", bsv.getDetail(bno));
+	}
+	
+	@GetMapping("/modify")
+	public void modify(Model model, @RequestParam("bno")long bno) {
+		log.info(">>> Board Controller modify - GET");
 		model.addAttribute("bdto", bsv.getDetail(bno));
 	}
 	
@@ -82,8 +89,8 @@ public class BoardController {
 		rttr.addAttribute("qty", pgvo.getQty());
 		rttr.addAttribute("type", pgvo.getType());
 		rttr.addAttribute("kw", pgvo.getKw());
-		log.info(">>> Board Modify : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/board/detail?bno=" + bvo.getBno();
+		log.info(">>> Board Modify -post : {}", isUp > 0 ? "OK" : "FAIL");
+		return "redirect:/board/detail?bno="+bvo.getBno();
 	}
 	
 	@GetMapping("/remove")

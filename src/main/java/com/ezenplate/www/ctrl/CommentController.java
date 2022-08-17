@@ -1,7 +1,10 @@
 package com.ezenplate.www.ctrl;
 
+
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,21 +16,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.ezenplate.www.domain.CommentVO;
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.service.CommentService;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RequestMapping("/comment/*")
 @Controller
 public class CommentController {
-
+	private static Logger log = LoggerFactory.getLogger(CommentController.class);
+	
 	@Inject
 	private CommentService csv;
+
 
 	@PostMapping(value = "/post", consumes = "application/json", produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> post(@RequestBody CommentVO cvo) {
@@ -35,9 +37,9 @@ public class CommentController {
 				: new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@GetMapping(value = "/{bno}/{pageNo}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<PagingHandler> spread(@PathVariable("bno") long bno, @PathVariable("pageNo") int pageNo) {
-		PagingVO pgvo = new PagingVO(pageNo, 5);
+	@GetMapping(value = "/{bno}/{pageNo}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<PagingHandler> spread(@PathVariable("bno") long bno, @PathVariable("pageNo") int pageNo){
+		PagingVO pgvo = new PagingVO(pageNo, 10);
 		return new ResponseEntity<PagingHandler>(csv.spread(bno, pgvo), HttpStatus.OK);
 	}
 

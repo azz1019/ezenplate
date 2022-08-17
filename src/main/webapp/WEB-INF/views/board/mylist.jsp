@@ -28,16 +28,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list }" var="bvo">
-				<c:if test="${ses.nickName == bvo.writer }">
+			<c:forEach items="${list }" var="bdto">
+				<c:if test="${ses.nickName == bdto.bvo.writer }">
 					<tr>
-						<td>${bvo.bno }</td>
-						<td>${bvo.userLocate }</td>
-						<td><a href="/board/detail?bno=${bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bvo.bname }</a></td>
-						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.regAt}" /></span></td>
-						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bvo.modAt}" /></span></td>
-						<td>${bvo.readCount }</td>
-						<td>${bvo.cmtQty }</td>
+						<td>${bdto.bvo.bno }</td>
+						<td>${bdto.bvo.userLocate }</td>
+						<td><a href="/board/detail?bno=${bdto.bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">${bdto.bvo.bname }</a></td>
+						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bdto.bvo.regAt}" /></span></td>
+						<td><span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분" value="${bdto.bvo.modAt}" /></span></td>
+						<td>${bdto.bvo.readCount }</td>
+						<td>${bdto.bvo.cmtQty }</td>
 					</tr>
 				</c:if>
 			</c:forEach>

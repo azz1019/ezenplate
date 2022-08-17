@@ -30,6 +30,23 @@
 			</trim>
 		</if>
 	</sql>
+	
+	<!-- location -->
+<!-- 	<sql id="location">
+		<if test="type != null">
+			<trim prefix="and (" suffix=")" prefixOverrides="OR">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test="type">
+								user_locate like concat('%', #{userLocate}, '%')
+							</when>
+							</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql> -->
 
 	<!-- insert -->
 	<insert id="insert" parameterType="bvo">
@@ -40,18 +57,19 @@
 	</insert>
 
 	<!-- List -->
-	<select id="selectList" parameterType="pgvo" resultType="bvo">
-		select a.bno, content, user_locate, bname, writer, reg_at, read_count,
-		cmt_qty
-		from (
-			select bno from board where 1=1
-			<include refid="search" />
-			order by reg_at desc
-			limit #{pageStart}, #{qty}
-		) a left join board b
-		on a.bno = b.bno
-		order by reg_at desc
-	</select>
+	<select id="selectList" parameterType="pgvo" resultType="bvo"> 
+		select a.bno, content, user_locate, bname, writer, reg_at, read_count, cmt_qty 
+		from ( 
+			select bno from board where 1=1 
+			 <include refid="search" />
+			<!-- <include refid="location" /> -->
+			order by reg_at desc 
+			limit #{pageStart}, #{qty} 
+			) 
+		a left join board b on a.bno = b.bno order 
+		by reg_at desc 
+		</select>
+
 	<!-- Detail -->
 	<select id="selectDetail" resultType="bvo">
 		select * from board
@@ -63,7 +81,7 @@
 		select count(bno) from board where bno > 0
 		<include refid="search" />
 	</select>
-	<select id="selectLastBno" resultType="Long">
+	<select id="selectLastBno" resultType="long">
 		select max(bno) from board
 	</select>
 

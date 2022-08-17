@@ -36,25 +36,11 @@ body {
     margin: 0;
   }
   
-  h2 {
-    color: var(--colour-gradient);
-    font-weight: 600;
-  }
-  
-  h4 {
-    color: var(--colour-gradient);
-    font-size: 14px;
-    font-weight: 600;
-  }
-  
+
   a {
     color: var(--colour-gradient);
     text-decoration: none !important;
-    transition: all 0.5s ease-in-out 0s;
-  }
-  
-  a:hover {
-    transition: all 0.5s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
   }
   
   p {
@@ -64,9 +50,13 @@ body {
     color: var(--colour-dark-grey);
     line-height: 28px;
   }
-  
-  .padDiv {
-    padding: 10px 20px 20px 20px;;
+  .padDiv{
+    padding: 10px 20px 20px 20px;
+  }
+  .padDiv > .content {
+    padding: 10px 20px 20px 20px;
+    color: var(--colour-gradient);
+    letter-spacing:2px;
   }
   
   .form-control:focus {
@@ -84,23 +74,9 @@ body {
     padding-bottom: 90px !important;
   }
   
-  .hvr-shutter-in-horizontal::before {
-    background: #333;
-  }
-  
-  .hvr-shutter-in-horizontal:hover {
-    background: #b8a07e;
-  }
-  
   .main-content {
     padding-top: 140px;
   }
-
-/* board Page */
-#journal-blog {
-  padding-top: 140px;
-}
-
 
 /* Image */
 .flex-fill{
@@ -133,35 +109,52 @@ body {
   width: 100%;
 }
 
-.journal-txt h4 a {
-  display: block;
-  font-size: 19px;
-  line-height: 24px;
-  margin: 0 0 13px 0;
-  font-weight: 500;
-  color: #292929;
-  transition: all 0.5s ease-in-out 0s;
+.board-txt h4 {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--colour-main);
 }
-#boardRemove{
+.titleCss{
+	font-size: 45px;    
+	color:var(--colour-black);
+	font-weight:600;
+	margin-right: 15px;
+	letter-spacing: 2px;
+}
+
+.modifyBtn, #boardRemove{
+	font-size: 12px;
+	font-weight:lighter;
 	border:0;
 	outline:0;
 	background: var(--colour-background);
 	color:#a2a2a2;
+	
 }
 
-.journal-txt h4 a:hover {
-  color: #b8a07e;
-  transition: all 0.5s ease-in-out 0s;
+#boardRemove:hover {
+	color:var(--colour-main);
+	font-weight: bolder;
+	cursor: pointer;
+	font-size:15px;
+	transition: all 0.2s ease-in-out 0s;
 }
+.modifyBtn:hover{
+	color:var(--colour-main);
+	font-weight: bolder;
+	font-size:15px;
+	
+}
+
 
 .post-meta ul li {
   font-size: 12px;
   font-weight: normal;
-  margin-left: 8px;
   margin-right: 8px;
   text-transform: capitalize;
   display: inline-block;
   float: none;
+  
 }
 .commentQty{
 	color: var(--colour-main);
@@ -177,7 +170,7 @@ body {
 }
 /* Commonts */
 .comments {
-  background: #fff;
+  background: var(--colour-white);
 }
 
 .entry-comments h6 {
@@ -187,13 +180,7 @@ body {
   font-weight: 500;
 }
 
-.entry-comments-item {
-  margin-top: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #f2f2f2;
-}
-
-.entry-comments-avatar {
+.entry-comments-photo {
   position: absolute;
   display: block;
   border-radius: 50%;
@@ -203,6 +190,7 @@ body {
 
 .entry-comments-body {
   padding-left: 86px;
+  margin-top: 30px;
 }
 
 .entry-comments-author {
@@ -213,44 +201,47 @@ body {
   font-weight: 500;
 }
 
-.rep {
-  font-size: 13px;
-  color: #292929;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  text-transform: capitalize;
-}
-
-.entry-comments span a {
-  font-size: 13px;
-  color: #999;
-}
-
-.entry-comments-reply {
-  padding-left: 10%;
-}
 
 /* Commonts form */
 .cmt {
   background: #fff;
 }
-
-blockquote {
-  padding: 40px;
-  background-color: #f2f2f2;
-  margin: 30px 0;
+#cmtText {
   border: none;
-  border-left: 4px solid #b8a07e;
+  box-sizing: border-box;
+  border-radius: 10px 0 0 10px;
+  padding: 12px 13px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#cmtText:focus{
+  border: none;
+  outline: 1px solid var(--colour-light-grey);
 }
 #cmtWriter {
-	margin-right: 20px;
+	margin-right: 18px;
 	display:block;
-	vertical-align: middle;
+  padding-top: 17px;
 }
 #cmtSbmBtn{
+  border-radius: 0 10px 10px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 	background-color:var(--colour-main);
 	color: var(--colour-white);
 }
+#cmtSbmBtn:hover{
+  background-color:var(--colour-main-v2);
+  cursor: pointer;
+}
+#contents{
+  margin: 5px 0 18px 0;
+}
+.entry-comments span a {
+    font-size: 13px;
+    color: var(--colour-dark-grey);
+  }
 
   /*--------------------------------------------------------------
 # Back to top button
@@ -274,38 +265,104 @@ blockquote {
     color: #fff;
     line-height: 0;
   }
-  
-  .back-to-top:hover {
-    background: #c6b398;
-    color: #fff;
-  }
-  
   .back-to-top.active {
     visibility: visible;
     opacity: 1;
   }
 
-
-.entry-comments span a {
-    font-size: 13px;
-    color: #999;
-  }
   
-  .entry-comments-reply {
-    padding-left: 10%;
-  }
   
   /* Commonts form */
   .cmt {
     background: #fff;
   }
   
-  blockquote {
-    padding: 40px;
-    background-color: #f2f2f2;
-    margin: 30px 0;
-    border: none;
-    border-left: 4px solid #b8a07e;
+  .buttons > .cmtMod, .cmtDel{
+    font-size: 12px;
+    border:0;
+    padding: 8px;
+    outline:0;
+    font-weight: lighter;
+    background: var(--colour-white);
+    color:#a2a2a2;
+  }
+  .buttons > .cmtMod {
+    margin-left: 20px;
+    margin-right: -20px;
+  }
+  .buttons > .cmtMod:hover{
+    color:var(--colour-main);
+    font-weight: bolder;
+    font-size:14px;
+    cursor: pointer;
+  }
+  .buttons > .cmtDel:hover{
+    color:var(--colour-main);
+    font-weight: bolder;
+    font-size:14px;
+    cursor: pointer;
   }
 
-  
+  #moreBtn {
+    font-size: 14px;
+    border:0;
+    padding: 8px;
+    outline:none;
+    font-weight: lighter;
+    background: var(--colour-white);
+    color:#a2a2a2;
+  }
+  #moreBtn:hover,
+  .btn-close:hover{
+    color:var(--colour-main);
+    font-weight: bolder;
+  }
+  #moreBtn:focus
+  #moreBtn:active{
+    border: none;
+    outline:none !important;
+  }
+
+  /* Modal */
+  .modSbmBtn{
+    background-color: var(--colour-main);
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0px 6px 18px -5px var(--colour-main-v2);
+  }
+  .modSbmBtn:hover {
+  background-color: var(--colour-main-v2);
+  }
+  #myModal{
+    height:400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .modal-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 20px;
+  }
+    .btn-close{
+      width: 30px;
+      font-size: 20px;
+      color: #c0c5cb;
+      align-self: flex-end;
+      background-color: transparent;
+      border: none;
+      margin-bottom: 10px;
+    }
+    .btn-header > img {
+      margin-bottom: 15px;
+  }
+
