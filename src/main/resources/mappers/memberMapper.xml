@@ -24,7 +24,7 @@
 		values (#{email}, #{pwd}, #{nickName}, #{userLocate})
 	</insert>
 	
-	<select id="selectEmail" parameterType="string" resultType="long">
+	<select id="selectEmail" parameterType="string" resultType="int">
 		select count(email) from member <include refid="wh_email"/>
 	</select>
 	
