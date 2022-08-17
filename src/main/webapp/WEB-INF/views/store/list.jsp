@@ -236,7 +236,7 @@
         <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="featured-btn-wrap">
-                        <a href="/store/list?pageNo=${pgn.startPage }&qty=${pgn.pgvo.qty+9}&kw=${pgn.pgvo.kw}" class="btn btn-danger" id="view_all">VIEW ALL</a>
+                        <a href="/store/list?pageNo=${pgn.startPage }&qty=${pgn.pgvo.qty+9}&kw=${pgn.pgvo.kw}" class="btn btn-danger" id="view_all">더보기  <span class="icon-arrow-down"></span></a>
                     </div>
                 </div>
             </div>
