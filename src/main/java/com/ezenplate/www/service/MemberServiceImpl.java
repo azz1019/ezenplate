@@ -127,4 +127,10 @@ public class MemberServiceImpl implements MemberService {
 		return fdao.select_member_img(mno);
 	}
 
+  @Override
+  public MemberVO get_detail(String email) {
+	
+	  return mdao.selectDetail(email);
+  }
+
 }
