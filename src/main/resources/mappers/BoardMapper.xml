@@ -24,29 +24,15 @@
 							<when test="type == 'w'.toString()">
 								writer like concat('%',#{kw},'%')
 							</when>
+							<when test="type == 'l'.toString()">
+								user_locate like concat('%',#{kw},'%')
+							</when>
 						</choose>
 					</trim>
 				</foreach>
 			</trim>
 		</if>
 	</sql>
-	
-	<!-- location -->
-<!-- 	<sql id="location">
-		<if test="type != null">
-			<trim prefix="and (" suffix=")" prefixOverrides="OR">
-				<foreach collection="typeToArray" item="type">
-					<trim prefix="OR">
-						<choose>
-							<when test="type">
-								user_locate like concat('%', #{userLocate}, '%')
-							</when>
-							</choose>
-					</trim>
-				</foreach>
-			</trim>
-		</if>
-	</sql> -->
 
 	<!-- insert -->
 	<insert id="insert" parameterType="bvo">
@@ -62,7 +48,6 @@
 		from ( 
 			select bno from board where 1=1 
 			 <include refid="search" />
-			<!-- <include refid="location" /> -->
 			order by reg_at desc 
 			limit #{pageStart}, #{qty} 
 			) 

@@ -83,6 +83,10 @@
 		document.getElementById('files').click();
 	});
 	
+	document.getElementById('regBtn').addEventListener('click', () => {
+        alert('프로필 정보가 수정되었습니다.');
+    });
+	
 	const userLocateCtrl = document.getElementById('userLocate');
 	const userLocateValue = document.getElementById('userLocateText').value;
 	for(let index = 0; index < userLocateCtrl.length; index++) {
