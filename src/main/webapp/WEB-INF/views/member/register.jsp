@@ -7,32 +7,33 @@
 <!-- SLIDER -->
 <section class="slider d-flex align-items-center" style="background-image: url('/resources/mylist/photo/background.jpg');">
     <div class="container">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center" style="background-color : rgba(128,128,128,0.85);">
             <div class="col-md-12">
                 <div class="slider-title_box">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="slider-content_wrap">
+                            <div class="slider-content_wrap" style="font-family: 'Jua', sans-serif;">
                                 <h1>회원가입</h1>
                             </div>
                         </div>
                     </div>
+                    <br>
                     <div class="row d-flex justify-content-center" style="color: white;">
                         <div class="col-md-10">
 						  	<form action="/member/register" method="post" enctype="multipart/form-data">
 								<div class="mb-3 mt-3">
-						      		<div class="input-group">
-						      			<input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요" name="email" required>
+						      		<div class="input-group" style="width:54%; position: relative;left:23%;">
+						      			<input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요" name="email" required style="height:60px;">
 						      			<button type="button" class="btn btn-outline-warning" id="dupleCheck">중복확인</button>
 						      		</div>
 						    	</div>
 						    	
-						    	<div class="mb-3">
-						      		<input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요" name="pwd" required>
+						    	<div class="mb-3" style="position: relative;left:23%;">
+						      		<input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요" name="pwd" required style="width:54%;height:60px;">
 						    	</div>
 						    	
-						    	<div class="mb-3 mt-3">
-						      		<input type="text" class="form-control" id="nickName" placeholder="닉네임을 입력해주세요" name="nickName" required>
+						    	<div class="mb-3 mt-3" style="position: relative;left:23%;">
+						      		<input type="text" class="form-control" id="nickName" placeholder="닉네임을 입력해주세요" name="nickName" required style="width:54%;height:60px;">
 						    	</div>
 						    	
 						    	<div class="mb-3 mt-3">
@@ -64,8 +65,9 @@
 									<button type="button" id="attachTrigger" class="btn btn-outline-warning">이미지 첨부</button>
 									<div class="my-3" id="fileZone"></div> 
 							    </div>
-						    
-						    	<button type="submit" class="btn-form" id="regBtn" style="background-color: rgb(255, 113, 0);">회원가입</button> 	
+						    	<br>
+						    	<br>
+						    	<button type="submit" class="btn-form" id="regBtn" style="background-color: rgb(255, 113, 0);font-family: 'Jua', sans-serif;">회원가입</button> 	
 							</form>
                         </div>
                     </div>
