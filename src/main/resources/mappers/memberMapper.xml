@@ -47,6 +47,10 @@
 		select mno from member where email=#{email}
 	</select>
 	
+	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
+		select count(email) from member
+	</select>
+	
 	<update id="gradeUpdate" parameterType="mvo">
 		update member set grade = #{grade} <include refid="wh_email"/>
 	</update>
