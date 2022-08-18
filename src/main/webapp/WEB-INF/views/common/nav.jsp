@@ -4,12 +4,22 @@
 
 <style>
 .nav_color {
-	background-color: rgb(255, 113, 0);
+	/* background-color: rgba(255, 113, 0,0.9); */
+	z-index:1020;
+}
+.nav-item a {
+	color : rgb(0,0,0);
+}
+#nav_bar{
+	width:100%;
+	background:linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 25%,rgba(255, 133, 0, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
+}
+#nav_bar ul a{
+	/* color : rgb(255,113,0); */
 }
 </style>
-
 <!--============================= HEADER =============================-->
-<div class="sticky-top nav_color">
+<div class="sticky-top nav_color" id="nav_bar">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">

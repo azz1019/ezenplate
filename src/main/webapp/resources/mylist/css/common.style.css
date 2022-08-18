@@ -1,0 +1,4 @@
+#nav_bar.active{
+    background:rgba(255,113,0,0.7);
+    transition:0.5s;
+}

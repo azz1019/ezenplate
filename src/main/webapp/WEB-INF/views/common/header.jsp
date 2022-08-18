@@ -46,15 +46,7 @@
 <script src="/resources/bootstrap/js/bootstrap-select.min.js"></script>
 <script src="/resources/bootstrap/js/defaults-ko_KR.min.js"></script>
 
-<script>
-    $(window).scroll(function() {
-        // 100 = The point you would like to fade the nav in.
-        if ($(window).scrollTop() > 100) {
-            $('.fixed').addClass('is-sticky');
-        } else {
-            $('.fixed').removeClass('is-sticky');
-        };
-    });
-</script>
+<script src="/resources/mylist/js/common.style.js"></script>
+<link rel="stylesheet" href="/resources/mylist/css/common.style.css">
 </head>
 <body>
