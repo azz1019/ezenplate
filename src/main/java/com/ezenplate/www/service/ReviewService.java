@@ -5,6 +5,7 @@ import java.util.List;
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
+import com.ezenplate.www.handler.PagingHandler;
 
 public interface ReviewService {
 	List<ReviewDTO> get_list(long sno); // 리뷰 목록
@@ -26,4 +27,5 @@ public interface ReviewService {
 	int getHolicTotalCount(PagingVO pgvo); // holic 총 갯수
 	int getGoodTotalCount(PagingVO pgvo); // good 총 갯수
 	int getbadTotalCount(PagingVO pgvo); // bad 총 갯수
+	PagingHandler spread(PagingVO pgvo);
 }

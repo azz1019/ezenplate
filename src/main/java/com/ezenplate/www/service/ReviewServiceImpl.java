@@ -11,6 +11,7 @@ import com.ezenplate.www.domain.FileVO;
 import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.ReviewDTO;
 import com.ezenplate.www.domain.ReviewVO;
+import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.repository.FileDAO;
 import com.ezenplate.www.repository.ReviewDAO;
 import com.ezenplate.www.repository.StoreDAO;
@@ -149,4 +150,10 @@ public class ReviewServiceImpl implements ReviewService {
 	public int getbadTotalCount(PagingVO pgvo) {
 		return rdao.selectBadTotalCount();
 	}
+
+	@Override
+	public PagingHandler spread(PagingVO pgvo) {
+		return new PagingHandler(rdao.selectAll(),rdao.selectTotalCount(pgvo),pgvo);
+	}
+
 }

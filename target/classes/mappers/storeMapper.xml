@@ -27,7 +27,6 @@
    		</if>
    	</sql>
 	
-<<<<<<< HEAD
 	<select id="select_store_list" resultType="svo"
 		parameterType="pgvo">
 		select * from store
@@ -65,7 +64,10 @@
 		order by rate_avg desc
 		
 	</select>
-
+	<select id="select_store_name" resultType="String">
+		select sname from store
+		where sno = #{sno}
+	</select>
 	<update id="update_readcount">
 		update store set
 		read_count = read_count + #{i}
@@ -86,39 +88,6 @@
 		rate_avg = #{rate}
 		where sno = #{sno}
 	</update>
-=======
-	<select id="select_store_list" resultType="svo" parameterType="pgvo">
-   		select * from store 
-   		order by rate_avg
-   		limit #{pageStart}, #{qty}
-   	</select>
-   	<select id="select_search_store" resultType="svo" parameterType="pgvo">
-   		select * from store
-   		where 1=1
-   		<include refid="search"/>
-   		order by rate_avg
-   		limit #{pageStart}, #{qty}
-   	</select>
-   
-   	<select id="select_total_count" resultType="int">
-  		 select count(sno) from store
-   	</select>
-   	<select id="select_search_count" resultType="int" parameterType="pgvo">
-	   	select count(sno) from store
-   		where sname = #{kw}
-   	</select>
-   	<select id="select_one" resultType="svo">
-   		select * from store
-   		where sno = #{sno}
-   	</select>
-   
-   
-   	<update id="update_readcount">
-	   	update store set
-   		read_count = read_count + #{i}
-   		where sno = #{sno}
-   	</update>
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2
 <!--맛집 목록 및 검색 -->
 	<insert id="insert" parameterType="svo">
 		insert into store (writer, sname, category, locate, tel, content, menu_name1, menu_name2, menu_name3, menu_name4, menu_name5, menu_price1, menu_price2, menu_price3, menu_price4, menu_price5, holiday, rate_avg)
