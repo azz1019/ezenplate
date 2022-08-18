@@ -88,6 +88,11 @@
 		rate_avg = #{rate}
 		where sno = #{sno}
 	</update>
+	<update id="admitStore" parameterType="svo">
+		update store set
+		approve = 1
+		where sno = #{sno}
+	</update>
 <!--맛집 목록 및 검색 -->
 	<insert id="insert" parameterType="svo">
 		insert into store (writer, sname, category, locate, tel, content, menu_name1, menu_name2, menu_name3, menu_name4, menu_name5, menu_price1, menu_price2, menu_price3, menu_price4, menu_price5, holiday, rate_avg)
@@ -96,7 +101,7 @@
 	
 	<select id="selectList" resultType="svo" parameterType="pgvo">
 		select a.sno, writer, sname, category, locate, reg_at, approve
-		from (select sno from store where sno > 0 order by sno desc limit #{pageStart}, #{qty}) a left join store b
+		from (select sno from store where sno > 0 order by sno limit #{pageStart}, #{qty}) a left join store b
 		on a.sno = b.sno
 	</select>
 	
