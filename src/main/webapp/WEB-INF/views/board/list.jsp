@@ -35,52 +35,47 @@
 					<input type="hidden" name="pageNo" value="${pgn.pgvo.pageNo }">
 					<input type="hidden" name="qty" value="${pgn.pgvo.qty }">
 					<div class="input-group">
-					<%-- <c:set value="${pgn.pgvo.userLocate }" var="typed" /> --%>
-					
-						<select class="form-select" id="userLocate"  name="type" onchange="this.form.submit()">
-							<option value="지역" selected>지역</option>
-							<option value="서울">서울</option>
-							<option value="경기" ${typed eq '경기' ? 'selected':'' }>경기</option>
-							<option value="인천">인천</option>
-							<option value="강원">강원</option>
-							<option value="충북">충북</option>
-							<option value="충남">충남</option>
-							<option value="세종">세종</option>
-							<option value="대전">대전</option>
-							<option value="전북">전북</option>
-							<option value="전남">전남</option>
-							<option value="광주">광주</option>
-							<option value="경북">경북</option>
-							<option value="경남">경남</option>
-							<option value="대구">대구</option>
-							<option value="울산">울산</option>
-							<option value="부산">부산</option>
-							<option value="제주">제주</option>
+						<input type="hidden" id="locationKeyword" value="${pgn.pgvo.kw }">
+						<select class="form-select" id="locationSelect" onchange="location = this.value;">
+							 <option value="/board/list">전체</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=서울">서울</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=경기">경기</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=인천">인천</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=강원">강원</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=충북">충북</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=충남">충남</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=세종">세종</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=대전">대전</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=전북">전북</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=전남">전남</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=광주">광주</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=경북">경북</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=경남">경남</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=대구">대구</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=울산">울산</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=부산">부산</option>
+							 <option value="/board/list?pageNo=1&qty=10&type=l&kw=제주">제주</option>
 						</select>
 					</div>
 				</form>
 			</div>
-	
 
-
-
-
-					<!-- 로그인 안되면 로그인 페이지로 보내기-->
-					<div class="text-lg-end float-right">
-						<c:choose>
-							<c:when test="${ses.email ne null && ses.email ne '' }">
-								<button type="button" class="btn regBtn"
-									onclick="location.href='/board/register'">글쓰기</button>
-							</c:when>
-							<c:otherwise>
-								<button type="button" class="btn regBtn"
-									onclick="location.href='/member/login'">글쓰기</button>
-							</c:otherwise>
-						</c:choose>
-					</div>
-					<!-- // -->
+			<!-- 로그인 안되면 로그인 페이지로 보내기-->
+			<div class="text-lg-end float-right">
+				<c:choose>
+					<c:when test="${ses.email ne null && ses.email ne '' }">
+						<button type="button" class="btn regBtn"
+							onclick="location.href='/board/register'">글쓰기</button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" class="btn regBtn"
+							onclick="location.href='/member/login'">글쓰기</button>
+					</c:otherwise>
+				</c:choose>
 			</div>
+			<!-- // -->
 		</div>
+	</div>
 </section>
 <!-- ==================== End Board Button ====================  -->
 <!--  ==================== Start Board List ====================  -->
@@ -143,9 +138,10 @@
 							<option value="t" ${typed eq 't' ? 'selected':'' }>제목</option>
 							<option value="w" ${typed eq 'w' ? 'selected':'' }>닉네임</option>
 							<option value="c" ${typed eq 'c' ? 'selected':'' }>내용</option>
-						</select> <input class="form-control ml-3 searchInput" type="search"
+						</select> 
+							<input class="form-control ml-3 searchInput" type="search"
 							placeholder="검색어를 입력해보세요" aria-label="Search" name="kw"
-							id="searchID" value="${pgn.pgvo.kw }">
+							id="searchID">
 						<div class="input-group-append">
 							<button class="btn searchBtn" type="submit">
 								<i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
@@ -181,5 +177,14 @@
 <!-- ==================== End Pagination ====================  -->
 
 <script src="/resources/js/board.register.js"></script>
+<script>
+	const locationSelectCtrl = document.getElementById('locationSelect');
+	const locationKeyword = document.getElementById('locationKeyword').value;
+	for(let index = 0; index < locationSelectCtrl.length; index++) {
+		if(locationSelectCtrl[index].text == locationKeyword) {	
+			locationSelectCtrl[index].selected = true;
+		}
+	}
+</script>
 
 <jsp:include page="../common/footer.jsp" />
