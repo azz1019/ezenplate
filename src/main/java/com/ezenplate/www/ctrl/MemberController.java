@@ -76,7 +76,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login")
-	public String login(MemberVO mvo, HttpSession ses, RedirectAttributes rttr) {
+	public String login(MemberVO mvo, HttpSession ses, RedirectAttributes rttr, @RequestParam("email")String email) {
 		MemberVO sesMvo = msv.login(mvo);
 		List<WantVO> wvo = wsv.want_list(sesMvo.getMno());
 		List<VisitedVO> vvo = vsv.visit_list(sesMvo.getMno());
