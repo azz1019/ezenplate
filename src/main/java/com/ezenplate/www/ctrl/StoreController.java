@@ -97,6 +97,11 @@ public class StoreController {
 		return "redirect:/store/mylist";
 	}
 	
+	@PostMapping("/remove")
+	public String storeRemove(@RequestParam("sno") long sno) {
+		int isUp = ssv.remove(sno);
+		return "redirect:/store/approve";
+	}
 	
 	/* 맛집 목록 및 검색*/
 	@GetMapping("/list")
