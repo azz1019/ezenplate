@@ -87,6 +87,7 @@ public class MemberController {
 			ses.setAttribute("visit", vvo);
 			ses.setMaxInactiveInterval(60 * 10);
 			rttr.addFlashAttribute("isLogin", 1);
+			msv.lastLogin(email);
 			return "redirect:/";
 		} else {
 			return "redirect:/member/login";
@@ -186,4 +187,18 @@ public class MemberController {
 		FileVO img = msv.get_mno(email);
 		return new ResponseEntity<MemberDTO>(new MemberDTO(mvo, img),HttpStatus.OK);
 	}
+	
+	@GetMapping("/update")
+	public void update(Model model, @RequestParam("email")String email) {
+		log.info(">>> MemberController update - GET");
+		model.addAttribute("mvo", msv.getDetail(email));
+	}
+	
+	@PostMapping("/update")
+	public String update(MemberVO mvo) {
+		int isUp = msv.gradeChange(mvo);
+		log.info(">>> MemberController update - POST : {}", isUp > 0 ? "OK":"FAIL");
+		return "redirect:/member/detail?email=" + mvo.getEmail();
+	}
 }
+
