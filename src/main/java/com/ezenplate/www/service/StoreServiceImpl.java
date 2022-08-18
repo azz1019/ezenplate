@@ -130,4 +130,9 @@ public class StoreServiceImpl implements StoreService {
 		}
 		return dto;
 	}
+	
+	@Override
+	public int admit(StoreVO svo) {
+		return sdao.admitStore(svo);
+	}
 }
