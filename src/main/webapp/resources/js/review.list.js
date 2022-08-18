@@ -30,9 +30,9 @@ function get_review_list() {
         
         if (result != null) {
             for (const list of result) {
-                member_img(list.rvo.writer).then(img => {
+                member_img(list.rvo.writer).then(dto => {
 
-                
+                console.log(dto.fvo);
                 let review_list = document.getElementById('review_list');
                 let review_inner = '';
                 review_inner += `<div class="customer-review_wrap">`;
@@ -40,12 +40,12 @@ function get_review_list() {
                 
                 
                 
-                let dir = img.saveDir.toString();
+                let dir = dto.fvo.saveDir.toString();
                 let saveDir = dir.replace("/\\/g",'/');
-                review_inner +=`<img src="/upload/${saveDir}/${img.uuid}_th_${img.fileName}" class="img-fluid">`;
+                review_inner +=`<img src="/upload/${saveDir}/${dto.fvo.uuid}_th_${dto.fvo.fileName}" class="img-fluid">`;
                
                 review_inner += `<br>`;
-                review_inner += `<p>${list.rvo.writer}</p>`;
+                review_inner += `<p>${dto.mvo.nickName}</p>`;
                 review_inner += `</div>`;
                 review_inner += `<div class="customer-content-wrap">`;
                 review_inner += `<div class="customer-content">`;
