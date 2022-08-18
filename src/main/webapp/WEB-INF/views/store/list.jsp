@@ -111,11 +111,20 @@
                     <div class="featured-place-wrap">
                         <a href="/store/detail?sno=${list.svo.sno }">
                         
-                        <c:forEach items="${list.fileList }" var="fvo">
-                        
-                            <img src="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_${fvo.fileName}" class="img-fluid">
+                        <c:choose>
+                        	<c:when test="${list.fileList[0].saveDir ne null }">
+                        	<c:forEach items="${list.fileList }" var="fvo">
+                  
+                            	<img src="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_${fvo.fileName}" class="img-fluid">
                             
-                        </c:forEach>    
+                        	</c:forEach>
+                        		
+                        	</c:when>
+                        	<c:otherwise>
+                        			<img src="../../resources/mylist/photo/사진없음.png" class="img-fluid" style="height:300px">
+                        	</c:otherwise>
+                        </c:choose>
+                                                    
                             <c:choose>
                             	<c:when test="${list.svo.rateAvg <= 2.0 }">
                             	

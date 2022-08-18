@@ -15,6 +15,16 @@
 	<!-- Swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
+			<c:choose>
+				<c:when test="${sdto.fileList[0].saveDir eq null }">
+					<a
+						href="../../resources/mylist/photo/사진없음.png" 
+						class="grid image-link"> <img
+						src="../../resources/mylist/photo/사진없음.png" 
+						class="img-fluid">
+					</a>
+				</c:when>
+			</c:choose>
 			<c:forEach items="${sdto.fileList }" var="fvo">
 				<div class="swiper-slide">
 					<a
@@ -372,10 +382,10 @@ document.getElementById('login_plz').addEventListener('click', (e)=>{
 let visit_ok = '<c:out value="${visit_ok}"/>';
 let visit_no = '<c:out value="${visit_no}"/>';
 if(visit_ok){
-	alert("가봤어요를 등록했습니다");
+	alert("방문한 식당을 등록했습니다");
 }
 if(visit_no){
-	alert("이미 가봤어요를 등록되어 있습니다");
+	alert("이미 방문한 식당에 등록되어 있습니다");
 }
 </script>
 <script type="text/javascript">
@@ -383,13 +393,13 @@ let want_ok = '<c:out value="${want_ok}"/>';
 let want_no = '<c:out value="${want_no}"/>';
 let want_check = '<c:out value="${want_check}"/>';
 if(want_ok){
-	alert("가고싶다를 등록했습니다.");
+	alert("즐겨찾기에 등록했습니다.");
 }
 if(want_no){
-	alert("가고싶다 등록을 실패 했습니다.");
+	alert("즐겨찾기 등록을 실패 했습니다.");
 }
 if(want_check){
-	alert("가고싶다가 이미 등록되어 있습니다.");
+	alert("즐겨찾기가 이미 등록되어 있습니다.");
 }
 </script>
 <jsp:include page="../common/footer.jsp" />

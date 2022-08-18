@@ -12,6 +12,15 @@
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="/resources/bootstrap/js/bootstrap.bundle.min.js" ></script> -->
 
+<!-- 폰트 네비(한글) font-family: 'Jua', sans-serif;-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<!-- 영어폰트(네비)  font-family: 'Fjalla One', sans-serif;-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
 <!-- 테마 부트스트랩, js -->
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="/resources/dist/css/bootstrap.min.css">
