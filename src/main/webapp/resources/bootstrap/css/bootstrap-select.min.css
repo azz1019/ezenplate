@@ -17,3 +17,11 @@
     font-size: 14px;
     line-height: 16px;
 }
+@font-face {
+    font-family: 'login_font';
+    src: url('../../mylist/font/bitro TTF.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'login_btn_font';
+    src: url('../../mylist/font/bitro pride TTF.ttf') format('truetype');
+}
