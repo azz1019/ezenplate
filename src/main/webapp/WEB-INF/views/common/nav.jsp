@@ -9,12 +9,12 @@
 </style>
 
 <!--============================= HEADER =============================-->
-<div class="sticky-top nav_color">
+<div class="sticky-top nav_color" style="font-family: 'Jua', sans-serif;">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light">
-					<a class="navbar-brand" href="/">EZEN PLATE</a>
+					<a class="navbar-brand" href="/"><img src="../resources/mylist/photo/EZEN.jpg" style="width:100%;height:50px;"></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-menu"></span>
  					</button>
