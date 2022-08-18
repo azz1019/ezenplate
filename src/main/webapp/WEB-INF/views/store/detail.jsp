@@ -15,6 +15,16 @@
 	<!-- Swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
+			<c:choose>
+				<c:when test="${sdto.fileList[0].saveDir eq null }">
+					<a
+						href="../../resources/mylist/photo/사진없음.png" 
+						class="grid image-link"> <img
+						src="../../resources/mylist/photo/사진없음.png" 
+						class="img-fluid">
+					</a>
+				</c:when>
+			</c:choose>
 			<c:forEach items="${sdto.fileList }" var="fvo">
 				<div class="swiper-slide">
 					<a
@@ -115,10 +125,10 @@
 						<div class="featured-btn-wrap">
 							<c:choose>
 								<c:when test="${ses.email ne null && ses.email ne '' }">
-									<a href="/want/register?sno=${sdto.svo.sno }&mno=${ses.mno}" class="btn btn-danger">즐겨찾기</a>
+									<a href="/want/register?sno=${sdto.svo.sno }&mno=${ses.mno}" class="btn btn-danger">가고싶다</a>
 								</c:when>
 								<c:otherwise>
-									<a class="btn btn-danger" id="login_plz">즐겨찾기</a>
+									<a class="btn btn-danger" id="login_plz">가고싶다</a>
 								</c:otherwise>							
 							</c:choose>
 						</div>
@@ -258,10 +268,10 @@
 					</div>
 					<c:choose>
 						<c:when test="${ses.email ne null && ses.email ne '' }">
-							<a href="/visited/register?mno=${ses.mno }&sno=${sdto.svo.sno}" class="btn btn-outline-danger btn-contact">방문한 식당</a>
+							<a href="/visited/register?mno=${ses.mno }&sno=${sdto.svo.sno}" class="btn btn-outline-danger btn-contact">가봤어요</a>
 						</c:when>
 						<c:otherwise>
-							<a class="btn btn-outline-danger btn-contact " id="login_plz">방문한 식당</a>
+							<a class="btn btn-outline-danger btn-contact " id="login_plz">가봤어요</a>
 						</c:otherwise>
 					</c:choose>
 				</div>
