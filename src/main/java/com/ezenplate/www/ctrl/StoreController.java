@@ -53,7 +53,7 @@ public class StoreController {
 	public String admit(StoreVO svo) {
 		int isUp = ssv.admit(svo);
 		log.info(">>> StoreController admit - POST : {}", isUp > 0 ? "성공":"실패");
-		return "redirect:/store/detail?sno=" + svo.getSno();
+		return "redirect:/store/approve";
 	}
 	
 	@GetMapping("/myregister")
