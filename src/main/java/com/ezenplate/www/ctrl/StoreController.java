@@ -42,6 +42,20 @@ public class StoreController {
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
+	@GetMapping("/admit")
+	public void admit(Model model,@RequestParam("sno") long sno) {
+		log.info(">>> StoreController admit - GET");
+		StoreDTO sdto = ssv.getDetail(sno);
+		model.addAttribute("sdto", sdto);
+	}
+	
+	@PostMapping("/admit")
+	public String admit(StoreVO svo) {
+		int isUp = ssv.admit(svo);
+		log.info(">>> StoreController admit - POST : {}", isUp > 0 ? "성공":"실패");
+		return "redirect:/store/detail?sno=" + svo.getSno();
+	}
+	
 	@GetMapping("/myregister")
 	public void register() {
 		log.info(">>> StoreController register - GET");
