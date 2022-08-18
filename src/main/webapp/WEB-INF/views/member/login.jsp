@@ -5,7 +5,7 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <!-- SLIDER -->
-<section class="slider d-flex align-items-center">
+<section class="slider d-flex align-items-center" style="background-image: url('/resources/mylist/photo/background.jpg');">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12">
@@ -26,7 +26,7 @@
 						    	<div class="mb-3">
 						      		<input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요" name="pwd" required>
 						    	</div>
-						    	<button type="submit" class="btn-form">로그인</button>   	
+						    	<button type="submit" class="btn-form" style="background-color: rgb(255, 113, 0);">로그인</button>   	
 							</form>
                         </div>
                     </div>

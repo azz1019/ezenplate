@@ -9,9 +9,7 @@
 <div class="container mt-3">
 	<div class="row justify-content-center">
 		<div class="col-md-5">
-			<div class="styled-heading">
-				<h3>가고싶다</h3>
-			</div>
+			<h3>내가 즐겨찾기한 식당</h3>
 		</div>
 	</div>
 	<table class="table table-hover">

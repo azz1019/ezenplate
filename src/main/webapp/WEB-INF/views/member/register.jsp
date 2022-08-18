@@ -5,7 +5,7 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <!-- SLIDER -->
-<section class="slider d-flex align-items-center">
+<section class="slider d-flex align-items-center" style="background-image: url('/resources/mylist/photo/background.jpg');">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12">
@@ -23,7 +23,7 @@
 								<div class="mb-3 mt-3">
 						      		<div class="input-group">
 						      			<input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요" name="email" required>
-						      			<button type="button" class="btn btn-outline-danger" id="dupleCheck">중복확인</button>
+						      			<button type="button" class="btn btn-outline-warning" id="dupleCheck">중복확인</button>
 						      		</div>
 						    	</div>
 						    	
@@ -61,11 +61,11 @@
 						    	<div class="mb-3">
 									<label for="attach">프로필 사진 :</label>
 									<input type="file" class="form-control" style="display: none;" id="files" name="fileAttached" multiple>
-									<button type="button" id="attachTrigger" class="btn btn-outline-danger">이미지 첨부</button>
+									<button type="button" id="attachTrigger" class="btn btn-outline-warning">이미지 첨부</button>
 									<div class="my-3" id="fileZone"></div> 
 							    </div>
 						    
-						    	<button type="submit" class="btn-form" id="regBtn">회원가입</button> 	
+						    	<button type="submit" class="btn-form" id="regBtn" style="background-color: rgb(255, 113, 0);">회원가입</button> 	
 							</form>
                         </div>
                     </div>

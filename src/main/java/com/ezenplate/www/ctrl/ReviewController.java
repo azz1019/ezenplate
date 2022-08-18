@@ -57,7 +57,7 @@ public class ReviewController {
 		
 		}
 		int isUp = rsv.register(new ReviewDTO(rvo, fileList));
-		return null;
+		return "redirect:/store/detail?sno="+rvo.getSno();
 	}
 	
 	@GetMapping("/list")
@@ -136,6 +136,7 @@ public class ReviewController {
 		ReviewVO rvo = new ReviewVO();
 		rvo.setSno(sno);
 		model.addAttribute("rvo", rvo);
+		
 	}
 	@GetMapping(value="/{sno}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<List<ReviewDTO>> list(@PathVariable("sno") long sno) {

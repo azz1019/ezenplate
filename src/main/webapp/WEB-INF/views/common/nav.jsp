@@ -2,8 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<style>
+.nav_color {
+	background-color: rgb(255, 113, 0);
+}
+</style>
+
 <!--============================= HEADER =============================-->
-<div class="dark-bg sticky-top">
+<div class="sticky-top nav_color">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -17,18 +23,11 @@
 							<c:choose>
 								<%-- 로그인 O 상태 --%>
 								<c:when test="${ses.email ne null && ses.email ne '' }">
-									<!-- 소식 -->
-									<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">소식</a></li>
+									<!-- 최신 리뷰 보기 -->
+									<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">최신 리뷰 보기</a></li>
 								
-									<!-- 커뮤니티 -->
-									<li class="nav-item dropdown">
-										<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-											<a class="dropdown-item" href="/store/list">맛집 찾기</a>
-											<a class="dropdown-item" href="/board/list">지역게시판</a>
-											<a class="dropdown-item" href="/board/register">글쓰기</a>
-										</div>
-									</li>
+									<!-- 지역게시판 -->
+									<li class="nav-item active"><a class="nav-link" href="/board/list">지역게시판</a></li>
 								
 									<!-- 내정보 -->
 									<li class="nav-item dropdown">
@@ -38,8 +37,9 @@
 											<a class="dropdown-item" href="/review/mylist">내가 쓴 리뷰</a>
 											<a class="dropdown-item" href="/board/mylist">내가 쓴 지역게시판</a>
 											<a class="dropdown-item" href="/store/mylist">내가 등록한 식당</a>
-											<a class="dropdown-item" href="/want/list?mno=${ses.mno }">가고싶다</a>
-											<a class="dropdown-item" href="/visited/list?mno=${ses.mno }">가봤어요</a>
+											<a class="dropdown-item" href="/want/list?mno=${ses.mno }">내가 즐겨찾기한 식당</a>
+											<a class="dropdown-item" href="/visited/list?mno=${ses.mno }">내가 방문한 식당</a>
+											<a class="dropdown-item" href="/member/remove?email=${ses.email }">탈퇴</a>
 										</div>
 									</li>
 									
@@ -56,24 +56,17 @@
 										</li>
 									</c:if>
 									
-									<!-- 로그아웃, 탈퇴 -->
+									<!-- 로그아웃 -->
 									<li class="nav-item active"><a class="nav-link" href="/member/logout">로그아웃</a></li>
-									<li><a href="/member/remove?email=${ses.email }" class="btn btn-outline-light top-btn"><span class="ti-minus"></span> 탈퇴</a></li>
 					          	</c:when>
 					          	
 					          	<%-- 로그인 X 상태 --%>
 				        		<c:otherwise>
-				        			<!-- 소식 -->
-									<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">소식</a></li>
+				        			<!-- 최신 리뷰 보기 -->
+									<li class="nav-item active"><a class="nav-link" href="/list/reviewlist">최신 리뷰 보기</a></li>
 									
-				        			<!-- 커뮤니티 -->
-				        			<li class="nav-item dropdown">
-										<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티<span class="icon-arrow-down"></span></a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-											<a class="dropdown-item" href="/store/list">맛집 찾기</a>
-											<a class="dropdown-item" href="/board/list">지역게시판</a>
-										</div>
-									</li>
+				        			<!-- 지역게시판 -->
+									<li class="nav-item active"><a class="nav-link" href="/board/list">지역게시판</a></li>
 				        		
 				        			<!-- 회원가입 -->
 				        			<li class="nav-item active"><a class="nav-link" href="/member/login">로그인</a></li>
