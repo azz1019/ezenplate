@@ -1,6 +1,8 @@
 package com.ezenplate.www.service;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -42,6 +44,15 @@ public class StoreServiceImpl implements StoreService {
 	public List<StoreVO> getList(PagingVO pgvo) {
 		return sdao.selectList(pgvo);
 	}
+	
+	@Override
+	public List<StoreVO> getMyList(PagingVO pgvo, String email) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("email", email);
+		
+		return sdao.selectMyList(map);
+	}
 
 	@Override
 	public StoreDTO getDetail(long sno) {
@@ -60,6 +71,15 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public int getTotalCount(PagingVO pgvo) {
 		return sdao.selectTotalCount(pgvo);
+	}
+	
+	@Override
+	public int getMyTotalCount(PagingVO pgvo, String email) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("email", email);
+		
+		return sdao.selectMyTotalCount(map);
 	}
 
 	@Override
@@ -129,5 +149,10 @@ public class StoreServiceImpl implements StoreService {
 			 dto.add(new StoreDTO(storeVO, list));
 		}
 		return dto;
+	}
+	
+	@Override
+	public int admit(StoreVO svo) {
+		return sdao.admitStore(svo);
 	}
 }

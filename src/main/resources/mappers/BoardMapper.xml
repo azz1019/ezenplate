@@ -80,12 +80,18 @@
 		select * from board
 		<include refid="wh_bno" />
 	</select>
+	
 	<!-- Total Count -->
 	<select id="selectTotalCount" parameterType="pgvo"
 		resultType="int">
 		select count(bno) from board where bno > 0
 		<include refid="search" />
 	</select>
+	
+	<select id="selectMyTotalCount" resultType="int" parameterType="hashMap">
+		select count(bno) from board where writer=#{nickName};
+	</select>
+	
 	<select id="selectLastBno" resultType="long">
 		select max(bno) from board
 	</select>
@@ -97,11 +103,13 @@
 		=#{content}, writer =#{writer}, mod_at =now()
 		<include refid="wh_bno" />
 	</update>
+	
 	<!-- Update read Count -->
 	<update id="updateReadCount">
 		update board set read_count = read_count + #{i}
 		<include refid="wh_bno" />
 	</update>
+	
 	<!-- Update comment Quantity -->
 	<update id="updateCmtQty">
 		update board set cmt_qty = cmt_qty + #{i}

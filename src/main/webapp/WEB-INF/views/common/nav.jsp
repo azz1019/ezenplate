@@ -45,9 +45,9 @@
 										<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">내정보<span class="icon-arrow-down"></span></a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 											<a class="dropdown-item" href="/member/modify?email=${ses.email }">프로필 수정</a>
-											<a class="dropdown-item" href="/review/mylist">내가 쓴 리뷰</a>
-											<a class="dropdown-item" href="/board/mylist">내가 쓴 지역게시판</a>
-											<a class="dropdown-item" href="/store/mylist">내가 등록한 식당</a>
+											<a class="dropdown-item" href="/review/mylist?email=${ses.email }">내가 쓴 리뷰</a>
+											<a class="dropdown-item" href="/board/mylist?nickName=${ses.nickName }">내가 쓴 지역게시판</a>
+											<a class="dropdown-item" href="/store/mylist?email=${ses.email }">내가 등록한 식당</a>
 											<a class="dropdown-item" href="/want/list?mno=${ses.mno }">내가 즐겨찾기한 식당</a>
 											<a class="dropdown-item" href="/visited/list?mno=${ses.mno }">내가 방문한 식당</a>
 											<a class="dropdown-item" href="/member/remove?email=${ses.email }">탈퇴</a>
@@ -61,8 +61,7 @@
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 												<a class="dropdown-item" href="/member/list">사용자 관리</a>
 												<a class="dropdown-item" href="/store/approve">식당 관리</a>
-												<a class="dropdown-item" href="/">게시판 관리</a>
-												<a class="dropdown-item" href="/">신고 관리</a>
+												<a class="dropdown-item" href="/review/reportlist">신고 관리</a>
 											</div>
 										</li>
 									</c:if>

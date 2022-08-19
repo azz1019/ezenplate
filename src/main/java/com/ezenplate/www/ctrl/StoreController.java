@@ -42,6 +42,20 @@ public class StoreController {
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
+	@GetMapping("/admit")
+	public void admit(Model model,@RequestParam("sno") long sno) {
+		log.info(">>> StoreController admit - GET");
+		StoreDTO sdto = ssv.getDetail(sno);
+		model.addAttribute("sdto", sdto);
+	}
+	
+	@PostMapping("/admit")
+	public String admit(StoreVO svo) {
+		int isUp = ssv.admit(svo);
+		log.info(">>> StoreController admit - POST : {}", isUp > 0 ? "성공":"실패");
+		return "redirect:/store/approve";
+	}
+	
 	@GetMapping("/myregister")
 	public void register() {
 		log.info(">>> StoreController register - GET");
@@ -58,14 +72,14 @@ public class StoreController {
 		
 		int isUp = ssv.register(new StoreDTO(svo, fileList));
 		log.info(">>> StoreController register - POST : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/store/mylist";
+		return "redirect:/store/mylist?email=" + svo.getWriter();
 	}
 	
 	@GetMapping("/mylist")
-	public void list(Model model, PagingVO pgvo) {
+	public void list(Model model, PagingVO pgvo, @RequestParam("email")String email) {
 		log.info(">>> StoreController list - GET");
-		model.addAttribute("list", ssv.getList(pgvo));
-		int totalCount = ssv.getTotalCount(pgvo);
+		model.addAttribute("list", ssv.getMyList(pgvo, email));
+		int totalCount = ssv.getMyTotalCount(pgvo, email);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
@@ -75,14 +89,19 @@ public class StoreController {
 	}
 	
 	@PostMapping("/myremove")
-	public String remove(@RequestParam("sno")long sno, RedirectAttributes rttr, PagingVO pgvo) {
+	public String remove(@RequestParam("sno")long sno, @RequestParam("email")String email, RedirectAttributes rttr, PagingVO pgvo) {
 		int isUp = ssv.remove(sno);
 		rttr.addAttribute("pageNo", pgvo.getPageNo());
 		rttr.addAttribute("qty", pgvo.getQty());
 		log.info(">>> StoreController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/store/mylist";
+		return "redirect:/store/mylist?email=" + email;
 	}
 	
+	@PostMapping("/remove")
+	public String storeRemove(@RequestParam("sno") long sno) {
+		int isUp = ssv.remove(sno);
+		return "redirect:/store/approve";
+	}
 	
 	/* 맛집 목록 및 검색*/
 	@GetMapping("/list")

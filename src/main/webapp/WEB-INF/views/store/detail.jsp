@@ -84,7 +84,22 @@
 						</p>
 					</c:when>
 				</c:choose>
-
+				<c:if test="${ses.grade eq 99 }">
+				<div>
+					<form action="/store/admit" method="post" enctype="multipart/form-data">
+						<input type="hidden" id="sno" name="sno" value="${sdto.svo.sno }">
+						<input type="hidden" id="approve" name="approve" value="${sdto.svo.approve }">
+						<button type="submit">승인하기</button>
+					</form>
+					<div class="btn-form" style="margin: auto; background-color: rgb(255, 113, 0);">
+						<a id="storeRemove"><span id="snoVal">${sdto.svo.sno }</span>번 삭제</a>
+					</div>
+					<form action="" id="storeRemoveForm" style="display: none;" method="post">
+						<input type="hidden" id="sno" value="" name="sno">
+					</form>
+				</div>
+				</c:if>
+				
 			</div>
 			<div class="col-md-6">
 				<div class="reserve-seat-block">
@@ -282,6 +297,7 @@
 </section>
 <!--// SLIDER -->
 <script src="/resources/js/review.list.js"></script>
+<script src="/resources/js/store.remove.js"></script>
 <script>
 	get_review_list();
 </script>

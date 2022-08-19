@@ -57,11 +57,19 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 
-	@GetMapping({"/list", "/mylist"})
+	@GetMapping("/list")
 	public void list(Model model, PagingVO pgvo) {
 		List<BoardDTO> list = bsv.getList(pgvo);
 		model.addAttribute("list", list);
 		int totalCount = bsv.getTotalCount(pgvo);
+		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
+	}
+	
+	@GetMapping("/mylist")
+	public void list(Model model, PagingVO pgvo, @RequestParam("nickName")String nickName) {
+		List<BoardDTO> list = bsv.getList(pgvo);
+		model.addAttribute("list", list);
+		int totalCount = bsv.getMyTotalCount(pgvo, nickName);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	

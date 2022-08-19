@@ -14,8 +14,8 @@ public interface BoardService {
 	int modify(BoardDTO bdto); // modify
 	int remove(long bno); // remove
 	int getTotalCount(PagingVO pgvo);
+	int getMyTotalCount(PagingVO pgvo, String nickName);
 	int removeFile(String uuid);
 	
 	List<BoardDTO> getList(PagingVO pgvo);//list 
-	
 }
