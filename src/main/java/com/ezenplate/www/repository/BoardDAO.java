@@ -1,6 +1,7 @@
 package com.ezenplate.www.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -18,4 +19,5 @@ public interface BoardDAO {
 	int updateReadCount(@Param("bno")long bno, @Param("i")int i);
 	int updateCmtQty(@Param("bno") long bno, @Param("i") int i);
 	List<BoardVO> selectList(PagingVO pgvo);// list
+	int selectMyTotalCount(Map map);
 }

@@ -93,10 +93,10 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/mylist")
-	public void list(Model model, PagingVO pgvo) {
+	public void list(Model model, PagingVO pgvo, @RequestParam("email")String email) {
 		log.info(">>> ReviewController list - GET");
 		model.addAttribute("list", rsv.getList(pgvo));
-		int totalCount = rsv.getTotalCount(pgvo);
+		int totalCount = rsv.getMyTotalCount(pgvo, email);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
@@ -128,12 +128,12 @@ public class ReviewController {
 	}
 	
 	@PostMapping("/myremove")
-	public String remove(@RequestParam("rno")long rno, RedirectAttributes rttr, PagingVO pgvo) {
+	public String remove(@RequestParam("rno")long rno, @RequestParam("email")String email, RedirectAttributes rttr, PagingVO pgvo) {
 		int isUp = rsv.remove(rno);
 		rttr.addAttribute("pageNo", pgvo.getPageNo());
 		rttr.addAttribute("qty", pgvo.getQty());
 		log.info(">>> ReviewController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/review/mylist";
+		return "redirect:/review/mylist?email=" + email;
 	}
 	
 	@GetMapping("/register")

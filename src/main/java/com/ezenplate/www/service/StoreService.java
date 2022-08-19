@@ -13,6 +13,7 @@ public interface StoreService {
 	public StoreDTO getDetail(long sno); // 식당 상세
 	public int remove(long sno); // 식당 삭제
 	public int getTotalCount(PagingVO pgvo); // 전체 식당 갯수 반환
+	public int getMyTotalCount(PagingVO pgvo, String email); // 내가 등록한 식당 전체 갯수 반환
 	public int removeFile(String uuid); // 파일 삭제
 	public int admit(StoreVO svo);
 	

@@ -82,6 +82,10 @@
 		select count(rno) from review where rno > 0
 	</select>
 	
+	<select id="selectMyTotalCount" resultType="int" parameterType="hashMap">
+		select count(rno) from review where writer=#{email};
+	</select>
+	
 	<select id="selectLastRno" resultType="long">
 		select max(rno) from review
 	</select>

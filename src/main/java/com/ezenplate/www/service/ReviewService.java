@@ -17,6 +17,7 @@ public interface ReviewService {
 	public int modify(ReviewDTO rdto); // 리뷰 수정
 	public int remove(long rno); // 리뷰 삭제
 	public int getTotalCount(PagingVO pgvo); // 전체 리뷰 갯수 반환
+	int getMyTotalCount(PagingVO pgvo, String email); // 내가 쓴 리뷰 전체 갯수 반환
 	public int removeFile(String uuid); // 파일 삭제
 	
 	public List<ReviewVO> getlistall(); // 리뷰 전체 리스트
