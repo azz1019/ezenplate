@@ -14,8 +14,8 @@
                 <div class="slider-title_box">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="slider-content_wrap" style="font-family: 'login_font';">
-                                <img src="../resources/mylist/photo/EZEN(no-bg).png" >
+                            <div class="slider-content_wrap logo" style="font-family: 'login_font';">
+                                <img src="../resources/mylist/photo/EZEN(no-bg)_v2.png" >
                             </div>
                         </div>
                     </div>

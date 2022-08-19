@@ -21,8 +21,11 @@
     width: 60%;
     background-color:var(--colour-white-v2);
     border-radius: 20px;
-    padding-bottom: 60px;
+    padding: 60px 0;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.logo{
+    margin-bottom: 20px;
 }
 .form-control{
     width: 60%;
