@@ -31,4 +31,6 @@ public interface ReviewDAO {
 	int selectGoodHolicTotalCount();// good 총 갯수
 	int selectBadTotalCount(); // bad 총 갯수
 	int reportcancel(ReviewVO rvo);
+	void delete_store_review(long sno); // store 삭제하면서 review도 삭제
+	List<Long> select_sno_rno(long sno); // sno로 rno 찾기
 }
