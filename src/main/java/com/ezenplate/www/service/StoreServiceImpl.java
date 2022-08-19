@@ -15,6 +15,7 @@ import com.ezenplate.www.domain.PagingVO;
 import com.ezenplate.www.domain.StoreDTO;
 import com.ezenplate.www.domain.StoreVO;
 import com.ezenplate.www.repository.FileDAO;
+import com.ezenplate.www.repository.ReviewDAO;
 import com.ezenplate.www.repository.StoreDAO;
 
 @Service
@@ -24,7 +25,8 @@ public class StoreServiceImpl implements StoreService {
 	
 	@Inject
 	private FileDAO fdao;
-	
+	@Inject
+	private ReviewDAO rdao;
 	@Override
 	public int register(StoreDTO sdto) {
 		int isUp = sdao.insert(sdto.getSvo());
@@ -61,6 +63,12 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public int remove(long sno) {
+		List<Long> rum = rdao.select_sno_rno(sno);
+		rdao.delete_store_review(sno);
+		for (Long rno : rum) {
+			
+			fdao.delete_review_File(rno);
+		}
 		int isUp = sdao.remove(sno);
 		if(isUp > 0) {
 			isUp = fdao.deleteAllStoreFile(sno);
