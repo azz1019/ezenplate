@@ -48,7 +48,11 @@
 		where rno = #{rno}
 	
 	</update>
-	
+	<update id="reportcancel" parameterType="rvo">
+		update review set
+		report = 0
+		where rno = #{rno}
+	</update>
 	
 	<delete id="delete_review">
 		delete from review 
