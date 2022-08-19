@@ -11,6 +11,7 @@ import com.ezenplate.www.domain.StoreVO;
 public interface StoreDAO {
 	int insert(StoreVO svo); // 식당 등록
 	List<StoreVO> selectList(PagingVO pgvo); // 식당 목록
+	List<StoreVO> selectMyList(Map map); // 내가 등록한 식당 목록
 	StoreVO selectOne(long sno); // 식당 상세
 	int remove(long sno); // 식당 삭제
 	int selectTotalCount(PagingVO pgvo); // 전체 식당 갯수 반환

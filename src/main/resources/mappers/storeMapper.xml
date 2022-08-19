@@ -105,6 +105,11 @@
 		on a.sno = b.sno
 	</select>
 	
+	<select id="selectMyList" resultType="svo" parameterType="hashMap">
+		select sno, writer, sname, category, locate, reg_at, approve
+		from store where writer=#{email} limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select>
+	
 	<select id="selectOne" parameterType="long" resultType="svo">
 		select * from store <include refid="wh_sno"/>
 	</select>

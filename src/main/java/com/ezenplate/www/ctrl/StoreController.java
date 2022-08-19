@@ -78,7 +78,7 @@ public class StoreController {
 	@GetMapping("/mylist")
 	public void list(Model model, PagingVO pgvo, @RequestParam("email")String email) {
 		log.info(">>> StoreController list - GET");
-		model.addAttribute("list", ssv.getList(pgvo));
+		model.addAttribute("list", ssv.getMyList(pgvo, email));
 		int totalCount = ssv.getMyTotalCount(pgvo, email);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
