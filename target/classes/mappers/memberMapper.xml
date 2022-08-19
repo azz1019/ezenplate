@@ -24,7 +24,7 @@
 		values (#{email}, #{pwd}, #{nickName}, #{userLocate})
 	</insert>
 	
-	<select id="selectEmail" parameterType="string" resultType="long">
+	<select id="selectEmail" parameterType="string" resultType="int">
 		select count(email) from member <include refid="wh_email"/>
 	</select>
 	
@@ -43,9 +43,18 @@
 	<select id="selectListHolic" resultType="mvo">
 		select * from member where grade = 50 order by grade desc
 	</select>
+	<select id="select_mno" resultType="long">
+		select mno from member where email=#{email}
+	</select>
 	
+	<update id="gradeUpdate" parameterType="mvo">
+		update member set grade = #{grade} <include refid="wh_email"/>
+	</update>
 	
-	
+	<update id="lastLogin" parameterType="string">
+		update member set last_login = now()
+		where email = #{email}
+	</update>
 	
 	<update id="update" parameterType="mvo">
 		update member set pwd=#{pwd}, nick_name=#{nickName}, user_locate=#{userLocate} <include refid="wh_email"/>

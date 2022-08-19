@@ -44,6 +44,15 @@ public class StoreServiceImpl implements StoreService {
 	public List<StoreVO> getList(PagingVO pgvo) {
 		return sdao.selectList(pgvo);
 	}
+	
+	@Override
+	public List<StoreVO> getMyList(PagingVO pgvo, String email) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("email", email);
+		
+		return sdao.selectMyList(map);
+	}
 
 	@Override
 	public StoreDTO getDetail(long sno) {
@@ -145,5 +154,10 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public int admit(StoreVO svo) {
 		return sdao.admitStore(svo);
+	}
+	
+	@Override
+	public int getTotalApproveCount(PagingVO pgvo) {
+		return sdao.selectTotalApproveCount(pgvo);
 	}
 }

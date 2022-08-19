@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ezenplate.www.domain.CommentVO;
 import com.ezenplate.www.domain.PagingVO;
+import com.ezenplate.www.domain.ReviewVO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class PagingHandler {
 	private int totalCount; // 총 게시글의 수
 	private PagingVO pgvo; // 사용자가 입력하거나 전달되는 페이징 정보값을 갖고 있는 객체
 	private List<CommentVO> cmtList;//comment 페이지 리스트 
+	private List<ReviewVO> rvwList;
 	
 	public PagingHandler(PagingVO pgvo, int totalCount) {
 		this.pgvo = pgvo;
@@ -39,5 +41,10 @@ public class PagingHandler {
 	public PagingHandler(List<CommentVO> cmtList, PagingVO pgvo, int totalCount) {
 		this(pgvo, totalCount);
 		this.cmtList = cmtList;
+	}
+	
+	public PagingHandler(List<ReviewVO> rvwList, int totalCount,PagingVO pgvo) {
+		this(pgvo, totalCount);
+		this.rvwList = rvwList;
 	}
 }

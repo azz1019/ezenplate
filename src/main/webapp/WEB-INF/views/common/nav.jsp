@@ -4,17 +4,34 @@
 
 <style>
 .nav_color {
+	/* background-color: rgba(255, 113, 0,0.9); */
+	z-index:1020;
 	background-color: rgb(255, 113, 0);
+	font-family: 'AritaDotum';
 }
+.nav-item a {
+	color : rgb(0,0,0);
+}
+#nav_bar{
+	width:100%;
+	background:linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 25%,rgba(255, 133, 0, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
+}
+.navbar-light .navbar-nav .active > .nav-link {
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+}
+
 </style>
 
 <!--============================= HEADER =============================-->
-<div class="sticky-top nav_color" style="font-family: 'Jua', sans-serif;">
+<div class="sticky-top nav_color" id="nav_bar">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<nav class="navbar navbar-expand-lg navbar-light">
-					<a class="navbar-brand" href="/"><img src="../resources/mylist/photo/EZEN.jpg" style="width:100%;height:50px;"></a>
+				<nav class="navbar navbar-expand-lg navbar-light" style="padding-top: 0px;" >
+						<a class="navbar-brand" href="/" style="height:60px;padding-bottom: 5px;padding-top: 0px;margin-right: 0px;margin-left: 32px;margin-bottom: 0px;">
+						<img src="../resources/mylist/photo/EZEN(no-bg).png" style="width:100%;height: 90px;margin-bottom: 0px;padding-bottom: 24px;"></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-menu"></span>
  					</button>

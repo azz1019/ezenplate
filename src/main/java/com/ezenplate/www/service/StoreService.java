@@ -10,6 +10,7 @@ import com.ezenplate.www.domain.PagingVO;
 public interface StoreService {
 	public int register(StoreDTO sdto); // 식당 등록
 	public List<StoreVO> getList(PagingVO pgvo); // 식당 목록
+	public List<StoreVO> getMyList(PagingVO pgvo, String email); // 내가 등록한 식당 목록
 	public StoreDTO getDetail(long sno); // 식당 상세
 	public int remove(long sno); // 식당 삭제
 	public int getTotalCount(PagingVO pgvo); // 전체 식당 갯수 반환
@@ -25,4 +26,5 @@ public interface StoreService {
 	int get_search_count(PagingVO pgvo); // 검색한 맛집 수
 	StoreDTO get_store(long sno, int i); // 맛집 detail
 	List<StoreDTO> view_more(); // 
+	int getTotalApproveCount(PagingVO pgvo); // approve 0인 맛집 수
 }

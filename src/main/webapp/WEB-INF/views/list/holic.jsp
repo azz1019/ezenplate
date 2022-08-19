@@ -13,16 +13,16 @@
 <div class="mt-3 ml-5 d-inline-flex justify-content-end">
  <ul class="nav mt-3"  >
     <li class="nav-item ml-3 mr-0">
-      <a class="nav-link ${active }" href="../list/reviewlist">전체<span class="badge bg-primary rounded-pill ">${pgn.totalCount }</span></a>
+      <a class="nav-link disabled" href="../list/reviewlist?pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">전체<span class="badge bg-primary rounded-pill ">${pgn.totalCount }</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="../list/holic">Holic<span class="badge bg-primary rounded-pill ">${pgn1.totalCount }</span></a>
+      <a class="nav-link ${active }" href="../list/holic?pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">Holic<span class="badge bg-primary rounded-pill ">${pgn1.totalCount }</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="../list/good">맛있어요<span class="badge bg-primary rounded-pill ">${pgn2.totalCount }</span></a>
+      <a class="nav-link disabled" href="../list/good?pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">맛있어요<span class="badge bg-primary rounded-pill ">${pgn2.totalCount }</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="../list/bad">별로에요<span class="badge bg-primary rounded-pill ">${pgn3.totalCount }</span></a>
+      <a class="nav-link disabled" href="../list/bad?pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">별로에요<span class="badge bg-primary rounded-pill ">${pgn3.totalCount }</span></a>
     </li>
   </ul>
   </div>
@@ -55,16 +55,13 @@
 			<div class="col"><small>3 days ago</small></div>
      <div class="col pt-5">
      	<div class="d-flex w-100 justify-content-between">
-					<c:if test="${re.rate < 2.0}" > 
+					<c:if test="${re.rate <= 2.0}" > 
 						<div class="customer-rating customer-rating-red">${re.rate }</div>
 					</c:if>
-					<c:if test="${re.rate eq 3.0 }">
-						<div class="customer-rating customer-rating-yellow">${re.rate }</div>
+					<c:if test="${re.rate > 2.0 && re.rate < 5.0}">
+						<div class="customer-rating" style="background-color: yellow; color:black">${re.rate }</div>
 					</c:if>
-					<c:if test="${re.rate eq 4.0 }">
-						<div class="customer-rating customer-rating-">${re.rate }</div>
-					</c:if>
-					<c:if test="${re.rate eq 5.0 }">
+					<c:if test="${re.rate >= 5.0 }">
 						<div class="customer-rating customer-rating-green">${re.rate }</div>
 					</c:if>
 				</div>

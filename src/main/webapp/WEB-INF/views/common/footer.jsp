@@ -6,7 +6,7 @@
 
 <!--============================= FOOTER =============================-->
 <footer>
-	<div class="footer-wrap">
+	<div class="footer-wrap" >
 		<div class="container first_class">
 			<div class="second_class">
 				<div class="row">

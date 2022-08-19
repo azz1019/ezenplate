@@ -1,0 +1,55 @@
+#nav_bar.active{
+    background:rgba(255,113,0,0.7);
+    transition:0.5s;
+}
+
+#listHead{
+	margin-top: 80px;
+}
+#listBody {
+	margin-top: 80px;
+}
+#listBody a{
+	margin-top:3px;
+	box-shadow: 3px 3px 3px gray;
+}
+#boardlist{
+	margin-top:43px;
+	margin-bottom:30px;
+	padding-left:50px;
+}
+.page-buttons{
+	height:50px;
+	margin-bottom:30px;
+	padding-left:120px;
+	padding-right:120px;
+}
+#boardsearch{
+	padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 50px;
+}
+#searchID{
+	box-shadow:3px;
+	border:solid 1px gray;
+	margin-right:16px;
+}
+#boardhead{
+	margin-left:0px;
+	background-image: url('/resources/mylist/photo/board.jpg');
+	background-size:cover;
+	background-position: center center;
+	padding-bottom:30px;
+}
+#boardtitle{
+	margin-top:80px;
+}
+#boardtitle div h1{
+	color:white;
+}
+#boardtitle div p{
+	color:white;
+}
+div.board-pic img {
+	left:500px;
+}

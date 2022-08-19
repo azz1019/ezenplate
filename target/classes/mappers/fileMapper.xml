@@ -74,7 +74,7 @@
 		select * from attached_file
 	</select>
 	
-<<<<<<< HEAD
+	<!-- profile -->
 	
 	<!-- 맛집 목록 및 검색 -->
    <insert id="insertFile" parameterType="fvo">
@@ -114,7 +114,10 @@
    	select * from attached_file
    	where rno = #{rno}
    </select>
-   
+   <select id="select_member_img" resultType="fvo">
+   	select * from attached_file
+   	where mno = #{mno}
+   </select>
    
    
    
@@ -124,8 +127,3 @@
    </delete>
 	
 </mapper>
-=======
-	<!-- profile -->
-	
-</mapper>
->>>>>>> d323d31ec800f3b50d0c2a87e7f3faa685e316f2

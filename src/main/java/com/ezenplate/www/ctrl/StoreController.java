@@ -38,8 +38,8 @@ public class StoreController {
 	public void approve(Model model, PagingVO pgvo) {
 		log.info(">>> StoreController approve - GET");
 		model.addAttribute("list", ssv.getList(pgvo));
-		int totalCount = ssv.getTotalCount(pgvo);
-		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
+		int totalApproveCount = ssv.getTotalApproveCount(pgvo);
+		model.addAttribute("pgn", new PagingHandler(pgvo, totalApproveCount));
 	}
 	
 	@GetMapping("/admit")
@@ -78,7 +78,7 @@ public class StoreController {
 	@GetMapping("/mylist")
 	public void list(Model model, PagingVO pgvo, @RequestParam("email")String email) {
 		log.info(">>> StoreController list - GET");
-		model.addAttribute("list", ssv.getList(pgvo));
+		model.addAttribute("list", ssv.getMyList(pgvo, email));
 		int totalCount = ssv.getMyTotalCount(pgvo, email);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}

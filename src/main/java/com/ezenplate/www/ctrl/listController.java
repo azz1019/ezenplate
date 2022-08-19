@@ -7,9 +7,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +35,8 @@ import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.service.MemberService;
 import com.ezenplate.www.service.ReviewService;
 
+import lombok.Getter;
+
 @Controller
 @RequestMapping("/list/*")
 public class listController {
@@ -44,7 +51,7 @@ public class listController {
 	
 
 	@GetMapping("/reviewlist")
-	public void reviewlist(Model model,PagingVO pgvo) {
+	public void reviewlist (Model model,PagingVO pgvo) {
 		model.addAttribute("active","active");
 		model.addAttribute("mlist",msv.getList());
 		model.addAttribute("relist",rsv.getlistall());
@@ -56,10 +63,7 @@ public class listController {
 		model.addAttribute("pgn2",new PagingHandler(pgvo, totalCount2));
 		int totalCount3 = rsv.getbadTotalCount(pgvo);
 		model.addAttribute("pgn3",new PagingHandler(pgvo, totalCount3));
-
-		
 		model.addAttribute("filelist",msv.getListFile());
-		
 		
 	}
 	@GetMapping("/holic")
@@ -114,4 +118,5 @@ public class listController {
 		model.addAttribute("pgn3",new PagingHandler(pgvo, totalCount3));
 		model.addAttribute("filelist",msv.getListFile());
 	}
+	
 }
