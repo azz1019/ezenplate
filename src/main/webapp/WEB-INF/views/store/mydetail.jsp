@@ -28,7 +28,7 @@
 								</c:choose>
 								
 								<div class="review-btn">
-			                        <a href="/store/mylist?pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
+			                        <a href="/store/mylist?email=${ses.email }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
 			                        <span>목록으로</span>
 			                        
 			                        <c:if test="${sdto.svo.approve eq 0}">
@@ -112,6 +112,7 @@
 	</section>
 	<form action="" id="storeRmForm" style="display: none;" method="post">
 		<input type="hidden" id="sno" value="" name="sno">
+		<input type="hidden" id="email" value="${ses.email }" name="email">
 		<input type="hidden" value="${pgvo.pageNo }" name="pageNo">
 		<input type="hidden" value="${pgvo.qty }" name="qty">
 	</form>

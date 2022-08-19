@@ -11,7 +11,7 @@
 			<h3>리뷰 상세</h3>
 		</div>
 	</div>
-	<a href="/review/mylist?pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
+	<a href="/review/mylist?email=${ses.email }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
 	<a href="/review/mymodify?rno=${rdto.rvo.rno }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-warning">수정</a>
 	<a class="btn btn-outline-danger" id="reviewRemove">삭제</a>
 	<hr>
@@ -58,6 +58,7 @@
 	</div>
 	<form action="" id="reviewRmForm" style="display: none;" method="post">
 		<input type="hidden" id="rno" value="" name="rno">
+		<input type="hidden" id="email" value="${ses.email }" name="email">
 		<input type="hidden" value="${pgvo.pageNo }" name="pageNo">
 		<input type="hidden" value="${pgvo.qty }" name="qty">
 	</form>
