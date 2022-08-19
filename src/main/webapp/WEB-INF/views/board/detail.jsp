@@ -112,7 +112,7 @@ class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
       <!-- Modal Header -->
       <div class="modal-header">
 	        <button type="button" class="btn-close" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
-      	 	<img src="/resources/board/photo/modi.png" style="height:auto; width:220px;"/>
+      	 	<img src="/resources/board/photo/modi.png" style="height:auto; width:200px;"/>
       	 	<p>서로의 리뷰에 책임을 다해주세요.<br>
 				이젠플레이트는 여러분이 언제나 맛있는 음식을 즐길 수 있기를 바랍니다.</p>
       </div>
