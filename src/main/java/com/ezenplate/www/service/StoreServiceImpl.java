@@ -1,6 +1,8 @@
 package com.ezenplate.www.service;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -60,6 +62,15 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public int getTotalCount(PagingVO pgvo) {
 		return sdao.selectTotalCount(pgvo);
+	}
+	
+	@Override
+	public int getMyTotalCount(PagingVO pgvo, String email) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("email", email);
+		
+		return sdao.selectMyTotalCount(map);
 	}
 
 	@Override

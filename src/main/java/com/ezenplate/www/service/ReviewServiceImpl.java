@@ -1,7 +1,9 @@
 package com.ezenplate.www.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -79,6 +81,15 @@ public class ReviewServiceImpl implements ReviewService {
 	public int getTotalCount(PagingVO pgvo) {
 		return rdao.selectTotalCount(pgvo);
 	}
+	
+	@Override
+	public int getMyTotalCount(PagingVO pgvo, String email) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("email", email);
+		
+		return rdao.selectMyTotalCount(map);
+	}
 
 	@Override
 	public int removeFile(String uuid) {
@@ -148,5 +159,10 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int getbadTotalCount(PagingVO pgvo) {
 		return rdao.selectBadTotalCount();
+	}
+	
+	@Override
+	public int cancel(ReviewVO rvo) {
+		return rdao.reportcancel(rvo);
 	}
 }

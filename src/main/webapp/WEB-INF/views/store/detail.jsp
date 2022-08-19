@@ -84,6 +84,7 @@
 						</p>
 					</c:when>
 				</c:choose>
+				<c:if test="${ses.grade eq 99 }">
 				<div>
 					<form action="/store/admit" method="post" enctype="multipart/form-data">
 						<input type="hidden" id="sno" name="sno" value="${sdto.svo.sno }">
@@ -97,6 +98,7 @@
 						<input type="hidden" id="sno" value="" name="sno">
 					</form>
 				</div>
+				</c:if>
 				
 			</div>
 			<div class="col-md-6">

@@ -78,10 +78,10 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(MemberVO mvo, HttpSession ses, RedirectAttributes rttr, @RequestParam("email")String email) {
 		MemberVO sesMvo = msv.login(mvo);
-		List<WantVO> wvo = wsv.want_list(sesMvo.getMno());
-		List<VisitedVO> vvo = vsv.visit_list(sesMvo.getMno());
 		if(sesMvo != null) {
 			log.info(">>> MemberController login - OK");
+			List<WantVO> wvo = wsv.want_list(sesMvo.getMno());
+			List<VisitedVO> vvo = vsv.visit_list(sesMvo.getMno());
 			ses.setAttribute("ses", sesMvo);
 			ses.setAttribute("want", wvo);
 			ses.setAttribute("visit", vvo);

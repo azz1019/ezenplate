@@ -1,5 +1,14 @@
 /* ezenplate_db 생성, ezenplate_user 생성 및 권한 부여 필요 */
 
+drop table member;
+drop table review;
+drop table store;
+drop table attached_file;
+drop table board;
+drop table comment;
+drop table want;
+drop table visited;
+
 create table member(
 mno bigint not null auto_increment,
 email varchar(100) not null,
@@ -10,7 +19,7 @@ last_login datetime default null,
 user_locate varchar(100) not null,
 review_count int default '0',
 primary key (mno)
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 create table review(
 sno bigint not null,
@@ -23,7 +32,7 @@ content text,
 report int default '0',
 writer varchar(100) not null,
 primary key (rno)
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 create table store (
 sno bigint not null auto_increment,
@@ -52,7 +61,7 @@ reg_at datetime default current_timestamp,
 mod_at datetime default current_timestamp,
 likes int default '0',
 primary key(sno)
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 create table attached_file(
 uuid varchar(256) primary key,
@@ -66,7 +75,7 @@ bno bigint,
 cno bigint,
 file_size bigint not null,
 reg_at datetime default current_timestamp
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 create table board(
 bno bigint not null auto_increment,
@@ -79,7 +88,7 @@ writer varchar(100),
 read_count int default '0',
 cmt_qty int default '0',
 primary key(bno)
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 create table comment(
 cno bigint not null auto_increment,
@@ -90,22 +99,24 @@ report int default '0',
 reg_at datetime default current_timestamp,
 mod_at datetime default current_timestamp,
 primary key(cno)
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 create table want(
 mno bigint not null,
 sno bigint not null,
 sname varchar(100) not null,
 reg_at datetime default current_timestamp
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 create table visited(
 mno bigint not null,
 sno bigint not null,
 sname varchar(100) not null,
 reg_at datetime default current_timestamp
-) default CHARSET=utf8mb4;
+) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
 insert into member (email, pwd, nick_name, grade, user_locate) values ('admin@admin.com', '1111', 'ADMIN', 99, '서울');
-insert into member (email, pwd, nick_name, grade, user_locate) values ('user1@user.com', '1234', 'USER1', 10, '경기');
-insert into member (email, pwd, nick_name, grade, user_locate) values ('user2@user.com', '5678', 'USER2', 50, '인천');
+insert into member (email, pwd, nick_name, grade, user_locate) values ('holic1@holic.com', '1111', 'HOLIC1', 50, '경기');
+insert into member (email, pwd, nick_name, grade, user_locate) values ('holic2@holic.com', '2222', 'HOLIC2', 50, '강원');
+insert into member (email, pwd, nick_name, grade, user_locate) values ('guest1@guest.com', '1111', 'GUEST1', 10, '서울');
+insert into member (email, pwd, nick_name, grade, user_locate) values ('guest2@guest.com', '2222', 'GUEST2', 19, '충북');

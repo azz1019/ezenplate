@@ -49,13 +49,13 @@
 
 <ul class="pagination justify-content-center">
 	<c:if test="${pgn.prev }">
-		<li class="page-item"><a class="page-link" href="/store/mylist?pageNo=${pgn.startPage - 1 }&qty=${pgn.pgvo.qty}">◀</a></li>
+		<li class="page-item"><a class="page-link" href="/store/mylist?email=${ses.email }&pageNo=${pgn.startPage - 1 }&qty=${pgn.pgvo.qty}">◀</a></li>
 	</c:if>
 	<c:forEach begin="${pgn.startPage }" end="${pgn.endPage }" var="i">
-	    <li class="page-item ${pgn.pgvo.pageNo == i ? 'active' : ''}"><a class="page-link" href="/store/mylist?pageNo=${i }&qty=${pgn.pgvo.qty}">${i }</a></li>
+	    <li class="page-item ${pgn.pgvo.pageNo == i ? 'active' : ''}"><a class="page-link" href="/store/mylist?email=${ses.email }&pageNo=${i }&qty=${pgn.pgvo.qty}">${i }</a></li>
 	</c:forEach>
 	<c:if test="${pgn.next }">
-	   	<li class="page-item"><a class="page-link" href="/store/mylist?pageNo=${pgn.endPage + 1 }&qty=${pgn.pgvo.qty}">▶</a></li>
+	   	<li class="page-item"><a class="page-link" href="/store/mylist?email=${ses.email }&pageNo=${pgn.endPage + 1 }&qty=${pgn.pgvo.qty}">▶</a></li>
 	</c:if>
 </ul>
 

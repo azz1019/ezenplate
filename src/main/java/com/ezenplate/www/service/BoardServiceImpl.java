@@ -1,7 +1,9 @@
 package com.ezenplate.www.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -92,11 +94,18 @@ public class BoardServiceImpl implements BoardService {
 	public int getTotalCount(PagingVO pgvo) {
 		return bdao.selectTotalCount(pgvo);
 	}
+	
+	@Override
+	public int getMyTotalCount(PagingVO pgvo, String nickName) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("nickName", nickName);
+		
+		return bdao.selectMyTotalCount(map);
+	}
 
 	@Override
 	public int removeFile(String uuid) {
 		return fdao.deleteFile(uuid);
 	}
-
-
 }

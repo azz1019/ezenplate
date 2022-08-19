@@ -48,7 +48,11 @@
 		where rno = #{rno}
 	
 	</update>
-	
+	<update id="reportcancel" parameterType="rvo">
+		update review set
+		report = 0
+		where rno = #{rno}
+	</update>
 	
 	<delete id="delete_review">
 		delete from review 
@@ -80,6 +84,10 @@
 	
 	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
 		select count(rno) from review where rno > 0
+	</select>
+	
+	<select id="selectMyTotalCount" resultType="int" parameterType="hashMap">
+		select count(rno) from review where writer=#{email};
 	</select>
 	
 	<select id="selectLastRno" resultType="long">

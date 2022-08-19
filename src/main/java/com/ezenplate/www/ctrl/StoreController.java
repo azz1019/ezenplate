@@ -72,14 +72,14 @@ public class StoreController {
 		
 		int isUp = ssv.register(new StoreDTO(svo, fileList));
 		log.info(">>> StoreController register - POST : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/store/mylist";
+		return "redirect:/store/mylist?email=" + svo.getWriter();
 	}
 	
 	@GetMapping("/mylist")
-	public void list(Model model, PagingVO pgvo) {
+	public void list(Model model, PagingVO pgvo, @RequestParam("email")String email) {
 		log.info(">>> StoreController list - GET");
 		model.addAttribute("list", ssv.getList(pgvo));
-		int totalCount = ssv.getTotalCount(pgvo);
+		int totalCount = ssv.getMyTotalCount(pgvo, email);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
@@ -89,12 +89,12 @@ public class StoreController {
 	}
 	
 	@PostMapping("/myremove")
-	public String remove(@RequestParam("sno")long sno, RedirectAttributes rttr, PagingVO pgvo) {
+	public String remove(@RequestParam("sno")long sno, @RequestParam("email")String email, RedirectAttributes rttr, PagingVO pgvo) {
 		int isUp = ssv.remove(sno);
 		rttr.addAttribute("pageNo", pgvo.getPageNo());
 		rttr.addAttribute("qty", pgvo.getQty());
 		log.info(">>> StoreController remove - POST : {}", isUp > 0 ? "OK" : "FAIL");
-		return "redirect:/store/mylist";
+		return "redirect:/store/mylist?email=" + email;
 	}
 	
 	@PostMapping("/remove")
