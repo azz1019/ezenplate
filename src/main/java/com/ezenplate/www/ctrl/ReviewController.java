@@ -86,6 +86,12 @@ public class ReviewController {
 		return "redirect:/store/detail?sno="+sno;
 	}
 
+	@GetMapping("/reportlist")
+	public void reportlist(Model model) {
+		List<ReviewVO> list = rsv.getlistall();
+		model.addAttribute("list", list);
+	}
+	
 	@GetMapping("/mylist")
 	public void list(Model model, PagingVO pgvo) {
 		log.info(">>> ReviewController list - GET");
