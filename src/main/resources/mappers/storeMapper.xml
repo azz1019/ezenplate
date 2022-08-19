@@ -30,7 +30,7 @@
 	<select id="select_store_list" resultType="svo"
 		parameterType="pgvo">
 		select * from store
-		where 1=1
+		where approve=1
 		<include refid="search"/>
 		order by rate_avg desc
 		limit #{pageStart}, #{qty}

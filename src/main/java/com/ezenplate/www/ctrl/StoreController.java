@@ -107,10 +107,17 @@ public class StoreController {
 	@GetMapping("/list")
 	public void get_list(Model model,PagingVO pgvo) {
 		pgvo.setPageNo(1);
+		int num = pgvo.getQty();
+		if (pgvo.getQty() > 10) {
+			pgvo.setQty(pgvo.getQty()-(pgvo.getQty()%9));
+		}
 		log.info("pageStart : {}", pgvo.getPageStart());
 		log.info("pageStart : {}", pgvo.getPageNo());
 		List<StoreDTO> list = ssv.store_list(pgvo);
 		model.addAttribute("list", list);
+		if(pgvo.getQty()== num) {
+			pgvo.setQty(num);
+		}
 		int totalCount = ssv.get_search_count(pgvo);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}

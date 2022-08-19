@@ -46,9 +46,18 @@ public class HomeController {
 		 */
 		
 		pgvo.setPageNo(1);
+		if(pgvo.getQty() == 10) {
+			pgvo.setQty(9);
+		} else if (pgvo.getQty() > 10) {
+			pgvo.setQty(pgvo.getQty()-(pgvo.getQty()%9));
+		}
 		List<StoreDTO> list = ssv.store_list(pgvo);
 		model.addAttribute("list", list);
+		if(pgvo.getQty() == 9) {
+			pgvo.setQty(10);
+			}
 		int totalCount = ssv.get_search_count(pgvo);
+		
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 		
 		return "/store/list";
