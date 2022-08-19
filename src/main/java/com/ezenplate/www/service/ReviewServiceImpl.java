@@ -167,9 +167,5 @@ public class ReviewServiceImpl implements ReviewService {
 		return rdao.reportcancel(rvo);
 	}
 
-	@Override
-	public PagingHandler spread(PagingVO pgvo) {
-		return new PagingHandler(rdao.selectAll(),rdao.selectTotalCount(pgvo),pgvo);
-	}
 
 }
