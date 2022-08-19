@@ -24,7 +24,7 @@
 					<td>${rvo.writer }</td>
 					<td>${rvo.content}</td>
 					<td><a href="/review/detail?rno=${rvo.rno }">ㅇ</a></td>
-					<td><a href="/review/remove?rno=${rvo.rno }">ㅇ</a></td>
+					<td><a href="/review/reportremove?rno=${rvo.rno }">ㅇ</a></td>
 				</tr>
 			</c:if>
 			</c:forEach>
