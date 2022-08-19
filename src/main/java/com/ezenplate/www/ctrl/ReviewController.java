@@ -80,6 +80,12 @@ public class ReviewController {
 		return "redirect:/store/detail?sno="+sno;
 	}
 	
+	@PostMapping("/reportremove")
+	public String reportremove(@RequestParam("rno") long rno) {
+		rsv.remove(rno);
+		return "redirect:/review/reportlist";
+	}
+	
 	@PostMapping("/report")
 	public String report(@RequestParam("rno") long rno, @RequestParam("sno") long sno) {
 		rsv.report(rno);
@@ -90,6 +96,18 @@ public class ReviewController {
 	public void reportlist(Model model) {
 		List<ReviewVO> list = rsv.getlistall();
 		model.addAttribute("list", list);
+	}
+	
+	@GetMapping("/cancel")
+	public void cancel(Model model,@RequestParam("rno") long rno) {
+		ReviewDTO rdto = rsv.getDetail(rno);
+		model.addAttribute("rdto", rdto);
+	}
+	
+	@PostMapping("/cancel")
+	public String cancel(ReviewVO rvo) {
+		int isUp = rsv.cancel(rvo);
+		return "redirect:/review/reportlist";
 	}
 	
 	@GetMapping("/mylist")
