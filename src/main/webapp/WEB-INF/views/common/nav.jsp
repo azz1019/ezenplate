@@ -50,7 +50,7 @@
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 												<a class="dropdown-item" href="/member/list">사용자 관리</a>
 												<a class="dropdown-item" href="/store/approve">식당 관리</a>
-												<a class="dropdown-item" href="/">신고 관리</a>
+												<a class="dropdown-item" href="/review/reportlist">신고 관리</a>
 											</div>
 										</li>
 									</c:if>
