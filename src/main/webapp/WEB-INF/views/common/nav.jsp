@@ -14,14 +14,22 @@
 }
 #nav_bar{
 	width:100%;
-	background:linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 25%,rgba(255, 133, 0, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
+	/* background:linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 25%,rgba(255, 133, 0, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%); */
 }
 .navbar-light .navbar-nav .active > .nav-link {
     color: #fff;
     font-weight: 500;
     font-size: 18px;
 }
-
+div.dropdown-menu{
+	background-color:white;
+}
+a.dropdown-item{
+	color:black;
+}
+a.dropdown-item:hover{
+	color:rgb(255,133,0);
+}
 </style>
 
 <!--============================= HEADER =============================-->
@@ -49,7 +57,7 @@
 									<!-- 내정보 -->
 									<li class="nav-item dropdown">
 										<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">내정보<span class="icon-arrow-down"></span></a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
 											<a class="dropdown-item" href="/member/modify?email=${ses.email }">프로필 수정</a>
 											<a class="dropdown-item" href="/review/mylist?email=${ses.email }">내가 쓴 리뷰</a>
 											<a class="dropdown-item" href="/board/mylist?nickName=${ses.nickName }">내가 쓴 지역게시판</a>
