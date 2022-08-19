@@ -30,4 +30,5 @@ public interface ReviewDAO {
 	int selectgetHolicTotalCount(); // holic 총 갯수
 	int selectGoodHolicTotalCount();// good 총 갯수
 	int selectBadTotalCount(); // bad 총 갯수
+	int reportcancel(ReviewVO rvo);
 }
