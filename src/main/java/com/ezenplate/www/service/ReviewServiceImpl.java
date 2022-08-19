@@ -161,6 +161,11 @@ public class ReviewServiceImpl implements ReviewService {
 	public int getbadTotalCount(PagingVO pgvo) {
 		return rdao.selectBadTotalCount();
 	}
+	
+	@Override
+	public int cancel(ReviewVO rvo) {
+		return rdao.reportcancel(rvo);
+	}
 
 	@Override
 	public PagingHandler spread(PagingVO pgvo) {
