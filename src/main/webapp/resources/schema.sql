@@ -119,4 +119,4 @@ insert into member (email, pwd, nick_name, grade, user_locate) values ('admin@ad
 insert into member (email, pwd, nick_name, grade, user_locate) values ('holic1@holic.com', '1111', 'HOLIC1', 50, '경기');
 insert into member (email, pwd, nick_name, grade, user_locate) values ('holic2@holic.com', '2222', 'HOLIC2', 50, '강원');
 insert into member (email, pwd, nick_name, grade, user_locate) values ('guest1@guest.com', '1111', 'GUEST1', 10, '서울');
-insert into member (email, pwd, nick_name, grade, user_locate) values ('guest2@guest.com', '1111', 'GUEST2', 19, '충북');
+insert into member (email, pwd, nick_name, grade, user_locate) values ('guest2@guest.com', '2222', 'GUEST2', 19, '충북');
