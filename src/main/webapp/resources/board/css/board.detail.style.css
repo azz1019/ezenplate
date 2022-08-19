@@ -332,7 +332,7 @@ body {
     padding: 12px;
     font-size: 16px;
     color: white;
-    margin: 0 15px 15px 0;
+    margin: 2px 7px 15px 0;
     box-shadow: 0px 6px 18px -5px var(--colour-main-v2);
   }
   .modSbmBtn:hover {
@@ -358,7 +358,11 @@ body {
   .modal-header > p {
     margin-bottom: 0;
   }
+  .modal-body{
+    padding: 5px;
+  }
     .btn-close{
+      margin-top:10px;
       width: 30px;
       font-size: 20px;
       color: #c0c5cb;
