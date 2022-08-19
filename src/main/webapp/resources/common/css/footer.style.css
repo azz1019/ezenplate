@@ -55,7 +55,6 @@
 }
 .footer-category li:before {
     padding-right: 10px;
-    color: #b3b3b3;
 }
 .copyright {
     font-size: 14px;
@@ -63,7 +62,7 @@
     padding-top: 15px;
     text-align: center;
     padding-bottom: 15px;
-    background: var(--colour-gradient);
+    background: var(--colour-shadow);
 }
 footer .second_class{
     padding-bottom: 25px;
@@ -73,7 +72,7 @@ footer .first_class p, footer .first_class h3{
     
 }
 footer{
-    background: var(--colour-gradient);
+    background: var(--colour-shadow);
 }
 footer ul {
     padding-left: 5px;
