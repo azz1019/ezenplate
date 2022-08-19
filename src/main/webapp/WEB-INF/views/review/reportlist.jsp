@@ -5,7 +5,7 @@
 <jsp:include page="../common/nav.jsp" />
 
 <div class="container mt-5">
-	<h1>Member List</h1>
+	<h1>Report List</h1>
 	<table class="table table-hover">
 		<thead>
 			<tr>
