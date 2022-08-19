@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="../common/header.jsp"/>
-<jsp:include page="../common/nav2.jsp"/>
+<jsp:include page="../common/nav.jsp"/>
  <link href="/resources/mylist/css/common.style.css" rel="stylesheet" type="text/css">
 <div class="d-flex flex-column align-self-center" id="listHead">
 <div class="ml-3 mr-3 w-50 align-self-center">
