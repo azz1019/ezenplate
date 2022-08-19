@@ -27,4 +27,5 @@ public interface ReviewService {
 	int getHolicTotalCount(PagingVO pgvo); // holic 총 갯수
 	int getGoodTotalCount(PagingVO pgvo); // good 총 갯수
 	int getbadTotalCount(PagingVO pgvo); // bad 총 갯수
+	int cancel(ReviewVO rvo);
 }
