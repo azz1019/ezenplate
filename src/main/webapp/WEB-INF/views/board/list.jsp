@@ -161,10 +161,11 @@
 				</form>
 			</div>
 		</div>
+		<hr style="margin-top:30px;padding-right: 0px;margin-right: 80px;">
 	</div>
 </section>
 <!-- ==================== End Search ====================  -->
-<hr>
+
 <!--  ==================== Start Board List ====================  -->
 <section class="board-pg section-padding p-4">
 	<div class="container" style="padding-left:40px;">
