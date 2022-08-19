@@ -26,10 +26,8 @@ public interface ReviewDAO {
 	
 	List<ReviewVO> selectAll(); // 리뷰 전체 리스트
 	List<ReviewVO> selectListGood(); // good 순 리스트
-//	List<ReviewVO> selectListNomal(); // nomal 순 리스트
 	List<ReviewVO> selectListBad(); // bad 순 리스트
 	int selectgetHolicTotalCount(); // holic 총 갯수
 	int selectGoodHolicTotalCount();// good 총 갯수
 	int selectBadTotalCount(); // bad 총 갯수
-	int reportcancel(ReviewVO rvo);
 }

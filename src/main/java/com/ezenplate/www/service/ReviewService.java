@@ -23,10 +23,8 @@ public interface ReviewService {
 	
 	public List<ReviewVO> getlistall(); // 리뷰 전체 리스트
 	public List<ReviewVO> getListGood(); // good 순 리스트
-//	public List<ReviewVO> getListNomal(); // nomal 순 리스트
 	public List<ReviewVO> getListbad(); // bad 순 리스트
 	int getHolicTotalCount(PagingVO pgvo); // holic 총 갯수
 	int getGoodTotalCount(PagingVO pgvo); // good 총 갯수
 	int getbadTotalCount(PagingVO pgvo); // bad 총 갯수
-	PagingHandler spread(PagingVO pgvo);
 }
