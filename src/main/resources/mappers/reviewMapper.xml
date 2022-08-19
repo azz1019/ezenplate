@@ -127,4 +127,10 @@
 	<select id="selectAll" resultType="rvo">
 		select * from review order by rno desc
 	</select>
+	<select id="select_sno_rno" resultType="long">
+		select rno from review where sno = #{sno}
+	</select>
+	<delete id="delete_store_review">
+		delete from review where sno=#{sno}
+	</delete>
 </mapper>
