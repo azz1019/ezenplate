@@ -16,6 +16,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+<!-- 폰트 네비(한글) font-family: 'SCoreDream';  -->
+<link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
+<!-- 폰트 네비(한글) font-family: 'AritaDotum'; -->
+<link href="https://webfontworld.github.io/amore/AritaDotum.css" rel="stylesheet">
+
 <!-- 영어폰트(네비)  font-family: 'Fjalla One', sans-serif;-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +61,15 @@
 <script src="/resources/bootstrap/js/bootstrap-select.min.js"></script>
 <script src="/resources/bootstrap/js/defaults-ko_KR.min.js"></script>
 
-<script src="/resources/mylist/js/common.style.js"></script>
-<link rel="stylesheet" href="/resources/mylist/css/common.style.css">
+<script>
+    $(window).scroll(function() {
+        // 100 = The point you would like to fade the nav in.
+        if ($(window).scrollTop() > 100) {
+            $('.fixed').addClass('is-sticky');
+        } else {
+            $('.fixed').removeClass('is-sticky');
+        };
+    });
+</script>
 </head>
 <body>
