@@ -30,7 +30,7 @@
 	<select id="select_store_list" resultType="svo"
 		parameterType="pgvo">
 		select * from store
-		where 1=1
+		where approve=1
 		<include refid="search"/>
 		order by rate_avg desc
 		limit #{pageStart}, #{qty}
@@ -105,11 +105,6 @@
 		on a.sno = b.sno
 	</select>
 	
-	<select id="selectMyList" resultType="svo" parameterType="hashMap">
-		select sno, writer, sname, category, locate, reg_at, approve
-		from store where writer=#{email} limit #{pgvo.pageStart}, #{pgvo.qty}
-	</select>
-	
 	<select id="selectOne" parameterType="long" resultType="svo">
 		select * from store <include refid="wh_sno"/>
 	</select>
@@ -120,14 +115,6 @@
 	
 	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
 		select count(sno) from store where sno > 0
-	</select>
-	
-	<select id="selectTotalApproveCount" resultType="int" parameterType="pgvo">
-		select count(sno) from store where approve = 0
-	</select>
-	
-	<select id="selectMyTotalCount" resultType="int" parameterType="hashMap">
-		select count(sno) from store where writer=#{email};
 	</select>
 	
 	<select id="selectLastSno" resultType="long">
