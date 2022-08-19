@@ -110,14 +110,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public List<MemberVO> getList(PagingVO pgvo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mdao.selectList(pgvo);
 	}
 
 	@Override
 	public int getTotalCount(PagingVO pgvo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return mdao.selectTotalCount(pgvo);
 	}
   
   @Override

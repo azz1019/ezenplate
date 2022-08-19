@@ -42,6 +42,20 @@ public class StoreController {
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
 	
+	@GetMapping("/admit")
+	public void admit(Model model,@RequestParam("sno") long sno) {
+		log.info(">>> StoreController admit - GET");
+		StoreDTO sdto = ssv.getDetail(sno);
+		model.addAttribute("sdto", sdto);
+	}
+	
+	@PostMapping("/admit")
+	public String admit(StoreVO svo) {
+		int isUp = ssv.admit(svo);
+		log.info(">>> StoreController admit - POST : {}", isUp > 0 ? "성공":"실패");
+		return "redirect:/store/approve";
+	}
+	
 	@GetMapping("/myregister")
 	public void register() {
 		log.info(">>> StoreController register - GET");
@@ -83,6 +97,11 @@ public class StoreController {
 		return "redirect:/store/mylist";
 	}
 	
+	@PostMapping("/remove")
+	public String storeRemove(@RequestParam("sno") long sno) {
+		int isUp = ssv.remove(sno);
+		return "redirect:/store/approve";
+	}
 	
 	/* 맛집 목록 및 검색*/
 	@GetMapping("/list")

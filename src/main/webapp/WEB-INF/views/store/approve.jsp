@@ -18,6 +18,7 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${list }" var="svo">
+				<c:if test="${svo.approve eq '0' }">
 				<tr>
 					<td>${svo.sno }</td>
 					<td>${svo.sname }</td>
@@ -25,6 +26,7 @@
 					<td>${svo.category }</td>
 					<td><a href="/store/detail?sno=${svo.sno }">ㅇ</a></td>
 				</tr>
+				</c:if>
 			</c:forEach>
 		</tbody>
 	</table>
