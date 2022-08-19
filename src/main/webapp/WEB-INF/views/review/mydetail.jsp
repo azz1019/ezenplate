@@ -11,9 +11,11 @@
 			<h3>리뷰 상세</h3>
 		</div>
 	</div>
-	<a href="/review/mylist?email=${ses.email }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
-	<a href="/review/mymodify?rno=${rdto.rvo.rno }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-warning">수정</a>
-	<a class="btn btn-outline-danger" id="reviewRemove">삭제</a>
+	<c:if test="${ses.email == rdto.rvo.writer }">
+		<a href="/review/mylist?email=${ses.email }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
+		<a href="/review/mymodify?rno=${rdto.rvo.rno }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-warning">수정</a>
+		<a class="btn btn-outline-danger" id="reviewRemove">삭제</a>
+	</c:if>
 	<hr>
 	<div class="booking-checkbox_wrap">
 		<div class="customer-review_wrap">
