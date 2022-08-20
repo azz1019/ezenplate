@@ -18,4 +18,5 @@ public interface BoardService {
 	int removeFile(String uuid);
 	
 	List<BoardDTO> getList(PagingVO pgvo);//list 
+	List<BoardDTO> getMyList(PagingVO pgvo, String nickName);
 }

@@ -42,16 +42,25 @@ public class BoardServiceImpl implements BoardService {
 		return isUp;
 	}
 
-
-//	@Override
-//	public List<BoardVO> getList(PagingVO pgvo) {
-//		return bdao.selectList(pgvo);
-//	}
-
 	@Override
 	public List<BoardDTO> getList(PagingVO pgvo) {
 		List<BoardDTO> bdto = new ArrayList<BoardDTO>();
 		List<BoardVO> bvo = bdao.selectList(pgvo);
+		for(BoardVO boardVO : bvo) {
+			long bno = boardVO.getBno();
+			List<FileVO> list = fdao.selectBoardListFile(bno);
+			bdto.add(new BoardDTO(boardVO, list));
+		}
+		return bdto;
+	}
+	
+	@Override
+	public List<BoardDTO> getMyList(PagingVO pgvo, String nickName) {
+		List<BoardDTO> bdto = new ArrayList<BoardDTO>();
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("nickName", nickName);
+		List<BoardVO> bvo = bdao.selectMyList(map);
 		for(BoardVO boardVO : bvo) {
 			long bno = boardVO.getBno();
 			List<FileVO> list = fdao.selectBoardListFile(bno);

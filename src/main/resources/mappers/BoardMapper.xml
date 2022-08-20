@@ -52,8 +52,14 @@
 			limit #{pageStart}, #{qty} 
 			) 
 		a left join board b on a.bno = b.bno order 
-		by reg_at desc 
-		</select>
+		by reg_at desc
+	</select>
+	
+	<!-- List -->
+	<select id="selectMyList" parameterType="hashMap" resultType="bvo">
+		select bno, content, user_locate, bname, writer, reg_at, read_count, cmt_qty
+		from board where writer=#{nickName} limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select>
 
 	<!-- Detail -->
 	<select id="selectDetail" resultType="bvo">

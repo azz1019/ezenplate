@@ -17,6 +17,19 @@
     font-size: 14px;
     line-height: 16px;
 }
+select {
+   width: 200px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Jua', sans-serif;
+    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
 @font-face {
     font-family: 'login_font';
     src: url('../../mylist/font/bitro TTF.ttf') format('truetype');
@@ -37,4 +50,31 @@
 }
 .img_fix{
 	overflow-x:hidden;
+}
+.new_review_select{
+	border:5px solid orange;
+	border-radius:12px; 
+	background-color:orange;
+}
+.new_review_title_name{
+	position:relative;
+	left:10%;
+}
+.new_review_font{
+	font-family: 'Jalnan';
+	font-size: 24px;
+}
+.new_review_img{
+	position:relative;
+	top: 20%;
+	left : 14%;
+}
+.new_review_title{
+	position:relative;
+	top:50px;
+}
+.new_review_face{
+	position:relative;
+	left:20%;
+	top:3%;
 }
