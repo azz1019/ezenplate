@@ -31,14 +31,14 @@
 					수정일 : ${rdto.rvo.modAt }<br>
           		</div>
           		<c:choose>
-          			<c:when test="${rdto.rvo.rate < 3.0}">
-						<div class="customer-rating customer-rating-red">${rdto.rvo.rate }</div>
+          			<c:when test="${rdto.rvo.rate <= 2.0}">
+						<div class="customer-rating text-center" id="rate_face"><img src="../../../resources/mylist/photo/restaurant_not_recommend_active_face.png"  id="rate_face_img"><br><p id="rate_face_text" style="right:4px;">별로</p></div>
 					</c:when>
-					<c:when test="${rdto.rvo.rate > 3.0 && rdto.rvo.rate < 4.0}">
-						<div class="customer-rating customer-rating" style="background-color: yellow; color: black;">${rdto.rvo.rate }</div>
+					<c:when test="${rdto.rvo.rate > 2.0 && rdto.rvo.rate < 4.0}">
+						<div class="customer-rating text-center" id="rate_face"><img src="../../../resources/mylist/photo/restaurant_ok_active_face.png"  id="rate_face_img"><br><p id="rate_face_text" style="right:4px;">괜찮다</p></div>
 					</c:when>
 					<c:otherwise>
-						<div class="customer-rating">${rdto.rvo.rate }</div>
+						<div class="customer-rating text-center" id="rate_face"><img src="../../../resources/mylist/photo/restaurant_recommend_active_face.png" id="rate_face_img"><br><p id="rate_face_text" style="right:4px;">맛있다</p></div>
 					</c:otherwise>
 				</c:choose>
       		</div>
