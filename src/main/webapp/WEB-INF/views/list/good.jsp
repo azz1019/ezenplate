@@ -5,10 +5,10 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 <div class="d-flex flex-column align-self-center" >
-<div class="ml-3 mr-3 w-50 align-self-center">
+<div class="ml-3 mr-3 w-75 align-self-center">
 <div class="d-flex w-100 justify-content-between">
-<div class="d-inline-flex">
-	<div class="mt-3 ml-7"><h2 class="pl-7">리뷰</h3></div>
+<div class="d-inline-flex new_review_title_name">
+	<div class="mt-3 ml-7 new_review_font"><h2 class="pl-7">리뷰</h3></div>
 </div>
 <div class="mt-3 ml-5 d-inline-flex justify-content-end">
  <ul class="nav mt-3"  >
@@ -18,7 +18,7 @@
     <li class="nav-item">
       <a class="nav-link disabled" href="../list/holic">Holic<span class="badge bg-primary rounded-pill ">${pgn1.totalCount }</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item new_review_select">
       <a class="nav-link ${active }" href="../list/good">맛있어요<span class="badge bg-primary rounded-pill ">${pgn2.totalCount }</span></a>
     </li>
     <li class="nav-item">
@@ -37,21 +37,21 @@
 <c:if test="${g.writer == ml.email }">
 <c:forEach items="${filelist }" var="fi">
 <c:if test="${fi.mno == ml.mno }">
-  <a href="../review/mydetail?rno=${g.rno }" class="list-group-item list-group-item-action w-50 align-self-center" aria-current="true">
+  <a href="../review/mydetail?rno=${g.rno }" class="list-group-item list-group-item-action w-75 align-self-center" aria-current="true">
   <div class="row">
 <div class="col img_fix">
-    <div class="row-col">
+    <div class="row-col new_review_img">
 		<div class="col"><img src="/upload/${fn:replace(fi.saveDir, '\\', '/') }/${fi.uuid }_th_${fi.fileName }" class="rounded-circle"></div>
     	<div class="col"><small class="pt-3">${g.writer }</small></div>
 	</div>
     </div>
     <div class="col-6">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1 mr-5 " style="width:600px;">${g.title }</h5>
+    <div class="d-flex w-100 justify-content-between new_review_font">
+      <h5 class="mb-1 mr-5 new_review_title">${g.title }</h5>
     </div>
     </div>
     <div class="col">
-    	<div class="row-col">
+    	<div class="row-col new_review_face">
 			<div class="col"><small>3 days ago</small></div>
      <div class="col pt-5" style="padding-top: 1.5rem!important;">
      	<div class="d-flex w-100 justify-content-between">
