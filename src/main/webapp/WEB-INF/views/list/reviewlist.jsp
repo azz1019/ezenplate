@@ -12,8 +12,8 @@
 	<div class="mt-3 ml-7 new_review_font"><h2 class="pl-7">리뷰</h3></div>
 </div>
 <div class="mt-3 ml-5 d-inline-flex justify-content-end">
- <ul class="nav mt-3"  >
-    <li class="nav-item ml-3 mr-0">
+ <ul class="nav mt-3"  >	
+    <li class="nav-item ml-3 mr-0 new_review_select">
       <a class="nav-link ${active }" href="../list/reviewlist?pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">전체<span class="badge bg-primary rounded-pill ">${pgn.totalCount }</span></a>
     </li>
     <li class="nav-item">
