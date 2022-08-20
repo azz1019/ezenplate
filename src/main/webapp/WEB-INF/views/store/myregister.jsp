@@ -3,13 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
+<!-- title Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/title.style.css">
 
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>식당 등록</h3>
-		</div>
-	</div>
+<div class="container mt-5 mb-5">
+	<h2>식당 등록</h2>
 	<form action="/store/myregister" method="post" enctype="multipart/form-data">
 		<div class="mb-3 mt-3">
       		<label for="writer">닉네임 : </label>
