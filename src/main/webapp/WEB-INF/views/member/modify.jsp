@@ -14,9 +14,6 @@
     <div class="d-flex align-items-start border-bottom">
        <c:if test="${mdto.fvo.uuid ne null && mdto.fvo.uuid ne '' }">
 				<img src="/upload/${fn:replace(mdto.fvo.saveDir, '\\', '/') }/${mdto.fvo.uuid }_th_${mdto.fvo.fileName }">
-    			<span class="badge bg-warning rounded-pill">현재 프로필 사진</span><br>
-    			<span class="badge bg-warning rounded-pill">이름 : ${mdto.fvo.fileName }</span><br>
-    			<span class="badge bg-warning rounded-pill">용량 : ${mdto.fvo.fileSize }</span><br>
 			</c:if>
         <div class="pl-sm-4 pl-2" id="img-section">
             <b>이름 : ${mdto.fvo.fileName }</b>
