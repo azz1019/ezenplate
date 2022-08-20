@@ -39,7 +39,7 @@
 <c:if test="${fi.mno == ml.mno }">
   <a href="../review/mydetail?rno=${ba.rno }" class="list-group-item list-group-item-action w-50 align-self-center" aria-current="true">
   <div class="row">
-<div class="col">
+<div class="col img_fix" >
     <div class="row-col">
 		<div class="col"><img src="/upload/${fn:replace(fi.saveDir, '\\', '/') }/${fi.uuid }_th_${fi.fileName }" class="rounded-circle"></div>
     	<div class="col"><small class="pt-3">${ba.writer }</small></div>
@@ -47,22 +47,22 @@
     </div>
     <div class="col-6">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1 mr-5 " style="width:600px;">${ba.content }</h5>
+      <h5 class="mb-1 mr-5 " style="width:600px;">${ba.title }</h5>
     </div>
     </div>
     <div class="col">
     	<div class="row-col">
 			<div class="col"><small>3 days ago</small></div>
-     <div class="col pt-5">
+     <div class="col pt-5 " style="padding-top: 1.5rem!important;">
      	<div class="d-flex w-100 justify-content-between">
     		<c:if test="${ba.rate <= 2.0}" > 
-						<div class="customer-rating customer-rating-red">${ba.rate }</div>
+						<div class="customer-rating text-center" id="rate_face"><img src="../../../resources/mylist/photo/restaurant_not_recommend_active_face.png"  id="rate_face_img"><br><p id="rate_face_text">별로</p></div>
 					</c:if>
-					<c:if test="${ba.rate > 2.0 && ba.rate < 5.0}">
-						<div class="customer-rating" style="background-color: yellow; color:black">${ba.rate }</div>
+					<c:if test="${ba.rate > 2.0 && ba.rate < 4.0}">
+						<div class="customer-rating text-center" id="rate_face"><img src="../../../resources/mylist/photo/restaurant_ok_active_face.png"  id="rate_face_img"><br><p id="rate_face_text">괜찮다</p></div>
 					</c:if>
-					<c:if test="${ba.rate >= 5.0 }">
-						<div class="customer-rating customer-rating-green">${ba.rate }</div>
+					<c:if test="${ba.rate >= 4.0 }">
+						<div class="customer-rating text-center" id="rate_face"><img src="../../../resources/mylist/photo/restaurant_recommend_active_face.png" id="rate_face_img"><br><p id="rate_face_text">맛있다</p></div>
 					</c:if>
 					</div>
     	</div>
