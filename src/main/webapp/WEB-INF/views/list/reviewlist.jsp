@@ -33,11 +33,11 @@
 <hr>
 
 <div class="d-flex flex-column align-self-center" id="listBody">
-<c:forEach items="${filelist }" var="fi">
-<c:forEach items="${mlist }" var="ml">
-<c:if test="${ml.mno == fi.mno }">
 <c:forEach items="${relist }" var="re">
+<c:forEach items="${mlist }" var="ml">
 <c:if test="${re.writer == ml.email }">
+<c:forEach items="${filelist }" var="fi">
+<c:if test="${ml.mno == fi.mno }">
   <a href="../review/mydetail?rno=${re.rno }" class="list-group-item list-group-item-action w-75 align-self-center" aria-current="true">
    <div class="row">
 <div class="col img_fix">
@@ -53,7 +53,12 @@
     </div>
     <div class="col">
     	<div class="row-col new_review_face">
-			<div class="col"><small>3 days ago</small></div>
+    	<c:forEach items="${msg }" var="ms">
+    	<c:if test="${ms.rno == re.rno}">
+			<div class="col"><small>${ms.diffTime }</small></div>
+    	</c:if>
+    	</c:forEach>
+
      <div class="col pt-5" style="padding-top: 1.5rem!important;">
      	<div class="d-flex w-100 justify-content-between">
     			<c:if test="${re.rate <= 2.0}" > 
@@ -70,7 +75,7 @@
     </div>
     </div>
 </div>
-<table class="table table-striped" id="cmtZone"></table>
+<!-- <table class="table table-striped" id="cmtZone"></table> -->
   </a>
 </c:if>
 </c:forEach>

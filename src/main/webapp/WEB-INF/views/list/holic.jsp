@@ -52,7 +52,11 @@
     </div>
     <div class="col">
     	<div class="row-col new_review_face">
-			<div class="col"><small>3 days ago</small></div>
+			<c:forEach items="${msg }" var="ms">
+    	<c:if test="${ms.rno == re.rno}">
+			<div class="col"><small>${ms.diffTime }</small></div>
+    	</c:if>
+    	</c:forEach>
      <div class="col pt-5" style="padding-top: 1.5rem!important;" >
      	<div class="d-flex w-100 justify-content-between">
 					<c:if test="${re.rate <= 2.0}" > 

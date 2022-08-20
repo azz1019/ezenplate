@@ -211,7 +211,7 @@
 
 
 <!-- ==================== Pagination ==================== -->
-<ul class="pagination justify-content-center mt-5">
+<ul class="pagination justify-content-center mt-5 mb-5">
 	<c:if test="${pgn.prev }">
 		<li class="page-item"><a class="page-link"
 			href="/board/list?pageNo=${pgn.startPage-1 }&qty=${pgn.pgvo.qty}&type=${pgn.pgvo.type}&kw=${pgn.pgvo.kw}"><i
