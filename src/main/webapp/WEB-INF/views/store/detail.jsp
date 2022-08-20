@@ -89,17 +89,19 @@
 					<form action="/store/admit" method="post" enctype="multipart/form-data">
 						<input type="hidden" id="sno" name="sno" value="${sdto.svo.sno }">
 						<input type="hidden" id="approve" name="approve" value="${sdto.svo.approve }">
-						<button type="submit">승인하기</button>
+						<button type="submit" class="btn btn-outline-success">승인하기</button>
 					</form>
-					<div class="btn-form" style="margin: auto; background-color: rgb(255, 113, 0);">
-						<a id="storeRemove"><span id="snoVal">${sdto.svo.sno }</span>번 삭제</a>
-					</div>
+					
 					<form action="" id="storeRemoveForm" style="display: none;" method="post">
 						<input type="hidden" id="sno" value="" name="sno">
 					</form>
 				</div>
 				</c:if>
-				
+				<c:if test="${ses.grade eq 99 }">
+					<div class="btn-form store_delete">
+						<a id="storeRemove"><span id="snoVal">${sdto.svo.sno }</span>번 삭제</a>
+					</div>
+					</c:if>
 			</div>
 			<div class="col-md-6">
 				<div class="reserve-seat-block">
@@ -126,7 +128,7 @@
 						<c:when test="${ses.email ne null && ses.email ne '' }">
 							<div class="review-btn">
 								<a href="/review/register?sno=${sdto.svo.sno }"
-									class="btn btn-outline-danger">WRITE A REVIEW</a> <span>${sdto.svo.cmtQty }</span>
+									class="btn btn-outline-danger ">WRITE A REVIEW</a> <span>${sdto.svo.cmtQty }</span>
 							</div>
 						</c:when>
 						<c:otherwise>
@@ -148,6 +150,7 @@
 							</c:choose>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -235,8 +238,8 @@
 					</div>
 				</div>
 				<!-- 리뷰 -->
-				<div class="booking-checkbox_wrap mt-4">
-					<h5>${sdto.svo.cmtQty } Reviews</h5>
+				<div class="booking-checkbox_wrap mt-4 new_review_font">
+					<h5 >${sdto.svo.cmtQty } Reviews</h5>
 					<hr>
 					<input type="hidden" id="sno" value="${sdto.svo.sno }">
 
