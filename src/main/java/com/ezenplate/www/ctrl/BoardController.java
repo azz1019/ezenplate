@@ -67,7 +67,7 @@ public class BoardController {
 	
 	@GetMapping("/mylist")
 	public void list(Model model, PagingVO pgvo, @RequestParam("nickName")String nickName) {
-		List<BoardDTO> list = bsv.getList(pgvo);
+		List<BoardDTO> list = bsv.getMyList(pgvo, nickName);
 		model.addAttribute("list", list);
 		int totalCount = bsv.getMyTotalCount(pgvo, nickName);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));

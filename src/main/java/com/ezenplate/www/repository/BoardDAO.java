@@ -20,4 +20,5 @@ public interface BoardDAO {
 	int updateCmtQty(@Param("bno") long bno, @Param("i") int i);
 	List<BoardVO> selectList(PagingVO pgvo);// list
 	int selectMyTotalCount(Map map);
+	List<BoardVO> selectMyList(Map map);
 }
