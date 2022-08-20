@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+:root{
+    /* colour */
+    --colour-white: #fff;
+    --colour-white-v2: rgba(255, 255, 255, 0.83);
+    --colour-light-grey: #C4C4C4;
+    --colour-shadow:#484a49;
+    --colour-shadow-v2: #3838388d;
+    --colour-gradient:#353737;
+    --colour-gradient-v2:#181c1ec3;
+    --colour-main:#ff8a3d;
+    --colour-main-v2:#ffa963cf;
+}
+
+form{
+    margin-left:50px;
+}
+#dupleCheck{
+    border: none;
+    box-sizing: border-box;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 13px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 16px;
+    background-color: var(--colour-main);
+    color: var(--colour-white);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+#dupleCheck:hover{
+    background-color: var(--colour-main-v2);
+    outline: none;
+    color: var(--colour-white);
+    cursor: pointer;
+}
+#regBtn{
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 18px 13px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 16px;
+    background-color: var(--colour-main);
+    color: var(--colour-white);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+#regBtn:hover{
+    background-color: var(--colour-main-v2);
+    outline: none;
+    color: var(--colour-white);
+}
+.card{
+    margin-bottom: 120px;
+    margin-top:120px !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.firstCard{
+    margin-top: 100px;
+}
+.regTitle{
+    font-family: 'Jalnan';
+    font-weight: 700;
+    font-size: 2em;
+    margin-left: -10px !important;
+}
+
+.inputFormEmail{
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px 0 0 10px;
+    padding: 12px 13px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.inputForm, .form-select, #attachTrigger{
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.form-select{
+    margin-left:30px;
+}
+.inputFormName{
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin-left: -8px;
+}
+.form-outline{
+    padding-right: 6px;
+}
+#attachTrigger{
+    background-color: var(--colour-white);
+    color:var(--colour-grey);
+    margin-left:18px;
+}
+.fa-image:hover{
+    color:var(--colour-light-grey);
+}
