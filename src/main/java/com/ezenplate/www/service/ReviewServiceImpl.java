@@ -91,6 +91,15 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		return rdao.selectMyTotalCount(map);
 	}
+	
+	@Override
+	public List<ReviewVO> getMyList(PagingVO pgvo, String email) {
+		Map map = new HashMap();
+		map.put("pgvo", pgvo);
+		map.put("email", email);
+		
+		return rdao.selectMyList(map);
+	}
 
 	@Override
 	public int removeFile(String uuid) {

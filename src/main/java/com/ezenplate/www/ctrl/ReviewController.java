@@ -113,7 +113,7 @@ public class ReviewController {
 	@GetMapping("/mylist")
 	public void list(Model model, PagingVO pgvo, @RequestParam("email")String email) {
 		log.info(">>> ReviewController list - GET");
-		model.addAttribute("list", rsv.getList(pgvo));
+		model.addAttribute("list", rsv.getMyList(pgvo, email));
 		int totalCount = rsv.getMyTotalCount(pgvo, email);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalCount));
 	}
