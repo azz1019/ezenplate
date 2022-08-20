@@ -25,3 +25,16 @@
     font-family: 'login_btn_font';
     src: url('../../mylist/font/bitro pride TTF.ttf') format('truetype');
 }
+#rate_face{
+	background: initial;
+}
+#rate_face_img{
+	display:block;
+}
+#rate_face_text{
+	position: relative;
+	color:orange;
+}
+.img_fix{
+	overflow-x:hidden;
+}

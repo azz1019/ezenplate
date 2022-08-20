@@ -38,7 +38,7 @@ function get_review_list() {
                 review_inner += `<div class="customer-review_wrap">`;
                 review_inner += `<div class="customer-img">`;
                 
-                
+                var path = window.location.pathname
                 
                 let dir = dto.fvo.saveDir.toString();
                 let saveDir = dir.replace("/\\/g",'/');
@@ -49,7 +49,7 @@ function get_review_list() {
                 review_inner += `</div>`;
                 review_inner += `<div class="customer-content-wrap">`;
                 review_inner += `<div class="customer-content">`;
-                review_inner += `<div class="customer-review">`;
+                review_inner += `<div class="customer-review" style="width:80%;">`;
                 if(list.rvo.title == null){
                     review_inner += `<h6>제목 없음</h6>`;
                     review_inner += `<br>`;
@@ -77,11 +77,12 @@ function get_review_list() {
                 review_inner += `<p>${list.rvo.modAt}</p>`;
                 review_inner += `</div>`;
                 if (list.rvo.rate < 2) {
-                    review_inner += `<div class="customer-rating bg-danger">${list.rvo.rate}</div>`;
+                    review_inner += `<div class="customer-rating bg-white text-center"><img src="../../../resources/mylist/photo/restaurant_not_recommend_active_face.png"  style=" display:block;"><br><p style="position: relative;right:4px;color:orange;">별로</p></div>`;
+                    
                 } else if (list.rvo.rate >= 2 && list.rvo.rate < 4) {
-                    review_inner += `<div class="customer-rating bg-warning">${list.rvo.rate}</div>`;
+                    review_inner += `<div class="customer-rating bg-white text-center"><img src="../../../resources/mylist/photo/restaurant_ok_active_face.png"  style=" display:block;"><br><p style="position: relative;right:4px;color:orange;">괜찮다</p></div>`;
                 } else {
-                    review_inner += `<div class="customer-rating">${list.rvo.rate}</div>`;
+                    review_inner += `<div class="customer-rating bg-white text-center"><img src="../../../resources/mylist/photo/restaurant_recommend_active_face.png"  style=" display:block;"><br><p style="position: relative;right:4px;color:orange;">맛있다</p></div>`;
                 }
                 review_inner += `</div>`;
                 review_inner += `<p class="customer-text">${list.rvo.content}`;
