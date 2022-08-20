@@ -21,6 +21,8 @@
 <link href="https://webfontworld.github.io/SCoreDream/SCoreDream.css" rel="stylesheet">
 <!-- 폰트 네비(한글) font-family: 'AritaDotum'; -->
 <link href="https://webfontworld.github.io/amore/AritaDotum.css" rel="stylesheet">
+<!-- 폰트 회원가입(한글) font-family: 'Jalnan';-->
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
 
 <!-- 영어폰트(네비)  font-family: 'Fjalla One', sans-serif;-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,4 +76,5 @@
     });
 </script>
 </head>
-<body>
+<body class="pt-5">
+

@@ -4,79 +4,99 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
+<!-- login Style Css-->
+<link rel="stylesheet" href="/resources/member/css/modify.style.css">
 
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>프로필 수정</h3>
-		</div>
-	</div>
-	<div class="row d-flex justify-content-center">
-	    <div class="col-sm-8 p-3 bg-light">
-	    	<form action="/member/modify" method="post" enctype="multipart/form-data">
-				<div class="mb-3 mt-3">
-		      		<label for="email">이메일 : </label>
-		      		<div class="input-group">
-		      			<input type="email" class="form-control" id="email" value="${mdto.mvo.email }" name="email" readonly>
-		      		</div>
-		    	</div>
-		    	
-		    	<div class="mb-3">
-		      		<label for="pwd">비밀번호 : </label>
-		      		<input type="text" class="form-control" id="pwd" value="${mdto.mvo.pwd }" name="pwd">
-		    	</div>
-		    	
-		    	<div class="mb-3 mt-3">
-		      		<label for="nickName">닉네임 : </label>
-		      		<input type="text" class="form-control" id="nickName" value="${mdto.mvo.nickName }" name="nickName">
-		    	</div>
-		    	
-		    	<div class="mb-3 mt-3">
-			    	<label for="userLocate">지역 : </label>
-			    	<input type="hidden" class="form-control" id="userLocateText" value="${mdto.mvo.userLocate }" name="userLocateText">
-					<select class="selectpicker show-tick" data-style="btn-inverse" data-container="body" id="userLocate" name="userLocate">
-			    		<option value="서울">서울</option>
-			    		<option value="경기">경기</option>
-			    		<option value="인천">인천</option>
-			    		<option value="강원">강원</option>
-			    		<option value="충북">충북</option>
-			    		<option value="충남">충남</option>
-			    		<option value="세종">세종</option>
-			    		<option value="대전">대전</option>
-			    		<option value="전북">전북</option>
-			    		<option value="전남">전남</option>
-			    		<option value="광주">광주</option>
-			    		<option value="경북">경북</option>
-			    		<option value="경남">경남</option>
-			    		<option value="대구">대구</option>
-			    		<option value="울산">울산</option>
-			    		<option value="부산">부산</option>
-			    		<option value="제주">제주</option>
-					</select>
-				</div>
-		    	
-		    	<div class="mb-3">
-					<label for="attach">프로필 사진 :</label>
-					<input type="file" class="form-control" style="display: none;" id="files" name="fileAttached" multiple>
-					<button type="button" id="attachTrigger" class="btn btn-outline-warning">이미지 첨부</button>
-					<div class="my-3" id="fileZone"></div> 
-			    </div>
-		    
-		    	<button type="submit" class="btn-form" id="regBtn" style="background-color: rgb(255, 113, 0);">수정</button> 	
-			</form>
-	    </div>
-	    <div class="col-sm-4 p-3 bg-light text-white" style="text-align: center;">
-	    	<c:if test="${mdto.fvo.uuid ne null && mdto.fvo.uuid ne '' }">
-				<img src="/upload/${fn:replace(mdto.fvo.saveDir, '\\', '/') }/${mdto.fvo.uuid }_th_${mdto.fvo.fileName }" style="margin-top: 50px"><br>
-    			<span class="badge bg-warning rounded-pill">현재 프로필 사진</span><br>
-    			<span class="badge bg-warning rounded-pill">이름 : ${mdto.fvo.fileName }</span><br>
-    			<span class="badge bg-warning rounded-pill">용량 : ${mdto.fvo.fileSize }</span><br>
-    			<button data-uuid="${mdto.fvo.uuid }" class="mt-3 btn btn-outline-warning btn-sm fileDelBtn">삭제</button>
+<section class="vh-100 mt-5 mb-5">
+<div class="container v-100">
+<div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 title ">회원정보수정</h4>
+    <form action="/member/modify" method="post" enctype="multipart/form-data">
+	    <div class="d-flex align-items-start border-bottom">
+	    	<c:if test="${mdto.fvo eq null }">
+    			<img src="/resources/member/photo/profile_none.png">
+    		</c:if>
+	    
+			<c:if test="${mdto.fvo.uuid ne null && mdto.fvo.uuid ne '' }">
+				<img src="/upload/${fn:replace(mdto.fvo.saveDir, '\\', '/') }/${mdto.fvo.uuid }_th_${mdto.fvo.fileName }">
 			</c:if>
+			
+	        <div class="pl-sm-4 pl-2" id="img-section">
+	        	<input type="file" class="form-control" style="display: none;" id="files" name="fileAttached" multiple>
+	        	<div class="" id="fileZone"></div>
+	        	
+	        	<c:if test="${mdto.fvo eq null }">
+	        		<b>프로필 사진 없음</b><br>
+	        		<button type="button" id="attachTrigger" class="btn">이미지 첨부</button>
+	        	</c:if>
+	        
+	        	<c:if test="${mdto.fvo.uuid ne null && mdto.fvo.uuid ne '' }">
+	        		<b>이름 : ${mdto.fvo.fileName }</b>
+		            <p>용량 : ${mdto.fvo.fileSize }</p>
+		    		<button data-uuid="${mdto.fvo.uuid }" class="btn fileDelBtn">이미지 삭제</button>
+	        	</c:if>
+	        </div>      
 	    </div>
-	</div>
+	    <div class="py-2">
+	        <div class="row py-2">
+	            <div class="col-md-6">
+	               <label for="email">이메일 : </label>
+	               <input type="email" class="form-control" id="email" value="${mdto.mvo.email }" name="email" readonly>
+	            </div>
+	            <div class="col-md-6 pt-md-0 pt-3">
+	               <label for="pwd">비밀번호 : </label>
+			      	<input type="text" class="form-control" id="pwd" value="${mdto.mvo.pwd }" name="pwd">
+	            </div>
+	        </div>
+	        <div class="row py-2">
+	            <div class="col-md-6">
+	               <label for="nickName">닉네임 : </label>
+			      	<input type="text" class="form-control" id="nickName" value="${mdto.mvo.nickName }" name="nickName">
+	            </div>
+	            <div class="col-md-6 pt-md-0 pt-3" id="lang">
+	               <label for="userLocate">지역 : </label>
+	                <div class="arrow">
+	                    <input type="hidden" class="form-control" id="userLocateText" value="${mdto.mvo.userLocate }" name="userLocateText">
+						<select class="form-select" id="userLocate" name="userLocate">
+				    		<option value="서울">서울</option>
+				    		<option value="경기">경기</option>
+				    		<option value="인천">인천</option>
+				    		<option value="강원">강원</option>
+				    		<option value="충북">충북</option>
+				    		<option value="충남">충남</option>
+				    		<option value="세종">세종</option>
+				    		<option value="대전">대전</option>
+				    		<option value="전북">전북</option>
+				    		<option value="전남">전남</option>
+				    		<option value="광주">광주</option>
+				    		<option value="경북">경북</option>
+				    		<option value="경남">경남</option>
+				    		<option value="대구">대구</option>
+				    		<option value="울산">울산</option>
+				    		<option value="부산">부산</option>
+				    		<option value="제주">제주</option>
+						</select>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="py-3 pb-4 border-bottom">
+	           <button type="submit" class="btn mr-3" id="regBtn">수정</button>
+	           <button class="btn border button" id="cancBtn" onclick="location.href='/'">취소</button> 	
+	        </div>
+	        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+	            <div>
+	                <b>계정을 삭제하고 싶다면? </b>
+	                <p>If you want to delete your account </p>
+	            </div>
+	            <div class="ml-auto">
+	                <button class="btn danger deleteAcc" onclick="location.href='/member/remove?email=${ses.email }'">회원탈퇴</button>
+	            </div>
+	        </div>
+	    </div>
+    </form>
 </div>
-<br>
+</div>
+</section>
 
 <script>
 	document.getElementById('attachTrigger').addEventListener('click', () => {

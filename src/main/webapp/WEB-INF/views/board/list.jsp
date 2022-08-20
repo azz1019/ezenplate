@@ -5,9 +5,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="../common/header.jsp" />
 <jsp:include page="../common/nav.jsp" />
- <link href="/resources/mylist/css/common.style.css" rel="stylesheet" type="text/css">
 <!-- Board Style CSS-->
 <link rel="stylesheet" href="/resources/board/css/board.list.style.css">
+<link rel="stylesheet" href="/resources/mylist/css/common.style.css">
 <script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- ==================== Start Header ==================== -->
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 	</div>
-	<section class="page-buttons" style="padding-right:180px;">
+	<section class="page-buttons" >
 	<div class="container mb-5">
 		<div class="buttons">
 			<div class="text-lg-start float-left">
@@ -110,6 +110,7 @@
 					</div>
 				</form>
 			</div>
+	
 
 			<!-- 로그인 안되면 로그인 페이지로 보내기-->
 			<div class="text-lg-end float-right">
@@ -155,18 +156,20 @@
 								<span class="badge bg-danger ml-2">${pgn.totalCount}</span>
 							</button>
 						</div>
+
+
 					</div>
 				</form>
 			</div>
 		</div>
+<hr id="boardline">
 	</div>
 </section>
 <!-- ==================== End Search ====================  -->
-<hr>
 <!--  ==================== Start Board List ====================  -->
 <section class="board-pg section-padding p-4">
 	<div class="container" style="padding-left:40px;">
-		<div class="justify-content-center" style="margin-right:200px; margin-left:80px;" >
+		<div class="justify-content-center" style="margin-right:200px; margin-left:100px;" >
 			<div class="col-lg-11 ml-4" style="padding-left:50px;margin-left: 0px;padding-right: 0px;">
 				<c:forEach items="${list }" var="list">
 					<div class="posts" >
@@ -205,6 +208,7 @@
 </section>
 
 <!-- ==================== End Blog ==================== -->
+
 
 <!-- ==================== Pagination ==================== -->
 <ul class="pagination justify-content-center mt-5">

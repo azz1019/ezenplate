@@ -1,0 +1,150 @@
+:root{
+    /* colour */
+    --colour-white: #fff;
+    --colour-white-v2: rgba(240, 240, 240, 0.508);
+    --colour-light-grey: #dad9d9;
+    --colour-grey: #c2c1c1;
+    --colour-dark-grey:#aba8a8;
+    --colour-shadow:#484a49;
+    --colour-background: #f7f7f7;;
+    --colour-shadow-v2: #3838388d;
+    --colour-gradient:#353737;
+    --colour-gradient-v2:#181c1ec3;
+    --colour-black: #111;
+    --colour-main:#ff8a3d;
+    --colour-main-v2:#ffa963cf;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'AritaDotum';
+    background-color: #eee;
+}
+.title{
+    font-weight: 900;
+}
+.wrapper{
+    padding: 30px 50px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 600px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.fileDelBtn, #attachTrigger{
+    font-size: 12px;
+	font-weight:lighter;
+	border:0;
+	outline:0;
+	background: var(--colour-background);
+	color:#a2a2a2;
+}
+.fileDelBtn:hover {
+	color:var(--colour-main);
+	font-weight: bolder;
+	cursor: pointer;
+	font-size:15px;
+	transition: all 0.2s ease-in-out 0s;
+}
+#attachTrigger:hover {
+	color:var(--colour-main);
+	font-weight: bolder;
+	cursor: pointer;
+	font-size:15px;
+	transition: all 0.2s ease-in-out 0s;
+}
+
+
+h4{
+    letter-spacing: -1px;
+    font-weight: 400;
+}
+.img{
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+#img-section p,#deactivate p{
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+#img-section b,#img-section button,#deactivate b{
+    font-size: 14px; 
+}
+#regBtn{
+    width: 20%;
+    background-color: var(--colour-main);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    margin: 2px 7px 15px 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#regBtn:hover{
+    background-color: var(--colour-main-v2);
+    cursor: pointer;
+}
+#cancBtn{
+    width: 20%;
+    background-color: var(--colour-white);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--colour-main);
+    margin: 2px 7px 15px 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#cancBtn:hover{
+    background-color: var(--colour-white-v2);
+    cursor: pointer;
+}
+#fileZone{
+    padding: 10px 0px;
+}
+.deleteAcc{
+    background-color: var(--colour-white);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: red;
+    margin: 2px 7px 15px 0;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+label{
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+    padding-left: 3px;
+}
+
+.form-control{
+    border-radius: 10px;
+}
+
+input[placeholder]{
+    font-weight: 500;
+}
+.form-control:focus{
+    box-shadow: none;
+}
+select{
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px 10px;
+}
+
+select:focus{
+    outline: none;
+}
