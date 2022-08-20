@@ -1,0 +1,22 @@
+:root{
+    /* colour */
+    --colour-white: #fff;
+    --colour-white-v2: rgba(240, 240, 240, 0.508);
+    --colour-light-grey: #dad9d9;
+    --colour-grey: #c2c1c1;
+    --colour-dark-grey:#aba8a8;
+    --colour-shadow:#484a49;
+    --colour-background: #f7f7f7;;
+    --colour-shadow-v2: #3838388d;
+    --colour-gradient:#353737;
+    --colour-gradient-v2:#181c1ec3;
+    --colour-black: #111;
+    --colour-main:#ff8a3d;
+    --colour-main-v2:#ffa963cf;
+}
+
+h2{
+    color:var(--colour-black);
+    margin-bottom:20px;
+    font-weight: bold;
+}

@@ -4,8 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
+<!-- title Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/title.style.css">
 
-<div class="container mt-3">
+<div class="container mt-5 mb-5">
+	<h2>${sdto.svo.sname }</h2>
 	<section class="light-bg booking-details_wrap">
 		<div class="container">
 			<div class="row">
@@ -13,7 +16,6 @@
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
 							<div class="reserve-seat-block">
-								<h5>${sdto.svo.sname }</h5>
 			  					<c:choose>
 									<c:when test="${sdto.svo.approve eq 1}">
 										<div class="reserve-rating">

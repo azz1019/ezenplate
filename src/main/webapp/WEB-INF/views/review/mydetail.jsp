@@ -4,13 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
+<!-- title Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/title.style.css">
 
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>리뷰 상세</h3>
-		</div>
-	</div>
+<div class="container mt-5 mb-5">
+	<h2>리뷰 상세</h2>
 	<c:if test="${ses.email == rdto.rvo.writer }">
 		<a href="/review/mylist?email=${ses.email }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-dark">목록</a>
 		<a href="/review/mymodify?rno=${rdto.rvo.rno }&pageNo=${pgvo.pageNo }&qty=${pgvo.qty}" class="btn btn-outline-warning">수정</a>

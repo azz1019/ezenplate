@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/resources/common/css/table.style.css">
 
 <div class="container mt-5 mb-5">
-	<h2>내가 작성한 리뷰</h2>
+	<h2>내가 쓴 리뷰</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>
