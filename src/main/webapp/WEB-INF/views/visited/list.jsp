@@ -4,14 +4,11 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
-<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
+<!-- table Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/table.style.css">
 
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>내가 방문한 식당</h3>
-		</div>
-	</div>
+<div class="container mt-5 mb-5">
+	<h2>내가 방문한 식당</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>

@@ -3,9 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../common/header.jsp" />
 <jsp:include page="../common/nav.jsp" />
+<!-- table Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/table.style.css">
 
-<div class="container mt-5">
-	<h1>Member List</h1>
+<div class="container mt-5 mb-5">
+	<h2>사용자 리스트</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -28,12 +30,14 @@
 					<td>${mvo.grade }</td>
 					<td>${mvo.lastLogin }</td>
 					<td>${mvo.userLocate }</td>
-					<td>${mvo.reviewCount }</td>
-					<td><a href="/member/detail?email=${mvo.email }">ㅇ</a></td>
+					<td style="padding-left:30px;">${mvo.reviewCount }</td>
+					<td style="padding-left:30px;"><a href="/member/detail?email=${mvo.email }"><i class="fa-solid fa-right-from-bracket"></i></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+</div>
+
 	<ul class="pagination justify-content-center">
 		<c:if test="${pgn.prev }">
 	    <li class="page-item">
@@ -51,6 +55,5 @@
 	    </li>
 	    </c:if>
   	</ul>
-</div>
 
 <jsp:include page="../common/footer.jsp" />

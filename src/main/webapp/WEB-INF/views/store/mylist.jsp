@@ -3,17 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
+<!-- table Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/table.style.css">
 
-<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
 
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>내가등록한 식당</h3>
-		</div>
-	</div>
-	<a href="/store/myregister" class="btn btn-outline-dark">등록</a>
-	<hr>
+<div class="container mt-5 mb-5">
+	<h2 style=" display:inline-block;">내가 등록한 식당</h2>
+	<span><button onclick="location.href='/store/myregister'" class="btn regBtn">등록</button></span>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -37,7 +33,7 @@
 						<td>
 							<c:choose>
 								<c:when test="${svo.approve eq 1}">승인</c:when>
-								<c:otherwise>미승인</c:otherwise>
+								<c:otherwise><span style="color:red;">미승인</span></c:otherwise>
 							</c:choose>
 						</td>
 					</tr>

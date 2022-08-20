@@ -4,14 +4,12 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 
-<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
+<!-- table Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/table.style.css">
 
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>내가 즐겨찾기한 식당</h3>
-		</div>
-	</div>
+
+<div class="container mt-5 mb-5">
+	<h2>내가 즐겨찾기한 식당</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -26,9 +24,9 @@
 				<c:if test="${ses.mno == wvo.mno }">
 					<tr>
 						<td><span id="snoVal">${wvo.sno }</span></td>
-						<td>${wvo.sname }</td>
+						<td><a href="/store/detail?sno=${wvo.sno }">${wvo.sname }</a></td>
 						<td>${wvo.regAt }</td>
-						<td><a href="/want/remove?sno=${wvo.sno }&mno=${ses.mno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn btn-danger">삭제</a></td>
+						<td><a href="/want/remove?sno=${wvo.sno }&mno=${ses.mno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn deleteBtn">삭제</a></td>
 					</tr>
 				</c:if>
 			</c:forEach>

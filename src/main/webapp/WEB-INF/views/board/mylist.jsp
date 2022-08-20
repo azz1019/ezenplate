@@ -8,9 +8,14 @@
 <!-- Board Style CSS-->
 <link rel="stylesheet" href="/resources/board/css/board.list.style.css">
 <script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- title Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/title.style.css">
 
+<div class="container mt-5 mb-5">
+	<h2>내가 쓴 지역게시판</h2>
+</div>
 <!-- ==================== Start Header ==================== -->
-<section class="page-header pt-5 mt-5">
+<!-- <section class="page-header pt-5 mt-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7 col-md-5">
@@ -20,7 +25,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!-- ==================== End Start Header ====================  -->
 <!--  ==================== Start Board List ====================  -->
 <section class="board-pg section-padding p-4">

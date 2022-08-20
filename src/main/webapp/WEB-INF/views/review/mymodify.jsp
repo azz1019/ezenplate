@@ -4,13 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
+<!-- title Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/title.style.css">
 
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>리뷰 수정</h3>
-		</div>
-	</div>
+<div class="container mt-5 mb-5">
+	<h2>리뷰 수정</h2>
 	<section class="light-bg booking-details_wrap">
 		<div class="container">
 			<div class="row">
