@@ -23,7 +23,7 @@
 				<c:if test="${ses.mno == vvo.mno }">
 					<tr>
 						<td><span id="snoVal">${vvo.sno }</span></td>
-						<td>${vvo.sname }</td>
+						<td><a href="/store/detail?sno=${vvo.sno }">${vvo.sname }</a></td>
 						<td>${vvo.regAt }</td>
 						<td><a href="/visited/remove?sno=${vvo.sno }&mno=${ses.mno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}" class="btn btn-danger">삭제</a></td>
 					</tr>
