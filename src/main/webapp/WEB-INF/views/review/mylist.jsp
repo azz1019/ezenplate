@@ -3,15 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
+<!-- table Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/table.style.css">
 
-<link rel="stylesheet" href="/resources/mylist/css/mylist.style.css">
-
-<div class="container mt-3">
-	<div class="row justify-content-center">
-		<div class="col-md-5">
-			<h3>내가 쓴 리뷰</h3>
-		</div>
-	</div>
+<div class="container mt-5 mb-5">
+	<h2>내가 작성한 리뷰</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>

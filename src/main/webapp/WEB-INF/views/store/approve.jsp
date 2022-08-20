@@ -4,8 +4,11 @@
 <jsp:include page="../common/header.jsp" />
 <jsp:include page="../common/nav.jsp" />
 
-<div class="container mt-5">
-	<h1>Store List</h1>
+<!-- table Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/table.style.css">
+
+<div class="container mt-5 mb-5"">
+	<h2>식당 리스트</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>
