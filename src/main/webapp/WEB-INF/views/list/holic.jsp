@@ -5,17 +5,17 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 <div class="d-flex flex-column align-self-center" >
-<div class="ml-3 mr-3 w-50 align-self-center">
+<div class="ml-3 mr-3 w-75 align-self-center">
 <div class="d-flex w-100 justify-content-between">
-<div class="d-inline-flex">
-	<div class="mt-3 ml-7"><h2 class="pl-7">리뷰</h3></div>
+<div class="d-inline-flex new_review_title_name">
+	<div class="mt-3 ml-7 new_review_font"><h2 class="pl-7">리뷰</h3></div>
 </div>
 <div class="mt-3 ml-5 d-inline-flex justify-content-end">
  <ul class="nav mt-3"  >
-    <li class="nav-item ml-3 mr-0">
+    <li class="nav-item ml-3 mr-0 ">
       <a class="nav-link disabled" href="../list/reviewlist?pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">전체<span class="badge bg-primary rounded-pill ">${pgn.totalCount }</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item new_review_select">
       <a class="nav-link ${active }" href="../list/holic?pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">Holic<span class="badge bg-primary rounded-pill ">${pgn1.totalCount }</span></a>
     </li>
     <li class="nav-item">
@@ -37,21 +37,21 @@
 <c:if test="${ho.mno == fi.mno }">
 <c:forEach items="${relist }" var="re">
 <c:if test="${re.writer == ho.email }">
-  <a href="../review/mydetail?rno=${re.rno }" class="list-group-item list-group-item-action w-50 align-self-center" aria-current="true">
+  <a href="../review/mydetail?rno=${re.rno }" class="list-group-item list-group-item-action w-75 align-self-center" aria-current="true">
 <div class="row">
 <div class="col img_fix">
-    <div class="row-col">
+    <div class="row-col new_review_img">
 		<div class="col"><img src="/upload/${fn:replace(fi.saveDir, '\\', '/') }/${fi.uuid }_th_${fi.fileName }" class="rounded-circle"></div>
     	<div class="col"><small class="pt-3">${re.writer }</small></div>
 	</div>
     </div>
     <div class="col-6">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1 mr-5 " style="width:600px;">${re.title }</h5>
+    <div class="d-flex w-100 justify-content-between new_review_font">
+      <h5 class="mb-1 mr-5 new_review_title" >${re.title }</h5>
     </div>
     </div>
     <div class="col">
-    	<div class="row-col">
+    	<div class="row-col new_review_face">
 			<div class="col"><small>3 days ago</small></div>
      <div class="col pt-5" style="padding-top: 1.5rem!important;" >
      	<div class="d-flex w-100 justify-content-between">
