@@ -214,7 +214,8 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  margin-top: 10px;
 }
 #cmtText:focus{
   border: none;
@@ -227,9 +228,10 @@ body {
 }
 #cmtSbmBtn{
   border-radius: 0 10px 10px 0;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 	background-color:var(--colour-main);
 	color: var(--colour-white);
+  margin-top: 10px;
 }
 #cmtSbmBtn:hover{
   background-color:var(--colour-main-v2);

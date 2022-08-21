@@ -26,7 +26,6 @@ td > a{
 }
 td > a:hover{
     text-decoration: none !important;
-    font-weight:bolder;
     color: var(--colour-main);
 }
 

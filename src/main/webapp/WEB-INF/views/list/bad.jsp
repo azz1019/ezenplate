@@ -4,11 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
-<div class="d-flex flex-column align-self-center" >
+<link href="/resources/mylist/css/common.style.css" rel="stylesheet">
+<div class="d-flex flex-column align-self-center" id="listHead">
 <div class="ml-3 mr-3 w-75 align-self-center">
 <div class="d-flex w-100 justify-content-between">
 <div class="d-inline-flex new_review_title_name">
-	<div class="mt-3 ml-7 new_review_font"><h2 class="pl-7">리뷰</h3></div>
+	<div class="mt-3 ml-7 new_review_font"><h2 class="pl-7">리뷰</h2></div>
 </div>
 <div class="mt-3 ml-5 d-inline-flex justify-content-end">
  <ul class="nav mt-3"  >
@@ -52,7 +53,11 @@
     </div>
     <div class="col">
     	<div class="row-col new_review_face">
-			<div class="col"><small>3 days ago</small></div>
+			<c:forEach items="${msg }" var="ms">
+    	<c:if test="${ms.rno == ba.rno}">
+			<div class="col"><small>${ms.diffTime }</small></div>
+    	</c:if>
+    	</c:forEach>
      <div class="col pt-5 " style="padding-top: 1.5rem!important;">
      	<div class="d-flex w-100 justify-content-between">
     		<c:if test="${ba.rate <= 2.0}" > 

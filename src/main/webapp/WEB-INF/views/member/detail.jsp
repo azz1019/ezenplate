@@ -61,9 +61,10 @@
 						</div>
 					</div>
 					<div class="py-3 pb-4 border-botto" align="right">
-						<button type="submit" class="btn mr-3" id="regBtn">등급변경</button>
-						<button class="btn border button" id="cancBtn"
-							onclick="location.href='/member/list'">취소</button>
+						<input type="hidden" name="email" value="${mdto.mvo.email }">
+						<button type="submit" class="btn mr-3" id="gradeChangeBtn">등급변경</button>
+						<!-- <button class="btn border button" id="cancBtn"
+							onclick="location.href='/member/list'">취소</button> -->
 					</div>
 				</div>
 			</form>
@@ -90,5 +91,4 @@
 		alert("등급 변경 완료");
 	});
 </script>
-<script src="/resources/js/manager.js"></script>
 <jsp:include page="../common/footer.jsp" />

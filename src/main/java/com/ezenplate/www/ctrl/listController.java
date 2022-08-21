@@ -1,41 +1,24 @@
 package com.ezenplate.www.ctrl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.ezenplate.www.domain.FileVO;
-import com.ezenplate.www.domain.MemberDTO;
-import com.ezenplate.www.domain.MemberVO;
-
-import com.ezenplate.www.domain.ReviewDTO;
-import com.ezenplate.www.domain.ReviewVO;
 import com.ezenplate.www.handler.FileHandler;
-import com.ezenplate.www.repository.MemberDAO;
 
 import com.ezenplate.www.domain.PagingVO;
-import com.ezenplate.www.handler.FileHandler;
+import com.ezenplate.www.domain.ReviewVO;
 import com.ezenplate.www.handler.PagingHandler;
 import com.ezenplate.www.service.MemberService;
 import com.ezenplate.www.service.ReviewService;
 
-import lombok.Getter;
 
 @Controller
 @RequestMapping("/list/*")
@@ -64,7 +47,14 @@ public class listController {
 		int totalCount3 = rsv.getbadTotalCount(pgvo);
 		model.addAttribute("pgn3",new PagingHandler(pgvo, totalCount3));
 		model.addAttribute("filelist",msv.getListFile());
-		
+		List <ReviewVO> regatlist = new ArrayList<>();
+		for (ReviewVO rv: rsv.getlistall()) {
+			regatlist.add(rv);
+		}
+		for (ReviewVO rv : regatlist) {
+				rv.setDiffTime(Time.calculateTime(rv.getRegAt()));
+		}
+		model.addAttribute("msg",regatlist);
 	}
 	@GetMapping("/holic")
 	public void holic(Model model,PagingVO pgvo) {
@@ -80,6 +70,14 @@ public class listController {
 		int totalCount3 = rsv.getbadTotalCount(pgvo);
 		model.addAttribute("pgn3",new PagingHandler(pgvo, totalCount3));
 		model.addAttribute("filelist",msv.getListFile());
+		List <ReviewVO> regatlist = new ArrayList<>();
+		for (ReviewVO rv: rsv.getlistall()) {
+			regatlist.add(rv);
+		}
+		for (ReviewVO rv : regatlist) {
+				rv.setDiffTime(Time.calculateTime(rv.getRegAt()));
+		}
+		model.addAttribute("msg",regatlist);
 	}
 	
 	@GetMapping("/good")
@@ -96,6 +94,14 @@ public class listController {
 		int totalCount3 = rsv.getbadTotalCount(pgvo);
 		model.addAttribute("pgn3",new PagingHandler(pgvo, totalCount3));
 		model.addAttribute("filelist",msv.getListFile());
+		List <ReviewVO> regatlist = new ArrayList<>();
+		for (ReviewVO rv: rsv.getlistall()) {
+			regatlist.add(rv);
+		}
+		for (ReviewVO rv : regatlist) {
+				rv.setDiffTime(Time.calculateTime(rv.getRegAt()));
+		}
+		model.addAttribute("msg",regatlist);
 	}
 	
 //	@GetMapping("/nomal")
@@ -117,6 +123,14 @@ public class listController {
 		int totalCount3 = rsv.getbadTotalCount(pgvo);
 		model.addAttribute("pgn3",new PagingHandler(pgvo, totalCount3));
 		model.addAttribute("filelist",msv.getListFile());
+		List <ReviewVO> regatlist = new ArrayList<>();
+		for (ReviewVO rv: rsv.getlistall()) {
+			regatlist.add(rv);
+		}
+		for (ReviewVO rv : regatlist) {
+				rv.setDiffTime(Time.calculateTime(rv.getRegAt()));
+		}
+		model.addAttribute("msg",regatlist);
 	}
 	
 }

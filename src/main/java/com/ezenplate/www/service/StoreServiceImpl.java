@@ -168,4 +168,9 @@ public class StoreServiceImpl implements StoreService {
 	public int getTotalApproveCount(PagingVO pgvo) {
 		return sdao.selectTotalApproveCount(pgvo);
 	}
+
+	@Override
+	public List<StoreVO> getApproveList(PagingVO pgvo) {
+		return sdao.selectApproveList(pgvo);
+	}
 }

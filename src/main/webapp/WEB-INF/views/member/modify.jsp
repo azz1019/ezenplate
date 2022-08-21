@@ -81,7 +81,7 @@
 	        </div>
 	        <div class="py-3 pb-4 border-bottom">
 	           <button type="submit" class="btn mr-3" id="regBtn">수정</button>
-	           <button class="btn border button" id="cancBtn" onclick="location.href='/'">취소</button> 	
+	           <!-- <button class="btn border button" id="cancBtn" onclick="location.href='/'">취소</button> --> 	
 	        </div>
 	        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
 	            <div>
@@ -99,10 +99,6 @@
 </section>
 
 <script>
-	document.getElementById('attachTrigger').addEventListener('click', () => {
-		document.getElementById('files').click();
-	});
-	
 	document.getElementById('regBtn').addEventListener('click', () => {
         alert('프로필 정보가 수정되었습니다.');
     });
@@ -114,6 +110,10 @@
 			userLocateCtrl[index].selected = true;
 		}
 	}
+	
+	document.getElementById('attachTrigger').addEventListener('click', () => {
+		document.getElementById('files').click();
+	});
 </script>
 <script src="/resources/js/member.modify.js"></script>
 

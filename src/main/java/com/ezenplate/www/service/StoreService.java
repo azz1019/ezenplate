@@ -26,5 +26,6 @@ public interface StoreService {
 	int get_search_count(PagingVO pgvo); // 검색한 맛집 수
 	StoreDTO get_store(long sno, int i); // 맛집 detail
 	List<StoreDTO> view_more(); // 
+	public List<StoreVO> getApproveList(PagingVO pgvo); // approve 0인 식당 목록
 	int getTotalApproveCount(PagingVO pgvo); // approve 0인 맛집 수
 }
