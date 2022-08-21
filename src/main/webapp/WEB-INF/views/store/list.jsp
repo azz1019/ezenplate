@@ -8,6 +8,12 @@
 <jsp:include page="../common/nav.jsp"/>
 
 <!-- SLIDER -->
+<div class="floating">
+  <a href="#search"><div>	<i class="fa-solid fa-magnifying-glass"></i></div></a>
+  <a href="#store_start"><div> <i class="fa-solid fa-arrow-up"></i></div></a>
+  <a href="#store_end"><div> <i class="fa-solid fa-arrow-down-long"></i></div></a>
+</div>
+
 
 	<!-- today  -->
 	<c:set var="now" value="<%=new java.util.Date() %>"></c:set>
@@ -18,7 +24,10 @@
 	<!-- //today  -->
 	
     <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
+    <div id="search"></div>
     <section class="slider d-flex align-items-center" style="background-image: url('/resources/mylist/photo/background.jpg');">
+
+
     
     
     
@@ -28,8 +37,7 @@
     
     
     
-    
-    <div class="container">
+    <div class="container" >
    <div class="row d-flex justify-content-center"role="group">
    <div class="col-md-10">
    		<form class="form-wrap mt-4" action="/store/list" method="get">
@@ -46,7 +54,7 @@
 						
 						
 					</select> 
-					<input class="form-control me-2" type="search"
+					<input class="form-control me-2" type="search" id="store_start"
 						placeholder="Search" aria-label="Search" name="kw" value="${pgn.pgvo.kw }">
 					<button class="btn-form" type="submit" style="background-color: rgb(255, 113, 0);">
 						<span class="icon-magnifier search-icon">Search</span><i class="pe-7s-angle-right"></i> 
@@ -163,8 +171,9 @@
                                 	</c:when>
                                 </c:choose>
                                 <ul>
-                                    <li class="store_list_locate"><span class="icon-location-pin "></span>
-                                        <p>${list.svo.locate }</p>
+                                    <li class="store_list_locate">
+                                    <div><span class="icon-location-pin "></span>
+                                        <p stlye="overflow: hidden;text-overflow: ellipsis;">${list.svo.locate }</p></div>
                                     </li>
                                     <li><span class="icon-screen-smartphone"></span>
                                         <p>${list.svo.tel }</p>
@@ -244,7 +253,7 @@
         
         <div class="row justify-content-center">
                 <div class="col-md-4">
-                    <div class="featured-btn-wrap">
+                    <div class="featured-btn-wrap" id="store_end">
                         <a href="/store/list?pageNo=${pgn.startPage }&qty=${pgn.pgvo.qty+9}&kw=${pgn.pgvo.kw}" class="btn btn-danger" id="view_all">더보기  <span class="icon-arrow-down"></span></a>
                     </div>
                 </div>
