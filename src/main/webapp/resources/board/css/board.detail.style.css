@@ -194,7 +194,7 @@ body {
 }
 
 .entry-comments-author {
-  margin-right: 10px;
+  margin-right: 12px;
   font-size: 13px;
   color: #292929;
   letter-spacing: 0.1em;
@@ -329,12 +329,12 @@ body {
   .modSbmBtn{
     background-color: var(--colour-main);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 200px;
     padding: 12px;
     font-size: 16px;
     color: white;
-    margin: 2px 7px 15px 0;
+    margin: 2px 5px 8px 0;
     box-shadow: 0px 6px 18px -5px var(--colour-main-v2);
   }
   .modSbmBtn:hover {
@@ -356,27 +356,35 @@ body {
     text-align: center;
     border: none;
     padding: 0;
+    border-radius: 15px 15px 0 0;
   }
-  .modal-header > p {
+  .modal-header > span {
     margin-bottom: 0;
+    color:var(--colour-gradient);
   }
   .modal-body{
     padding: 5px;
   }
-    .btn-close{
-      margin-top:10px;
-      width: 30px;
-      font-size: 20px;
-      color: #c0c5cb;
-      align-self: flex-end;
-      background-color: transparent;
-      border: none;
-      margin-bottom: 10px;
-    }
-    .btn-header > img {
-      margin-bottom: 15px;
+  .btn-close{
+    margin-top:10px;
+    width: 30px;
+    font-size: 20px;
+    color: #c0c5cb;
+    align-self: flex-end;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10px;
+  }
+  .btn-close:focus{
+    outline: none;
+  }
+  .btn-header > img {
+    margin-bottom: 15px;
   }
   .modal-footer{
     border: none;
     padding: 0;
+  }
+  .modal-content{
+    border-radius: 15px;
   }
