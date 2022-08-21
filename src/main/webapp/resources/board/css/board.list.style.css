@@ -77,7 +77,7 @@ background-color: var(--colour-main-v2);
 
 /* BOARD LIST */
 .board-table{
-border-bottom:1px solid var(--colour-light-grey);
+border-bottom:0.8px solid var(--colour-light-grey);
 }
 .title{
 color:var(--colour-black);
