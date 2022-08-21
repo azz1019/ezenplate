@@ -3,10 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../common/header.jsp" />
 <jsp:include page="../common/nav.jsp" />
+<!-- title Style CSS-->
+<link rel="stylesheet" href="/resources/common/css/title.style.css">
 
-<div class="container mt-3">
+<div class="container mt-5 mb-5">
 	<h2>리뷰 등록</h2>
-
 	<form action="/review/register" method="post"
 		enctype="multipart/form-data">
 		<input type="hidden" name="sno" value="${rvo.sno }">
