@@ -11,7 +11,7 @@
 <!-- title Style CSS-->
 <link rel="stylesheet" href="/resources/common/css/title.style.css">
 
-<div class="container mt-5 mb-5">
+<div class="container pt-5 mt-5 mb-5" style="padding-left:50px;">
 	<h2>내가 쓴 지역게시판</h2>
 </div>
 <!-- ==================== Start Header ==================== -->
@@ -32,13 +32,14 @@
 	<div class="container">
 		<div class="justify-content-center">
 			<div class="col-lg-12 mt-5 ml-4">
+			<div class="borderSet">
 				<c:forEach items="${list }" var="list">
 					<c:if test="${ses.nickName == list.bvo.writer }">
 						<div class="posts">
 							<div class="item mb-8">
 								<div class="col-11 content blog-table">
 									<div class="row">
-										<a class="links" style="text-decoration: none;"
+										<a class="links" style="text-decoration: none; width:1200px;"
 											href="/board/detail?bno=${list.bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">
 											<h4 class="title">${list.bvo.bname }</h4>
 											<p>${list.bvo.content }</p>
@@ -65,6 +66,7 @@
 						</div>
 					</c:if>
 				</c:forEach>
+				</div>
 			</div>
 		</div>
 	</div>
