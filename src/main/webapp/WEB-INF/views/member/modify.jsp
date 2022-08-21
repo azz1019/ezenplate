@@ -57,7 +57,7 @@
 	               <label for="userLocate">지역 : </label>
 	                <div class="arrow">
 	                    <input type="hidden" class="form-control" id="userLocateText" value="${mdto.mvo.userLocate }" name="userLocateText">
-						<select class="form-select" id="userLocate" name="userLocate">
+						<select class="form-select selectbox" style="box-sizing: border-box;width: 100px;padding: 4px;font-size: 14px;border-radius: 6px;" id="userLocate" name="userLocate">
 				    		<option value="서울">서울</option>
 				    		<option value="경기">경기</option>
 				    		<option value="인천">인천</option>

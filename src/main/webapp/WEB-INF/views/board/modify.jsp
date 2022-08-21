@@ -64,7 +64,7 @@
 								</div>
 								<div class="form-outline mb-4">
 									<textarea id="content" name="content" class="form-control"
-										rows="23" cols="70" placeholder="내용을 입력해주세요"></textarea>
+										rows="23" cols="70" placeholder="내용을 입력해주세요">${bdto.bvo.content }</textarea>
 								</div>
 								<div class="form-outline">
 									<div class="row">
