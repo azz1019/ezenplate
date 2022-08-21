@@ -225,7 +225,7 @@
 								</label>
 							</div>
 						</c:if>
-						<fmt:parseDate value='${sdto.svo.modAt }' var='review_modAt' pattern='yyyymmdd'/>
+						<fmt:parseDate value='${sdto.svo.modAt }' var='review_modAt' pattern='yyyy-MM-dd'/>
 						
 						<fmt:formatDate pattern="yy년MM월dd일" value="${review_modAt }" var="update"></fmt:formatDate>
 						<div class="col-md-4">
