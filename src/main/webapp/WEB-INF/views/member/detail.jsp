@@ -90,5 +90,4 @@
 		alert("등급 변경 완료");
 	});
 </script>
-<script src="/resources/js/manager.js"></script>
 <jsp:include page="../common/footer.jsp" />
