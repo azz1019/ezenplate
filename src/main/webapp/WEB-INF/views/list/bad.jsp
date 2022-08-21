@@ -5,6 +5,14 @@
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/nav.jsp"/>
 <link href="/resources/mylist/css/common.style.css" rel="stylesheet">
+
+<!-- TOP button -->
+ <link href="/resources/mylist/css/topbutton.css" rel="stylesheet"> 
+ <script src="/resources/mylist/js/topbutton.js"></script> 
+	<img id="movetopbtn" 
+	src='/resources/mylist/photo/pngwing.com.png'
+	href="#" >
+	
 <div class="d-flex flex-column align-self-center" id="listHead">
 <div class="ml-3 mr-3 w-75 align-self-center">
 <div class="d-flex w-100 justify-content-between">
