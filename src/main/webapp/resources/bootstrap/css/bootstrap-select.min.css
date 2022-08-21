@@ -96,3 +96,9 @@ select {
 	left:20%;
 	bottom:40px;
 }
+.store_list_locate{
+	display:inline-block;  
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
