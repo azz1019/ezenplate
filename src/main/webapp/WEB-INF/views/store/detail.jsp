@@ -93,7 +93,7 @@
 					</form>
 					
 					<form action="" id="storeRemoveForm" style="display: none;" method="post">
-						<input type="hidden" id="sno" value="" name="sno">
+						<input type="hidden" id="sno_1" value="" name="sno">
 					</form>
 				</div>
 				</c:if>
