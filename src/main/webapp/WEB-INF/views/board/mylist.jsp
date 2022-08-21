@@ -14,21 +14,8 @@
 <div class="container pt-5 mt-5 mb-5" style="padding-left:50px;">
 	<h2>내가 쓴 지역게시판</h2>
 </div>
-<!-- ==================== Start Header ==================== -->
-<!-- <section class="page-header pt-5 mt-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 col-md-5">
-				<div class="cont">
-					<h1 class="extra-title mb-10">내가 쓴 지역게시판</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-<!-- ==================== End Start Header ====================  -->
 <!--  ==================== Start Board List ====================  -->
-<section class="board-pg section-padding p-4">
+<section class="board-pg section-padding p-3">
 	<div class="container">
 		<div class="justify-content-center">
 			<div class="col-lg-12 mt-5 ml-4">
@@ -39,11 +26,11 @@
 							<div class="item mb-8">
 								<div class="col-11 content blog-table">
 									<div class="row">
+										<p class="locateCss">지역 > <span>${list.bvo.userLocate }</span></p>
 										<a class="links" style="text-decoration: none; width:1200px;"
 											href="/board/detail?bno=${list.bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">
 											<h4 class="title">${list.bvo.bname }</h4>
-											<p>${list.bvo.content }</p>
-	
+											<p class="contents">${list.bvo.content }</p>
 											<div class="board-pic">
 												<c:forEach items="${list.fileList }" var="fvo">
 													<div class="flex-fill p-4">
@@ -54,7 +41,7 @@
 											</div>
 										</a>
 									</div>
-									<div class="tags mb-3">
+									<div class="tags mb-2">
 										<a href="/board/detail?bno=${list.bvo.bno}">${list.bvo.writer }</a>
 										<span><fmt:formatDate pattern="yyyy. MM. dd. HH시mm분"
 												value="${list.bvo.regAt}" /></span> <a
