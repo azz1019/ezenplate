@@ -12,7 +12,6 @@
     --colour-main:#ff8a3d;
     --colour-main-v2:#ffa963cf;
 }
-
 .backgroundC{
     position: absolute;
     left:50%;
@@ -62,4 +61,7 @@
     background-color: var(--colour-main-v2);
     outline: none;
     color: var(--colour-white);
+}
+.removeCon{
+    font-size: 28px;
 }

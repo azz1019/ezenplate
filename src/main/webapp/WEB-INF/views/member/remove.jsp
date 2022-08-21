@@ -21,12 +21,12 @@
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
-                            <h4><span id="emailVal">${mdto.mvo.email }</span>님 탈퇴 전 아래의 내용을 꼭 확인해 주세요.</h4>
+                            <h4 class="removeCon"><span id="emailVal">${mdto.mvo.email }</span>님 탈퇴 전 아래의 내용을 꼭 확인해 주세요.</h4>
 							<p>
 								탈퇴 시 정보 및 서비스 이용 기록은 모두 삭제되며, 삭제된 데이터는 복구가 불가능 합니다.<br>
 								탈퇴 후 재가입 하더라도 탈퇴 전의 정보 및 서비스 이용 기록은 복구되지 않습니다.
 							</p>                        
-							<div class="btn-form" style="margin: auto; background-color: rgb(255, 113, 0);">
+							<div class="btn-form" style="margin: auto; background-color: rgb(255, 113, 0);border-radius:10px;">
 								<a id="memberRemove">탈퇴하기</a>
 							</div>
 							<form action="" id="memberRmForm" style="display: none;" method="post">
