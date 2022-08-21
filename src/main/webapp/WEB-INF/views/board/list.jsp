@@ -117,7 +117,7 @@
 							<div class="col-12 content board-table">
 								<div class="row">
 									<p class="locateCss">지역 > <span>${list.bvo.userLocate }</span></p>
-									<a class="links" style="text-decoration: none;"
+									<a class="links" style="text-decoration: none; width:1200px;"
 										href="/board/detail?bno=${list.bvo.bno }&pageNo=${pgn.pgvo.pageNo }&qty=${pgn.pgvo.qty}">
 										<h4 class="title">${list.bvo.bname }</h4>
 										<p class="contents">${list.bvo.content }</p>
