@@ -163,7 +163,7 @@
                                 	</c:when>
                                 </c:choose>
                                 <ul>
-                                    <li><span class="icon-location-pin"></span>
+                                    <li class="store_list_locate"><span class="icon-location-pin "></span>
                                         <p>${list.svo.locate }</p>
                                     </li>
                                     <li><span class="icon-screen-smartphone"></span>
