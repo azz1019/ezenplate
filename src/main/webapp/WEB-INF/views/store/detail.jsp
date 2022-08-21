@@ -246,7 +246,7 @@
 					<div id="review_list">
 						<c:if test="${sdto.svo.cmtQty eq 0 }">
 							<div>
-								<h5 class="text-center">리뷰가 없습니다. <a href="/review/register?sno=${sdto.svo.sno }">리뷰를 등록해 주세요</a></h2>
+								<h5 class="text-center">리뷰가 없습니다. <a href="/review/register?sno=${sdto.svo.sno }" style="color:#ff8a3d;">리뷰를 등록해 주세요</a></h2>
 							</div>
 						</c:if>
 					
