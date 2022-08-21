@@ -38,7 +38,7 @@
 	<select id="select_search_store" resultType="svo"
 		parameterType="pgvo">
 		select * from store
-		where 1=1
+		where approve=1
 		<include refid="search" />
 		order by rate_avg desc
 		limit #{pageStart}, #{qty}
@@ -50,7 +50,7 @@
 	<select id="select_search_count" resultType="int"
 		parameterType="pgvo">
 		select count(sno) from store
-		where 1=1
+		where approve=1
 		<include refid="search"/> 
 		
 		
