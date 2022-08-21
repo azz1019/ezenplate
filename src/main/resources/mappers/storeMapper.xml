@@ -126,6 +126,12 @@
 		select count(sno) from store where approve = 0
 	</select>
 	
+	<select id="selectApproveList" resultType="svo" parameterType="pgvo">
+		select sno, writer, sname, category
+		from store
+		where approve = 0
+	</select>
+	
 	<select id="selectMyTotalCount" resultType="int" parameterType="hashMap">
 		select count(sno) from store where writer=#{email};
 	</select>

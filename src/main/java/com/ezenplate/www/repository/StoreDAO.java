@@ -32,4 +32,5 @@ public interface StoreDAO {
 	List<StoreVO> select_more_view(); // 더보기 
 	void down_cmt(long sno); // 리뷰 삭제 후 cmt 줄이기
 	int selectTotalApproveCount(PagingVO pgvo); // approve 0인  
+	List<StoreVO> selectApproveList(PagingVO pgvo); // approve 0인 식당 목록
 }

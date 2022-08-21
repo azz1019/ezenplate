@@ -37,7 +37,7 @@ public class StoreController {
 	@GetMapping("/approve")
 	public void approve(Model model, PagingVO pgvo) {
 		log.info(">>> StoreController approve - GET");
-		model.addAttribute("list", ssv.getList(pgvo));
+		model.addAttribute("list", ssv.getApproveList(pgvo));
 		int totalApproveCount = ssv.getTotalApproveCount(pgvo);
 		model.addAttribute("pgn", new PagingHandler(pgvo, totalApproveCount));
 	}
