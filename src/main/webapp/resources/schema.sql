@@ -31,6 +31,7 @@ mod_at datetime default current_timestamp,
 content text,
 report int default '0',
 writer varchar(100) not null,
+diff_time varchar(100),
 primary key (rno)
 ) default charset=utf8mb4 collate=utf8mb4_general_ci;
 
