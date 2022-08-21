@@ -102,3 +102,56 @@ select {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.floating {
+text-align : center;
+background: initial;
+border:3px solid rgb(255,113,0);
+position: fixed; 
+right: 45%; 
+top: 250px; 
+margin-right: -615px;
+text-align:center;
+width:70px;
+height:130px;
+border-radius: 8px;
+-webkit-border-radius: 8px;
+font-size : 20px;
+ }
+.floating a div i{
+	position:relative;
+	top:5px;
+}
+.floating a:nth-child(1) div{
+	
+	height: 33%;
+	color : rgb(255,113,0);
+   border-bottom:3px solid rgb(255,113,0);
+   
+}
+.floating a div:nth-child(1):hover{
+	
+	background-color: rgb(250,140,65);
+	color : #ffffff;
+}
+.floating a:nth-child(2) div{
+	
+	height: 33%;
+	color : rgb(255,113,0);
+   border-bottom:3px solid rgb(255,113,0);
+   
+}
+.floating a div:nth-child(2):hover{
+	background-color: rgb(250,140,65);
+	color : #ffffff;
+}
+.floating a:nth-child(3) div{
+	
+	height: 34%;
+   color : rgb(255,113,0);
+   
+   
+}
+.floating a div:nth-child(3):hover{
+	background-color: rgb(250,140,65);
+	color : #ffffff;
+}
