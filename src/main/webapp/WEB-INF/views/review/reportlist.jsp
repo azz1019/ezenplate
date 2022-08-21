@@ -35,7 +35,7 @@
 					</td>
 					<td><a id="reviewRemove">ㅇ</a>
 					<form action="" id="reviewRemoveForm" style="display: none;" method="post">
-						<input type="hidden" id="rno" value="" name="rno">
+						<input type="hidden" id="rno_1" value="" name="rno">
 						<span id="rnoVal">${rvo.rno }</span>
 					</form>
 					</td>
