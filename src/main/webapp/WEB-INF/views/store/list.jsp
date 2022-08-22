@@ -53,11 +53,11 @@
 						
 						
 						
-					</select> 
+					</select>
 					<input class="form-control me-2" type="search" id="store_start"
-						placeholder="Search" aria-label="Search" name="kw" value="${pgn.pgvo.kw }">
-					<button class="btn-form" type="submit" style="background-color: rgb(255, 113, 0);">
-						<span class="icon-magnifier search-icon">Search</span><i class="pe-7s-angle-right"></i> 
+						placeholder="지역, 식당 또는 음식을 검색해보세요" aria-label="Search" name="kw" value="${pgn.pgvo.kw }">
+					<button class="btn-form" type="submit" style="background-color: rgb(255, 113, 0);  border-radius: 0 10px 10px 0;">
+						<span class="icon-magnifier search-icon" style="font-size: 20px;"> 검색</span><i class="pe-7s-angle-right"></i> 
 					</button>
 				</div>
 			</form>	
